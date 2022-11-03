@@ -1,0 +1,11 @@
+// ts node 는 tsc 컴파일러를 통하지 않고 nodejs 상에서 바로 돌릴 수 있게 해주는 라이브러리임
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
+  },
+  "include": ["vite.config.ts"]
+}
