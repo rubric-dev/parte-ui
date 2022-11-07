@@ -1,7 +1,12 @@
+import React from 'react';
 import Button from '../Button';
 
 export default (
-  <Button type="button" variant="default" size="lg" disabled={false}>
-    Preset
-  </Button>
+  <Button
+    uxpId="Button-1"
+    type="button"
+    variant="default"
+    size="sm"
+    disabled={false}
+  ></Button>
 );

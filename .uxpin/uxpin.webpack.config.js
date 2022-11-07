@@ -18,7 +18,20 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
       },
-
+      {
+        test: /\.(s*)css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+            },
+          },
+        ],
+      },
       {
         loader: require.resolve('babel-loader', {
           paths: ['./node_modules/@uxpin/merge-cli'],

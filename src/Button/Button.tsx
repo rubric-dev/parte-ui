@@ -3,14 +3,15 @@ import { commonButtonStyles } from './Button.styled';
 import { ButtonProps } from './Button.types';
 
 const StyledButton = styled.button<ButtonProps>`
-  ${({ variant }) =>
-    variant === 'flat'
+  ${({ variant, size }) =>
+    size === 'sm'
       ? css`
-          width: 100%;
-          height: 100%;
+          width: 100px;
+          height: 30px;
         `
       : css`
-          display: flex;
+          width: 300px;
+          height: 50px;
         `};
   ${commonButtonStyles}
 `;
@@ -18,12 +19,12 @@ const StyledButton = styled.button<ButtonProps>`
 const Button = ({ children, ...props }: ButtonProps) => {
   return (
     <StyledButton
-      type="button"
+      type={props.type}
       onClick={() => console.log('test')}
       disabled={props.disabled}
-      fullWidth
-      size="md"
-      variant="flat"
+      fullWidth={props.fullWidth}
+      size={props.size}
+      variant={props.variant}
     >
       {children}
     </StyledButton>

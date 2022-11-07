@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export type ButtonProps = {
-  type: string;
+  type: 'button' | 'submit' | 'reset';
   disabled: boolean;
   size: 'sm' | 'md' | 'lg';
   variant: 'default' | 'menu' | 'flat';
