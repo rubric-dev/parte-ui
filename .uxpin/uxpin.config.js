@@ -3,7 +3,7 @@ module.exports = {
     categories: [
       {
         name: 'General',
-        include: [],
+        include: ['src/Button/Button.tsx', 'src/Card/Card.tsx'],
       },
     ],
     wrapper: '.uxpin/UXPinWrapper/UXPinWrapper.jsx',

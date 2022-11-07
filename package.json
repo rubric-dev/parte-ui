@@ -18,7 +18,8 @@
     "push": "uxpin-merge push"
   },
   "dependencies": {
-    "@uxpin/merge-cli": "^2.8.1"
+    "@uxpin/merge-cli": "^2.8.1",
+    "ts-loader": "^8.1.0"
   },
   "peerDependencies": {
     "react": ">= 16.8.0",
