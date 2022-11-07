@@ -62,6 +62,9 @@ const Template: Story<ButtonProps> = (args) => {
 };
 
 export const Default = Template.bind({});
+Default.args = {
+  variant: 'flat',
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
