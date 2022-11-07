@@ -1,7 +1,7 @@
 {
   "name": "parte-ui",
   "private": false,
-  "version": "0.0.",
+  "version": "0.0.0",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
   "typings": "./dist/index.d.ts",
@@ -15,7 +15,9 @@
     "build-storybook": "build-storybook",
     "server": "uxpin-merge server",
     "uxpin": "uxpin-merge --disable-tunneling --config=.uxpin/uxpin.config.js",
-    "push": "uxpin-merge push"
+    "push": "uxpin-merge push --config=.uxpin/uxpin.config.js",
+    "push_by_version": "yarn push --token --tag $npm_package_version",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@uxpin/merge-cli": "^2.8.1",
