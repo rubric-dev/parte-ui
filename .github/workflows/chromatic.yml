@@ -7,23 +7,22 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     branches:
-      - 'develop'
+      - develop
 
 jobs:
-  chromatic-deployment:
+  chromatic:
     runs-on: ubuntu-latest
     steps:
-      # 👇 Version 2 of the action
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # 👈 Required to retrieve git history
-      - name: Install dependencies
-        run: yarn
-        # 👇 Adds Chromatic as a step in the workflow
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        # Options required to the GitHub Chromatic Action
+          fetch-depth: 0
+      - name: install
+        run: yarn install --frozen-lockfile
+      - uses: chromaui/action-next@v1
         with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: 0f5e566f065b
+          exitOnceUploaded: true
+          onlyChanged: true
+          traceChanged: true
+          diagnostics: true
+        env:
+          CHROMATIC_PROJECT_TOKEN: 0f5e566f065b
