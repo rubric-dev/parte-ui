@@ -26,39 +26,8 @@ const Row = styled.div`
   gap: 10px;
 `;
 
-const Template: Story<ButtonProps> = (args) => {
-  return (
-    <Layout>
-      <Row>
-        <Button type="button" variant="default" size="lg" disabled={false}>
-          텍스트 버튼
-        </Button>
-        <Button
-          {...args}
-          variant="default"
-          fullWidth={false}
-          size="lg"
-          type="button"
-        >
-          텍스트 버튼
-        </Button>
-        <Button {...args} variant="default" size="lg">
-          텍스트 버튼
-        </Button>
-      </Row>
-      <Row style={{ marginBottom: '1em' }}>
-        <Button {...args} variant="default" size="lg">
-          텍스트 버튼
-        </Button>
-        <Button {...args} variant="default" size="lg">
-          텍스트 버튼
-        </Button>
-        <Button {...args} variant="default" size="lg">
-          텍스트 버튼
-        </Button>
-      </Row>
-    </Layout>
-  );
+const Template: Story<ButtonProps> = ({ children, ...args }) => {
+  return <Button {...args}>{children}테스트 버튼입니다.</Button>;
 };
 
 export const Default = Template.bind({});
