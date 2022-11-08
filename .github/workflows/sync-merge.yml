@@ -1,6 +1,9 @@
 name: Deploy-uxpin
 
-on: push
+on:
+  push:
+    branches:
+      - develop
 
 jobs:
   deploy-uxpin:
@@ -17,9 +20,9 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: Install
+      - name: Install Dependencies
         run: yarn
-      - name: Push To UXpin
+      - name: Push To UXpin-merge
         run: yarn push
         env:
           UXPIN_AUTH_TOKEN: ${{ secrets.UXPIN_AUTH_TOKEN }}
