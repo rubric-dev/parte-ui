@@ -1,4 +1,4 @@
-/** 공용 */
+/** 공용  */
 export { default as theme } from './common/theme';
 export { default as styleReset } from './common/styleReset';
 
