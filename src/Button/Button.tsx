@@ -20,7 +20,7 @@ const Button = ({ children, ...props }: ButtonProps) => {
   return (
     <StyledButton
       type={props.type}
-      onClick={() => console.log('test')}
+      onClick={() => console.log('test1')}
       disabled={props.disabled}
       fullWidth={props.fullWidth}
       size={props.size}
