@@ -5,6 +5,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   #root {
-    background-color: cornflowerblue
+    /* background-color: cornflowerblue */
   }
 `;

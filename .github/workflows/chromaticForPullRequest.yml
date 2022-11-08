@@ -1,7 +1,5 @@
-# .github/workflows/chromatic.yml
-
 # Workflow name
-name: 'Chromatic'
+name: 'chromatic for pull requests (develop branch)'
 
 on:
   pull_request:
@@ -18,11 +16,13 @@ jobs:
           fetch-depth: 0
       - name: install
         run: yarn install --frozen-lockfile
-      - uses: chromaui/action-next@v1
+
+      - name: Push Storybook to Chromatic
+        uses: chromaui/action@v1
         with:
+          projectToken: 0f5e566f065b
+          buildScriptName: 'build-storybook'
+          autoAcceptChanges: master
+          exitZeroOnChanges: true
           exitOnceUploaded: true
-          onlyChanged: true
-          traceChanged: true
-          diagnostics: true
-        env:
-          CHROMATIC_PROJECT_TOKEN: 0f5e566f065b
+          ignoreLastBuildOnBranch: master
