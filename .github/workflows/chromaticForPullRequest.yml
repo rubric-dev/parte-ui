@@ -1,5 +1,5 @@
 # Workflow name
-name: 'Chromatic'
+name: 'chromatic for pull requests (develop branch)'
 
 on:
   pull_request:
@@ -25,3 +25,4 @@ jobs:
           autoAcceptChanges: master
           exitZeroOnChanges: true
           exitOnceUploaded: true
+          ignoreLastBuildOnBranch: master
