@@ -20,4 +20,4 @@ jobs:
       - name: Push Storybook to Chromatic
         uses: chromaui/action@v1
         with:
-          projectToken: 3008ea70160c
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
