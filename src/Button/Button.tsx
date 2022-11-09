@@ -16,7 +16,6 @@ const StyledButton = styled.button<ButtonProps>`
   ${commonButtonStyles}
 `;
 
-// nothing changes for chromatic UItest
 const Button = ({ children, ...props }: ButtonProps) => {
   return (
     <StyledButton
