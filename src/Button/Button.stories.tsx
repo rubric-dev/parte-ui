@@ -43,4 +43,5 @@ Disabled.args = {
 export const Menu = Template.bind({});
 Menu.args = {
   variant: 'menu',
+  size: 'sm',
 };
