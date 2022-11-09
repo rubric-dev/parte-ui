@@ -1,11 +1,7 @@
 # Workflow name
 name: 'chromatic for pull requests (develop branch)'
 
-on:
-  pull_request:
-    types: [opened, reopened, synchronize]
-    branches:
-      - develop
+on: push
 
 jobs:
   chromatic:
