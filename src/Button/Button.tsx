@@ -8,6 +8,7 @@ const StyledButton = styled.button<ButtonProps>`
       ? css`
           width: 100px;
           height: 30px;
+          color: red;
         `
       : css`
           width: 300px;
