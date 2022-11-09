@@ -21,8 +21,3 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: 1bb1ca50737e
-          buildScriptName: 'build-storybook'
-          autoAcceptChanges: master
-          exitZeroOnChanges: true
-          exitOnceUploaded: true
-          ignoreLastBuildOnBranch: master
