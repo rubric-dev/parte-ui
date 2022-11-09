@@ -20,7 +20,7 @@ jobs:
       - name: Push Storybook to Chromatic
         uses: chromaui/action@v1
         with:
-          projectToken: 0f5e566f065b
+          projectToken: 1bb1ca50737e
           buildScriptName: 'build-storybook'
           autoAcceptChanges: master
           exitZeroOnChanges: true
