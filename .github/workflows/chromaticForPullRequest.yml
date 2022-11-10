@@ -14,5 +14,5 @@ jobs:
       - name: install
         run: yarn install --frozen-lockfile
       - name: chromatic build
-        run: yarn chromatic --exit-zero-on-changes --project-token=${{secrets.REPO_SCOPED_TOKEN }} 
+        run: chromatic --exit-zero-on-changes --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} 
 
