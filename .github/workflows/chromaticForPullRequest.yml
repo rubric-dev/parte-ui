@@ -13,12 +13,6 @@ jobs:
           fetch-depth: 0
       - name: install
         run: yarn install --frozen-lockfile
-      - uses: chromaui/action@v1
-        with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          exitOnceUploaded: true
-          onlyChanged: true
-          traceChanged: true
-          diagnostics: true
-          skip: ${{ github.event.pull_request.draft == true }}
+      - name: chromatic build
+        run: yarn chromatic --exit-zero-on-changes --project-token=${{secrets.REPO_SCOPED_TOKEN }} 
+
