@@ -1,8 +1,7 @@
 # Workflow name
 name: 'chromatic for pull requests (develop branch)'
 
-on: 
-    pull_request
+on: push
 
 jobs:
   chromatic:
@@ -13,6 +12,8 @@ jobs:
           fetch-depth: 0
       - name: install
         run: yarn install --frozen-lockfile
-      - name: chromatic build
-        run: chromatic --exit-zero-on-changes --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }} 
 
+      - name: Push Storybook to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
