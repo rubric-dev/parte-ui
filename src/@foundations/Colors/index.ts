@@ -1,1 +1,1 @@
-export { default as PALETTE } from './colors';
+export { default as COLORS } from './colors';
