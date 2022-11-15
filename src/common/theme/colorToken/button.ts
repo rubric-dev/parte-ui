@@ -1,0 +1,56 @@
+import { COLORS } from '../../../@foundations/Colors';
+
+const buttonColorToken = {
+  colorBackgroundButtonPrimary: COLORS.B400,
+  colorBackgroundButtonPrimaryHover: COLORS.B500,
+  colorBackgroundButtonPrimaryActive: COLORS.B600,
+  colorBackgroundButtonPrimaryFocused: COLORS.B500,
+  colorBackgroundButtonPrimaryDisabled: COLORS.B200,
+  colorTextButtonPrimary: COLORS.N0,
+  colorTextButtonPrimaryHover: COLORS.N0,
+  colorTextButtonPrimaryActive: COLORS.N0,
+  colorTextButtonPrimaryFocused: COLORS.N0,
+  colorTextButtonPrimaryDisabled: COLORS.N0,
+
+  colorBackgroundButtonSecondary: COLORS.N0,
+  colorBackgroundButtonSecondaryHover: COLORS.N0,
+  colorBackgroundButtonSecondaryActive: COLORS.N100,
+  colorBackgroundButtonSecondaryFocused: COLORS.N0,
+  colorBackgroundButtonSecondaryDisabled: COLORS.N0,
+  colorTextButtonSecondary: COLORS.N700,
+  colorTextButtonSecondaryHover: COLORS.N800,
+  colorTextButtonSecondaryActive: COLORS.N800,
+  colorTextButtonSecondaryFocused: COLORS.N800,
+  colorTextButtonSecondaryDisabled: COLORS.N500,
+  colorBorderButtonSecondary: COLORS.N400,
+  colorBorderButtonSecondaryHover: COLORS.N600,
+  colorBorderButtonSecondaryActive: COLORS.N500,
+  colorBorderButtonSecondaryFocused: COLORS.N500,
+  colorBorderButtonSecondaryDisabled: COLORS.N300,
+
+  colorBackgroundButtonMinimal: COLORS.transparent,
+  colorBackgroundButtonMinimalHover: COLORS.N100,
+  colorBackgroundButtonMinimalActive: COLORS.N200,
+  colorBackgroundButtonMinimalFocused: COLORS.N50,
+  colorBackgroundButtonMinimalDisabled: COLORS.transparent,
+  colorTextButtonMinimal: COLORS.N700,
+  colorTextButtonMinimalHover: COLORS.N800,
+  colorTextButtonMinimalActive: COLORS.N800,
+  colorTextButtonMinimalFocused: COLORS.N700,
+  colorTextButtonMinimalDisabled: COLORS.N400,
+
+  colorBackgroundButtonError: COLORS.R400,
+  colorBackgroundButtonErrorHover: COLORS.R500,
+  colorBackgroundButtonErrorActive: COLORS.R600,
+  colorBackgroundButtonErrorFocused: COLORS.R500,
+  colorBackgroundButtonErrorDisabled: COLORS.R100,
+  colorTextButtonError: COLORS.N0,
+  colorTextButtonErrorHover: COLORS.N0,
+  colorTextButtonErrorActive: COLORS.N0,
+  colorTextButtonErrorFocused: COLORS.N0,
+  colorTextButtonErrorDisabled: COLORS.N0,
+} as const;
+
+export default {
+  ...buttonColorToken,
+};

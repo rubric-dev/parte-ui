@@ -1,10 +1,13 @@
 import 'styled-components';
+import { Colors } from '../@foundations/Colors/colors.types';
+import { Spacing } from '../@foundations/Spacing/spacing.types';
+import { CommonStyles } from '../common/commonStyles';
+import { TokenType } from '../common/theme/colorToken';
 
-import { Palette } from '../@foundations/Palette/palette.types';
-import { Spacing } from '../@foundations/Spacing/Spacing.types';
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    palette: Palette;
+  interface DefaultTheme extends TokenType {
+    colors: Colors;
     spacing: Spacing;
+    commonStyles: CommonStyles;
   }
 }

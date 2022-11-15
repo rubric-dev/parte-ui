@@ -4,9 +4,10 @@ import Button from '../Button';
 export default (
   <Button
     uxpId="Button-1"
-    type="button"
-    variant="default"
-    size="sm"
-    disabled={false}
-  ></Button>
+    variant="primary"
+    leftSlot={<span>😀😃</span>}
+    rightSlot={<span>😀😃</span>}
+  >
+    hihihihihihi
+  </Button>
 );
