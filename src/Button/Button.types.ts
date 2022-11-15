@@ -1,11 +1,8 @@
-import { ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 
-export type ButtonProps = {
-  type: 'button' | 'submit' | 'reset';
-  disabled: boolean;
-  size: 'sm' | 'md' | 'lg';
-  variant: 'default' | 'menu' | 'flat';
-  onClick?: () => void;
-  fullWidth?: boolean;
-  children: ReactNode;
+export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
+  variant: 'primary' | 'secondary' | 'minimal' | 'error';
+  leftSlot?: React.ReactNode;
+  rightSlot?: React.ReactNode;
+  disabled?: boolean;
 };

@@ -67,6 +67,7 @@ const colors = {
   O200: '#F2C8B6',
   O100: '#F8E3DA',
   O50: '#FDF4F4',
+  transparent: 'transparent',
 } as const;
 
 export default colors;
