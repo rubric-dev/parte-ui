@@ -14,11 +14,9 @@ export const commonButtonStyles = css<ButtonProps>`
   outline: 'none';
   user-select: 'none';
   cursor: 'pointer';
+  background-color: red;
   whitespace: 'nowrap';
   webkit-font-smoothing: 'antialiased';
   webkit-appearance: 'none';
   moz-appearance: 'none';
-  '&::-moz-focus-inner ': {
-    border: 0;
-  }
 `;
