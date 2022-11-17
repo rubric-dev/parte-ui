@@ -6,5 +6,6 @@ export const GlobalStyle = createGlobalStyle`
   }
   #root {
     /* background-color: cornflowerblue */
+    width: 100%;
   }
 `;
