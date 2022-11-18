@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MiscellaneousIdNumberIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function MiscellaneousIdNumberIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MiscellaneousIdNumberIcon = convertIcon(Icon, 'miscellaneous-number');
 export default MiscellaneousIdNumberIcon;

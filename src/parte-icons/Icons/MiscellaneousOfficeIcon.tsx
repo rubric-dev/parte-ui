@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MiscellaneousOfficeIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function MiscellaneousOfficeIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MiscellaneousOfficeIcon = convertIcon(Icon, 'miscellaneous-office');
 export default MiscellaneousOfficeIcon;
