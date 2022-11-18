@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MiscellaneousCubeRemoveIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,8 @@ function MiscellaneousCubeRemoveIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MiscellaneousCubeRemoveIcon = convertIcon(
+  Icon,
+  'miscellaneous-cube-remove'
+);
 export default MiscellaneousCubeRemoveIcon;

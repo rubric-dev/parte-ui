@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MiscellaneousBlankIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,5 +13,5 @@ function MiscellaneousBlankIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MiscellaneousBlankIcon = convertIcon(Icon, 'miscellaneous-blank');
 export default MiscellaneousBlankIcon;
