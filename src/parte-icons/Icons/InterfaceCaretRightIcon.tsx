@@ -1,15 +1,19 @@
-function InterfaceCaretRightIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function InterfaceCaretRightIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="none"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
       <path
-        fill="#8F95B2"
+        fill="currentcolor"
         fill-rule="evenodd"
         d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 0 0 6 4.5v7a.495.495 0 0 0 .83.37l4-3.5c.1-.09.17-.22.17-.37Z"
         clip-rule="evenodd"
@@ -17,4 +21,5 @@ function InterfaceCaretRightIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default InterfaceCaretRightIcon;

@@ -1,15 +1,20 @@
-function MediaRecordIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function MediaRecordIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="none"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
-      <circle cx="8" cy="8" r="5" fill="#8F95B2" />
+      <circle cx="8" cy="8" r="5" fill="currentcolor" />
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default MediaRecordIcon;

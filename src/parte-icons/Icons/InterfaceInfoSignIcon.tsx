@@ -1,15 +1,19 @@
-function InterfaceInfoSignIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function InterfaceInfoSignIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="none"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
       <path
-        fill="#8F95B2"
+        fill="currentcolor"
         fill-rule="evenodd"
         d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8ZM7 3h2v2H7V3Zm3 10H6v-1h1V7H6V6h3v6h1v1Z"
         clip-rule="evenodd"
@@ -17,4 +21,5 @@ function InterfaceInfoSignIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default InterfaceInfoSignIcon;

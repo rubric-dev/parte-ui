@@ -1,15 +1,19 @@
-function MiscellaneousRingIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function MiscellaneousRingIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="currentColor"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
       <path
-        fill="#8F95B2"
+        fill="currentcolor"
         fillRule="evenodd"
         d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8Zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4Z"
         clipRule="evenodd"
@@ -17,4 +21,5 @@ function MiscellaneousRingIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default MiscellaneousRingIcon;

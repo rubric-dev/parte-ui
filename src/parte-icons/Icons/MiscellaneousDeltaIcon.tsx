@@ -1,15 +1,19 @@
-function MiscellaneousDeltaIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function MiscellaneousDeltaIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="currentColor"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
       <path
-        fill="#8F95B2"
+        fill="currentcolor"
         fillRule="evenodd"
         d="M8 0 0 16h16L8 0ZM7 5l5 10H2L7 5Z"
         clipRule="evenodd"
@@ -17,4 +21,5 @@ function MiscellaneousDeltaIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default MiscellaneousDeltaIcon;

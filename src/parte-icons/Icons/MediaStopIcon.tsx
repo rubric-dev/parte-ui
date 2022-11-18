@@ -1,15 +1,19 @@
-function MediaStopIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function MediaStopIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="none"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
       <path
-        fill="#8F95B2"
+        fill="currentcolor"
         fill-rule="evenodd"
         d="M12 3H4c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h8c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1Z"
         clip-rule="evenodd"
@@ -17,4 +21,5 @@ function MediaStopIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default MediaStopIcon;

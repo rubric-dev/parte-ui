@@ -1,15 +1,19 @@
-function MiscellaneousCrownIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function MiscellaneousCrownIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="currentColor"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
       <path
-        fill="#8F95B2"
+        fill="currentcolor"
         fillRule="evenodd"
         d="m2 6 3 2 3-4 3 4 3-2-1 6H3L2 6Zm6-5a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM1 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm14 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM3 13h10v2H3v-2Z"
         clipRule="evenodd"
@@ -17,4 +21,5 @@ function MiscellaneousCrownIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default MiscellaneousCrownIcon;

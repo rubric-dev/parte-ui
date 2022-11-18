@@ -1,4 +1,8 @@
-function ProductDataYellowIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function ProductDataYellowIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={32}
@@ -6,7 +10,7 @@ function ProductDataYellowIcon(props: React.SVGProps<SVGSVGElement>) {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      {...rest}
     >
       <rect width={32} height={32} rx={16} fill="#FFFAF1" />
       <path
@@ -19,4 +23,5 @@ function ProductDataYellowIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+const ActionAddIcon = convertIcon(Icon, '');
 export default ProductDataYellowIcon;

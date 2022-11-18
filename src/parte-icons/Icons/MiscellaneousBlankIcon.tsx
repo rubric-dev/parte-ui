@@ -1,15 +1,20 @@
-function MiscellaneousBlankIcon(props: React.SVGProps<SVGSVGElement>) {
+import { convertIcon, IconProps } from '../component/Icon';
+function MiscellaneousBlankIcon({
+  size,
+  ...rest
+}: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       fill="currentColor"
       viewBox="0 0 16 16"
-      {...props}
+      {...rest}
     >
-      <path fill="#8F95B2" d="M0 0h16v16H0z" />
+      <path fill="currentcolor" d="M0 0h16v16H0z" />
     </svg>
   );
 }
+const ActionAddIcon = convertIcon(Icon, '');
 export default MiscellaneousBlankIcon;
