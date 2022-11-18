@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function InterfaceCircleArrowUpIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,8 @@ function InterfaceCircleArrowUpIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const InterfaceCircleArrowUpIcon = convertIcon(
+  Icon,
+  'interface-circle-arrow-up'
+);
 export default InterfaceCircleArrowUpIcon;
