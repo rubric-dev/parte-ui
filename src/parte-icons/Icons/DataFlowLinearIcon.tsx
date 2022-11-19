@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataFlowLinearIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +19,7 @@ function DataFlowLinearIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+
+const DataFlowLinearIcon = convertIcon(Icon, 'data-flow-linear');
+
 export default DataFlowLinearIcon;

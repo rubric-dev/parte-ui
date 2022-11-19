@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function FileDocumentIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function FileDocumentIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const FileDocumentIcon = convertIcon(Icon, 'file-document');
 export default FileDocumentIcon;

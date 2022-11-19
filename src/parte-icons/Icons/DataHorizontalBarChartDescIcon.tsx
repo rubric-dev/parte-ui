@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataHorizontalBarChartDescIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +19,8 @@ function DataHorizontalBarChartDescIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataHorizontalBarChartDescIcon = convertIcon(
+  Icon,
+  'data-horizontal-bar-chart-desc'
+);
 export default DataHorizontalBarChartDescIcon;

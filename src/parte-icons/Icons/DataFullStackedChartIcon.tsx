@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataFullStackedChartIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +19,7 @@ function DataFullStackedChartIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+
+const DataFullStackedChartIcon = convertIcon(Icon, 'data-full-stacked-chart');
+
 export default DataFullStackedChartIcon;

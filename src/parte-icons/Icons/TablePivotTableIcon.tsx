@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TablePivotTableIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TablePivotTableIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TablePivotTableIcon = convertIcon(Icon, 'table-pivot-table');
 export default TablePivotTableIcon;

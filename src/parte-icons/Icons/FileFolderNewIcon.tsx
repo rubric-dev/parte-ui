@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function FileFolderNewIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +19,5 @@ function FileFolderNewIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const FileFolderNewIcon = convertIcon(Icon, 'file-folder-new');
 export default FileFolderNewIcon;

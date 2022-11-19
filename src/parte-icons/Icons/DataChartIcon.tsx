@@ -1,4 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
+
 function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
@@ -19,4 +20,5 @@ function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   );
 }
 const DataChartIcon = convertIcon(Icon, 'data-chart');
+
 export default DataChartIcon;

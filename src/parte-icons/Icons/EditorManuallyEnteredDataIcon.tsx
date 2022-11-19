@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function EditorManuallyEnteredDataIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,8 @@ function EditorManuallyEnteredDataIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const EditorManuallyEnteredDataIcon = convertIcon(
+  Icon,
+  'editor-manually-entered-data'
+);
 export default EditorManuallyEnteredDataIcon;
