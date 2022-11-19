@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TablePanelStatsIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TablePanelStatsIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TablePanelStatsIcon = convertIcon(Icon, 'table-panel-stats');
 export default TablePanelStatsIcon;

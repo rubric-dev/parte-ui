@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TableAddColumnRightIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TableAddColumnRightIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TableAddColumnRightIcon = convertIcon(Icon, 'table-add-column-right');
 export default TableAddColumnRightIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataSeriesConfigurationIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,8 @@ function DataSeriesConfigurationIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataSeriesConfigurationIcon = convertIcon(
+  Icon,
+  'data-series-configuration'
+);
 export default DataSeriesConfigurationIcon;

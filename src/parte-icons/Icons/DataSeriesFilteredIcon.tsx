@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataSeriesFilteredIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function DataSeriesFilteredIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataSeriesFilteredIcon = convertIcon(Icon, 'data-series-filtered');
 export default DataSeriesFilteredIcon;

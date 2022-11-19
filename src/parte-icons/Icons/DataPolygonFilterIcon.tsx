@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataPolygonFilterIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +19,5 @@ function DataPolygonFilterIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataPolygonFilterIcon = convertIcon(Icon, 'data-polygon-filter');
 export default DataPolygonFilterIcon;

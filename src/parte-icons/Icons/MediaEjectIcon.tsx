@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MediaEjectIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function MediaEjectIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MediaEjectIcon = convertIcon(Icon, 'media-eject');
 export default MediaEjectIcon;

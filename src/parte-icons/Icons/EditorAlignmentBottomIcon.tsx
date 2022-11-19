@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function EditorAlignmentBottomIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function EditorAlignmentBottomIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const EditorAlignmentBottomIcon = convertIcon(Icon, 'editor-alignment-bottom');
 export default EditorAlignmentBottomIcon;

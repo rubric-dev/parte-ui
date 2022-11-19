@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TableRemoveColumnIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TableRemoveColumnIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TableRemoveColumnIcon = convertIcon(Icon, 'table-remove-column');
 export default TableRemoveColumnIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TableExcludeRowIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TableExcludeRowIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TableExcludeRowIcon = convertIcon(Icon, 'table-exclude-row');
 export default TableExcludeRowIcon;

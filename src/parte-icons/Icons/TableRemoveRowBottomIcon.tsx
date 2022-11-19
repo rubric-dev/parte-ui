@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TableRemoveRowBottomIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TableRemoveRowBottomIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TableRemoveRowBottomIcon = convertIcon(Icon, 'table-remove-row-bottom');
 export default TableRemoveRowBottomIcon;

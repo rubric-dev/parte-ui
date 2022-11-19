@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function EditorUnderlineIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function EditorUnderlineIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const EditorUnderlineIcon = convertIcon(Icon, 'editor-underline');
 export default EditorUnderlineIcon;

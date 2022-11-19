@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataDoughnutChartIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +19,6 @@ function DataDoughnutChartIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataDoughnutChartIcon = convertIcon(Icon, 'data-doughnut-chart');
+
 export default DataDoughnutChartIcon;

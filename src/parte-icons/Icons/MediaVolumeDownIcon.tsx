@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MediaVolumeDownIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function MediaVolumeDownIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MediaVolumeDownIcon = convertIcon(Icon, 'media-volume-down');
 export default MediaVolumeDownIcon;

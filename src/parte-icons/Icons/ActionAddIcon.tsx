@@ -21,4 +21,5 @@ function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
 }
 
 const ActionAddIcon = convertIcon(Icon, 'action-add');
+
 export default ActionAddIcon;

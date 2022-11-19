@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataCurvedRangeChartIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +19,6 @@ function DataCurvedRangeChartIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataCurvedRangeChartIcon = convertIcon(Icon, 'data-curved-range-chart');
+
 export default DataCurvedRangeChartIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function TablePageLayoutIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function TablePageLayoutIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const TablePageLayoutIcon = convertIcon(Icon, 'table-page-layout');
 export default TablePageLayoutIcon;

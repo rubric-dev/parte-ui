@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MediaVideoIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function MediaVideoIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MediaVideoIcon = convertIcon(Icon, 'media-video');
 export default MediaVideoIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function EditorNewGridItemIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function EditorNewGridItemIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const EditorNewGridItemIcon = convertIcon(Icon, 'editor-new-grid-item');
 export default EditorNewGridItemIcon;

@@ -1,8 +1,6 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataFlowEndIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +19,6 @@ function DataFlowEndIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataFlowEndIcon = convertIcon(Icon, 'data-flow-end');
+
 export default DataFlowEndIcon;

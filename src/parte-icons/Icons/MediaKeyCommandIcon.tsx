@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function MediaKeyCommandIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function MediaKeyCommandIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const MediaKeyCommandIcon = convertIcon(Icon, 'media-key-command');
 export default MediaKeyCommandIcon;

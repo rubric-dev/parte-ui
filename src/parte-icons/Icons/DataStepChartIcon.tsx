@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataStepChartIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function DataStepChartIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataStepChartIcon = convertIcon(Icon, 'data-step-chart');
 export default DataStepChartIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function EditorHeaderIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +18,5 @@ function EditorHeaderIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const EditorHeaderIcon = convertIcon(Icon, 'editor-header');
 export default EditorHeaderIcon;

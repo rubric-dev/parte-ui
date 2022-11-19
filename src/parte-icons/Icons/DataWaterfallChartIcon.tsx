@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function DataWaterfallChartIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function DataWaterfallChartIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const DataWaterfallChartIcon = convertIcon(Icon, 'data-waterfall-chart');
 export default DataWaterfallChartIcon;
