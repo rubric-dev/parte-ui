@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionCreditCardIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function ActionCreditCardIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionCreditCardIcon = convertIcon(Icon, 'action-credit-card');
 export default ActionCreditCardIcon;

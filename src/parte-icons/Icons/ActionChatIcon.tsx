@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionChatIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function ActionChatIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionChatIcon = convertIcon(Icon, 'action-chat');
 export default ActionChatIcon;

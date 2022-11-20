@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionZoomInIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -24,5 +21,5 @@ function ActionZoomInIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionZoomInIcon = convertIcon(Icon, 'action-zoom-in');
 export default ActionZoomInIcon;

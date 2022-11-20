@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionLockIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function ActionLockIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionLockIcon = convertIcon(Icon, 'action-lock');
 export default ActionLockIcon;

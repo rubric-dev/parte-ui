@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionFilterListIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function ActionFilterListIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionFilterListIcon = convertIcon(Icon, 'action-filter-list');
 export default ActionFilterListIcon;

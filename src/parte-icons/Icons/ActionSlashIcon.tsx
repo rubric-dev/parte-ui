@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionSlashIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,5 @@ function ActionSlashIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionSlashIcon = convertIcon(Icon, 'action-slash');
 export default ActionSlashIcon;

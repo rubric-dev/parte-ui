@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionLogOutIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionLogOutIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionLogOutIcon = convertIcon(Icon, 'action-log-out');
 export default ActionLogOutIcon;

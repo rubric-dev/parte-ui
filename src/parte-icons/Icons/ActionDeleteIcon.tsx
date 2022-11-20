@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionDeleteIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionDeleteIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionDeleteIcon = convertIcon(Icon, 'action-delete');
 export default ActionDeleteIcon;

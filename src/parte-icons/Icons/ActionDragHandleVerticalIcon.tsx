@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionDragHandleVerticalIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,8 @@ function ActionDragHandleVerticalIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionDragHandleVerticalIcon = convertIcon(
+  Icon,
+  'action-drag-handle-vertical'
+);
 export default ActionDragHandleVerticalIcon;

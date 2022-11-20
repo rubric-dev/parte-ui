@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionLessThanOrEqualToIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,8 @@ function ActionLessThanOrEqualToIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionLessThanOrEqualToIcon = convertIcon(
+  Icon,
+  'action-less-than-or-equal-to'
+);
 export default ActionLessThanOrEqualToIcon;

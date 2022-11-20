@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionSortAlphabeticalIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -21,5 +18,8 @@ function ActionSortAlphabeticalIcon({
     </svg>
   );
 }
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionSortAlphabeticalIcon = convertIcon(
+  Icon,
+  'action-sort-alphabetical'
+);
 export default ActionSortAlphabeticalIcon;

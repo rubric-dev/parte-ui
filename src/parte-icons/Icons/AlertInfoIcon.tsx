@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function AlertInfoIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function AlertInfoIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const AlertInfoIcon = convertIcon(Icon, 'alert-info');
 export default AlertInfoIcon;

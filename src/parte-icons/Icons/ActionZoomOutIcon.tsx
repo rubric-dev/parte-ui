@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionZoomOutIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionZoomOutIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionZoomOutIcon = convertIcon(Icon, 'action-zoom-out');
 export default ActionZoomOutIcon;

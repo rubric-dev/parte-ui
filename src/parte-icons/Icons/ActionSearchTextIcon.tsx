@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionSearchTextIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionSearchTextIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionSearchTextIcon = convertIcon(Icon, 'action-search-text');
 export default ActionSearchTextIcon;

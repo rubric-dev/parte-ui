@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionDownloadIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionDownloadIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionDownloadIcon = convertIcon(Icon, 'action-download');
 export default ActionDownloadIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionPlusIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionPlusIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionPlusIcon = convertIcon(Icon, 'action-plus');
 export default ActionPlusIcon;
