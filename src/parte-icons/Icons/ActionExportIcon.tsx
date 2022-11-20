@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionExportIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionExportIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionExportIcon = convertIcon(Icon, 'action-export');
 export default ActionExportIcon;

@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionLogInIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionLogInIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionLogInIcon = convertIcon(Icon, 'action-log-in');
 export default ActionLogInIcon;

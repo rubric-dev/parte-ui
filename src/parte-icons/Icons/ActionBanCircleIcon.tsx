@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionBanCircleIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionBanCircleIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionBanCircleIcon = convertIcon(Icon, 'action-ban-circle');
 export default ActionBanCircleIcon;

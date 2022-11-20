@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ActionTickCircleIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -22,5 +19,5 @@ function ActionTickCircleIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ActionTickCircleIcon = convertIcon(Icon, 'action-tick-circle');
 export default ActionTickCircleIcon;
