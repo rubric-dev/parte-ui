@@ -8,6 +8,6 @@ export default (
     leftSlot={<span>😀😃</span>}
     rightSlot={<span>😀😃</span>}
   >
-    hihihihihihi
+    테스트 버튼입니다.
   </Button>
 );

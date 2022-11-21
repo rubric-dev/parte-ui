@@ -1,37 +1,42 @@
 import styled from 'styled-components';
-import Button from './Button';
+import IconButton from './IconButton';
 import { Story, Meta } from '@storybook/react';
-import { ButtonProps } from './Button.types';
+import { IconButtonProps } from './IconButton.types';
+import TableThIcon from '../parte-icons/Icons/TableThIcon';
 
 export default {
-  title: 'Components/Buttons',
-  component: Button,
+  title: 'Components/IconButtons',
+  component: IconButton,
   parameters: {
     layout: 'centered',
     viewport: 'responsive',
   },
 } as Meta;
 
-const Template: Story<ButtonProps> = ({ children, ...args }) => {
-  return <Button {...args}>button</Button>;
+const Template: Story<IconButtonProps> = ({ ...args }) => {
+  return <IconButton {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
   variant: 'primary',
+  Icon: <TableThIcon />,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
+  Icon: <TableThIcon />,
 };
 
 export const Minimal = Template.bind({});
 Minimal.args = {
   variant: 'minimal',
+  Icon: <TableThIcon />,
 };
 
 export const Error = Template.bind({});
 Error.args = {
   variant: 'error',
+  Icon: <TableThIcon />,
 };

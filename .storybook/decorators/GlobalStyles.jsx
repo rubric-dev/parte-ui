@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   #root {
-    /* background-color: cornflowerblue */
     width: 100%;
+    min-height:100vh;
   }
 `;
