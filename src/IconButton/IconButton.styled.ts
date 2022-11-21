@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { ButtonProps } from './Button.types';
+import { IconButtonProps } from './IconButton.types';
 
-export const commonButtonStyles = css<ButtonProps>`
+export const commonButtonStyles = css<Omit<IconButtonProps, 'Icon'>>`
   position: relative;
   font-weight: 500;
   display: inline-flex;
@@ -18,8 +18,7 @@ export const commonButtonStyles = css<ButtonProps>`
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: ${({ theme }) =>
-    `${theme.spacing.spacing8}px ${theme.spacing.spacing16}px`};
+  padding: ${({ theme }) => `${theme.spacing.spacing10}px`};
   column-gap: 8px;
   border-radius: 4px;
 
