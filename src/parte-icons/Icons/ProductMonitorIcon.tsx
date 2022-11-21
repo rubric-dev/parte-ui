@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ProductMonitorIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -23,5 +20,5 @@ function ProductMonitorIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ProductMonitorIcon = convertIcon(Icon, 'product-monitor');
 export default ProductMonitorIcon;

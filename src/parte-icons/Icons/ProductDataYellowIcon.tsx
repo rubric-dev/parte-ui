@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ProductDataYellowIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={32}
@@ -23,5 +20,5 @@ function ProductDataYellowIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ProductDataYellowIcon = convertIcon(Icon, 'product-data-yellow');
 export default ProductDataYellowIcon;

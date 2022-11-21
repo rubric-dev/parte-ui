@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ProductAudiencesIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -23,5 +20,5 @@ function ProductAudiencesIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ProductAudiencesIcon = convertIcon(Icon, 'product-audiences');
 export default ProductAudiencesIcon;

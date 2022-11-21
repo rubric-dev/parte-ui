@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ProductSmartPhoneIcon({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={size}
@@ -23,5 +20,5 @@ function ProductSmartPhoneIcon({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
+const ProductSmartPhoneIcon = convertIcon(Icon, 'product-smart-phone');
 export default ProductSmartPhoneIcon;

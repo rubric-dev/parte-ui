@@ -1,8 +1,5 @@
 import { convertIcon, IconProps } from '../component/Icon';
-function ProductEvent({
-  size,
-  ...rest
-}: Pick<IconProps, 'style' | 'color' | 'size'>) {
+function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
   return (
     <svg
       width={32}
@@ -24,5 +21,5 @@ function ProductEvent({
   );
 }
 
-const ActionAddIcon = convertIcon(Icon, '');
-export default ProductEvent;
+const ProductEventIcon = convertIcon(Icon, 'product-event');
+export default ProductEventIcon;
