@@ -11,9 +11,9 @@ function Icon({ size, ...rest }: Pick<IconProps, 'style' | 'color' | 'size'>) {
     >
       <path
         fill="currentcolor"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         d="m16 1.99-16 6 16 6-4-6 4-6Z"
-        clip-rule="evenodd"
+        clipRule="evenodd"
       />
     </svg>
   );
