@@ -16,8 +16,6 @@ const CATEGORY = [
 ];
 
 function ColorList() {
-  const FirstLetterOfCategory = CATEGORY.map((cat) => cat[0]);
-
   const colorMap = Object.entries(colors).reduce((acc, [key, value]) => {
     const colorCategory = key[0];
     if (acc[colorCategory]) {

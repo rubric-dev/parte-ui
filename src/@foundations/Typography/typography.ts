@@ -85,6 +85,18 @@ const Typography = {
     font-size: 12px;
     line-height: 16px;
   `,
+  C200: css`
+    ${commonBaseTextStyle}
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+  `,
+  C100: css`
+    ${commonBaseTextStyle}
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 16px;
+  `,
   CD200: css`
     ${commonCodeStyle}
     color: ${COLORS.N800};
