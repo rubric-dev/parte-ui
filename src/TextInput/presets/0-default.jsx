@@ -1,4 +1,4 @@
 import React from 'react';
-import TextInputProps from '../TextInputProps';
+import TextInput from '../TextInput';
 
-export default <TextInputProps uxpId="IconButton-1" variant="primary" />;
+export default <TextInput uxpId="TextInput-1" variant="primary" />;
