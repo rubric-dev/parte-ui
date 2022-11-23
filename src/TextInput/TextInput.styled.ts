@@ -53,7 +53,7 @@ export const LabelWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: flex-start;
-    column-gap: 2px;
+    column-gap: ${theme.spacing.spacing2}px;
     margin-bottom: ${theme.spacing.spacing4}px;
   `}
 `;
