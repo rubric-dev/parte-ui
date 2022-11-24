@@ -33,6 +33,12 @@ Search.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   leftSlot: <ActionSearchIcon size={12} color="muted" />,
+  rightSlot: (
+    <div style={{ display: 'flex', gap: '8px' }}>
+      <ActionCrossIcon size={12} color="muted" />
+      <InterfaceCaretDownIcon size={12} color="muted" />
+    </div>
+  ),
   disabled: true,
 };
 

@@ -86,12 +86,12 @@ export const LeftIconContainer = styled.div<TextInputProps>`
     align-items: center;
     justify-content: center;
     margin-left: ${theme.spacing.spacing12}px;
-    svg {
-      ${disabled &&
-      css`
-        color: ${theme.colorTextDisabled};
-      `};
-    }
+    ${disabled &&
+    css`
+      & svg {
+        color: ${theme.colors.N500};
+      }
+    `};
   `}
 `;
 export const RightIconContainer = styled.div<TextInputProps>`
