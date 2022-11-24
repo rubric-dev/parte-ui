@@ -11,6 +11,7 @@ module.exports = {
           'src/Button/Button.tsx',
           'src/IconButton/IconButton.tsx',
           'src/TextInput/TextInput.tsx',
+          'src/Textarea/Textarea.tsx',
         ],
       },
       {

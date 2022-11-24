@@ -6,3 +6,5 @@ export { default as styleReset } from './common/styleReset';
 export * from './Button';
 export * from './IconButton';
 export * from './Layout';
+export * from './TextInput';
+export * from './Textarea';

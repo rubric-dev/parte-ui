@@ -3,7 +3,8 @@ import { TextInputProps } from './TextInput.types';
 
 export const Container = styled.div`
   box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
+  flex: 1;
   flex-direction: column;
 `;
 

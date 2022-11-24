@@ -15,11 +15,7 @@ export default {
 } as Meta;
 
 const Template: Story<TextInputProps> = ({ ...args }) => {
-  return (
-    <div style={{ display: 'flex' }}>
-      <TextInput {...args} placeholder="Placeholder" />
-    </div>
-  );
+  return <TextInput {...args} placeholder="Placeholder" />;
 };
 
 export const Default = Template.bind({});
