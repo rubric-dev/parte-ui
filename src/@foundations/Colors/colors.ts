@@ -68,6 +68,14 @@ const colors = {
   O100: '#F8E3DA',
   O50: '#FDF4F4',
   transparent: 'transparent',
+  ChartTeal: '#74DDE5',
+  ChartYellow: '#FAC86B',
+  ChartBlue: '#678AF7',
+  ChartGreen: '#6BDAAE',
+  ChartViolet: '#8F59EF',
+  ChartPink: '#FD8ADC',
+  ChartAqua: '#70B0FF',
+  ChartOrange: '#FF9D66',
 } as const;
 
 export default colors;
