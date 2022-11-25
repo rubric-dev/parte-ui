@@ -35,10 +35,26 @@ export const commonBoxStyle = css<BoxProps>`
       align-items: ${ALIGN_ITEMS[alignItems]};
       gap: ${`${gap}px`};
       wrap: ${wrap ? 'wrap' : 'nowrap'};
-      ${[padding ? `padding: ${padding}px;` : '']}
-      ${[paddingLeft ? `padding-left: ${paddingLeft}px;` : '']}
-      ${[paddingRight ? `padding-right: ${paddingRight}px;` : '']}
-      ${[paddingTop ? `padding-bottom: ${paddingTop}px;` : '']}
-      ${[paddingBottom ? `padding-top: ${paddingBottom}px;` : '']}
+      ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
+      ${[
+        typeof paddingLeft === 'number'
+          ? `padding-left: ${paddingLeft}px;`
+          : '',
+      ]}
+      ${[
+        typeof paddingRight === 'number'
+          ? `padding-right: ${paddingRight}px;`
+          : '',
+      ]}
+      ${[
+        typeof paddingTop === 'number'
+          ? `padding-bottom: ${paddingTop}px;`
+          : '',
+      ]}
+      ${[
+        typeof paddingBottom === 'number'
+          ? `padding-top: ${paddingBottom}px;`
+          : '',
+      ]}
     `}
 `;
