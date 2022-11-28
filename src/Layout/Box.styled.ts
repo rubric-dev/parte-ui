@@ -35,6 +35,7 @@ export const commonBoxStyle = css<BoxProps>`
       align-items: ${ALIGN_ITEMS[alignItems]};
       gap: ${gap}px;
       flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
+      height: 100%;
       ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
       ${[
         typeof paddingLeft === 'number'

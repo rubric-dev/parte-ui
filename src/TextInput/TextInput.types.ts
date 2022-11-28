@@ -7,4 +7,5 @@ export type TextInputProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   description?: string;
   required?: boolean;
+  fullWidth?: boolean;
 };

@@ -31,6 +31,7 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   paddingBottom?: Spacing[keyof typeof SPACING];
   paddingLeft?: Spacing[keyof typeof SPACING];
   paddingRight?: Spacing[keyof typeof SPACING];
+  fullWidth?: boolean;
   /**
    * @uxpinignoreprop
    */

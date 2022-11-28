@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components';
 import { TextInputProps } from './TextInput.types';
 
-export const Container = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+export const Container = styled.div<Pick<TextInputProps, 'fullWidth'>>`
+  ${({ fullWidth }) => css`
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    width: ${fullWidth ? '100%' : 'fit-content'};
+  `};
 `;
 
 export const InputWrapper = styled.div<{
@@ -13,13 +15,15 @@ export const InputWrapper = styled.div<{
   error?: boolean;
   disabled?: boolean;
   hover?: boolean;
+  fullWidth?: boolean;
 }>`
-  ${({ theme, focused, disabled, error, hover }) => css`
+  ${({ theme, focused, disabled, error, hover, fullWidth }) => css`
     box-sizing: border-box;
     display: inline-flex;
     overflow: hidden;
     border: 1px solid ${theme.colorBorderDefault};
     border-radius: 4px;
+    width: ${fullWidth ? '100%' : 'fit-content'};
     ${hover &&
     css`
       border: 1px solid ${theme.colorBorderHover};
@@ -119,12 +123,11 @@ export const ErrorText = styled.p`
 `;
 
 export const Input = styled.input<TextInputProps>`
-  ${({ theme, leftSlot, rightSlot, errorText }) => css`
+  ${({ theme, leftSlot, rightSlot, errorText, fullWidth }) => css`
     outline: none;
     border: none;
     box-sizing: border-box;
     height: 32px;
-    flex: 1;
     padding: ${theme.spacing.spacing8}px ${theme.spacing.spacing12}px;
     padding-left: ${!!leftSlot
       ? css`
@@ -135,6 +138,7 @@ export const Input = styled.input<TextInputProps>`
         `};
     padding-right: ${theme.spacing.spacing12}px;
     background-color: ${theme.colorBackgroundDefault};
+    width: ${fullWidth ? '100%' : 'fit-content'};
     color: ${theme.colorParagraph};
     ${theme.typography.P100}
 

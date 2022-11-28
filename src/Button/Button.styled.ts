@@ -15,6 +15,7 @@ const commonButtonStyles = css<ButtonProps>`
   user-select: none;
   cursor: pointer;
   white-space: nowrap;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
   -moz-appearance: none;

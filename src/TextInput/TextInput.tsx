@@ -16,13 +16,14 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       disabled,
       onFocus,
       onBlur,
+      fullWidth,
     } = props;
 
     const [hover, setHover] = useState(false);
     const [focused, setFocused] = useState(false);
 
     return (
-      <Styled.Container>
+      <Styled.Container fullWidth={fullWidth}>
         {label && (
           <Styled.LabelWrapper>
             {required && <Styled.Required>*</Styled.Required>}
@@ -36,6 +37,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         )}
         {description && <Styled.Description>{description}</Styled.Description>}
         <Styled.InputWrapper
+          {...props}
           hover={hover}
           focused={focused}
           disabled={disabled}
