@@ -5,6 +5,7 @@ export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
   leftSlot?: React.ReactNode;
   rightSlot?: React.ReactNode;
   disabled?: boolean;
+  fullWidth?: boolean;
   /**
    * @uxpinignoreprop
    */

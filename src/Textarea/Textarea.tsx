@@ -6,10 +6,22 @@ import { v4 as uuidv4 } from 'uuid';
 const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props: TextAreaProps, ref) => {
     const id = useMemo(() => uuidv4(), []);
-    const { label, description, required = false, errorText } = props;
+    const {
+      label,
+      description,
+      required = false,
+      errorText,
+      fullWidth,
+      onFocus,
+      onBlur,
+      disabled,
+    } = props;
+
+    const [hover, setHover] = useState(false);
+    const [focused, setFocused] = useState(false);
 
     return (
-      <Styled.Container>
+      <Styled.Container fullWidth={fullWidth}>
         {label && (
           <Styled.LabelWrapper>
             {required && <Styled.Required>*</Styled.Required>}
@@ -22,7 +34,32 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           </Styled.LabelWrapper>
         )}
         {description && <Styled.Description>{description}</Styled.Description>}
-        <Styled.Textarea id={id} {...props} ref={ref} />
+        <Styled.TextareaWrapper
+          hover={hover}
+          disabled={disabled}
+          focused={focused}
+          error={!!errorText}
+          fullWidth={fullWidth}
+        >
+          <Styled.Textarea
+            id={id}
+            ref={ref}
+            hover={hover}
+            focused={focused}
+            {...props}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            onFocus={(e) => {
+              onFocus?.(e);
+              setFocused(true);
+            }}
+            onBlur={(e) => {
+              onBlur?.(e);
+              setFocused(false);
+            }}
+          />
+        </Styled.TextareaWrapper>
+
         {errorText && <Styled.ErrorText>{errorText}</Styled.ErrorText>}
       </Styled.Container>
     );

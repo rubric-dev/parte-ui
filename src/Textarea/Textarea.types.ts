@@ -5,4 +5,5 @@ export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   label?: string;
   description?: string;
   required?: boolean;
+  fullWidth?: boolean;
 };

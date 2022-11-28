@@ -11,7 +11,7 @@ const StyledBox = styled.div<BoxProps>`
 const Box = forwardRef<HTMLDivElement, BoxProps>((props, ref) => {
   return (
     <StyledBox ref={ref} {...props}>
-      {!props.children ? <p>Drop any components u like</p> : props.children}
+      {props.children}
     </StyledBox>
   );
 });
