@@ -30,7 +30,7 @@ export const Input = styled.input`
       border-radius: 50%;
       transform: scale(0.8);
       background-color: ${theme.colors.N0};
-      transition: left 250ms linear;
+      transition: left 150ms linear;
     }
     &:hover {
       background-color: ${theme.colors.N500};
