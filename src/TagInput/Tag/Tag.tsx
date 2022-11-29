@@ -4,7 +4,14 @@ import ActionSmallCrossIcon from '../../parte-icons/Icons/ActionSmallCrossIcon';
 
 function Tag({ tag, onRemove }: TagProps) {
   return (
-    <Styled.Container status={tag.status} tabIndex={0}>
+    <Styled.Container
+      status={tag.status}
+      tabIndex={0}
+      gap={2}
+      paddingRight={4}
+      paddingLeft={4}
+      alignItems="Center"
+    >
       <Styled.Label status={tag.status}>{tag.label}</Styled.Label>
       <ActionSmallCrossIcon
         color="danger"

@@ -24,7 +24,7 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
    * @uxpinpropname Align
    * */
   alignItems?: 'Start' | 'Center' | 'End';
-  $wrap?: boolean;
+  flexWrap?: boolean;
   gap?: Spacing[keyof typeof SPACING];
   padding?: Spacing[keyof typeof SPACING];
   paddingTop?: Spacing[keyof typeof SPACING];
