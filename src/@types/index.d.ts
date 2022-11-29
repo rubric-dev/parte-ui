@@ -1,3 +1,8 @@
+export {};
+
 declare global {
-  type ABC = string;
+  type Option<T> = {
+    label: string;
+    value: T;
+  };
 }
