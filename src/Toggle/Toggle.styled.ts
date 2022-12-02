@@ -28,7 +28,6 @@ export const Input = styled.input`
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      transform: scale(0.8);
       background-color: ${theme.colors.N0};
       transition: left 150ms linear;
     }
