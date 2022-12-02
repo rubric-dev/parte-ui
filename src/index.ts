@@ -8,3 +8,4 @@ export * from './IconButton';
 export * from './Layout';
 export * from './TextInput';
 export * from './Textarea';
+export * from './Checkbox';
