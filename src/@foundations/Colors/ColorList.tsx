@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
 import colors from './colors';
 
 const CATEGORY = [
@@ -58,7 +57,6 @@ const Container = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: sans-serif;
   color: #4f4f4f;
 `;
 
@@ -74,7 +72,6 @@ const Item = styled.div<{ color: string }>`
   height: 100%;
   border-radius: 8px;
   padding: 8px;
-  font-family: sans-serif;
   box-sizing: border-box;
   box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.2);
   background-color: ${({ color }) => color};

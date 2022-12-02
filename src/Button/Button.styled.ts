@@ -23,7 +23,7 @@ const commonButtonStyles = css<ButtonProps>`
     `${theme.spacing.spacing8}px ${theme.spacing.spacing16}px`};
   column-gap: 8px;
   border-radius: 4px;
-
+  font-family: inherit;
   &::-moz-focus-inner {
     border: 0;
   }
