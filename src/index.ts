@@ -11,3 +11,4 @@ export * from './Textarea';
 export * from './Checkbox';
 export * from './Steps';
 export * from './RadioGroup';
+export * from './Steps';
