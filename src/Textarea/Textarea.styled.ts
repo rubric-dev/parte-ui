@@ -113,6 +113,7 @@ export const Textarea = styled.textarea<{
     color: ${theme.colorParagraph};
     ${theme.typography.P100}
     display: inline-flex;
+    font-family: inherit;
     ::placeholder {
       color: ${theme.colorTextPlaceholderDefault};
     }

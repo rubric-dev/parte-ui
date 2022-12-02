@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 export default css`
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
   html,
   body,
   div,
@@ -86,7 +87,6 @@ export default css`
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -102,9 +102,6 @@ export default css`
   nav,
   section {
     display: block;
-  }
-  body {
-    line-height: 1.5;
   }
   ol,
   ul {
@@ -137,12 +134,21 @@ export default css`
     outline: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
+
   body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    color: black;
   }
+
+  input,
+  textarea,
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system,
+      BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
+      'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
