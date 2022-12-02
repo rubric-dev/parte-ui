@@ -1,7 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import * as Styled from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
-import { v4 as uuidv4 } from 'uuid';
 import { Box } from '../Layout';
 import ActionSmallTickIcon from '../parte-icons/Icons/ActionSmallTickIcon';
 
@@ -12,17 +11,15 @@ const Checkbox = ({
   indeterminate = false,
   onChange,
 }: CheckboxProps) => {
-  const id = useMemo(() => uuidv4(), []);
-
   const [hover, setHover] = useState(false);
   const [pressed, setPressed] = useState(false);
 
   const renderIcon = () => {
-    if (checked) {
-      return <ActionSmallTickIcon size={16} />;
-    }
     if (indeterminate) {
       return <Styled.Indeterminate />;
+    }
+    if (checked) {
+      return <ActionSmallTickIcon size={16} />;
     }
     return <></>;
   };
@@ -43,7 +40,6 @@ const Checkbox = ({
         alignItems="Center"
       >
         <Styled.Input
-          id={id}
           type="checkbox"
           checked={checked}
           disabled={disabled}

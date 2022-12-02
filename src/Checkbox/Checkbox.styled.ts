@@ -9,6 +9,9 @@ export const Container = styled.label<{ disabled: boolean }>`
     align-items: center;
     column-gap: ${theme.spacing.spacing12}px;
     cursor: ${disabled ? 'default' : 'pointer'};
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   `}
 `;
 
