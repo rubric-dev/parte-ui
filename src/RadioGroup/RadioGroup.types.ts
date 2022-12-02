@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 export type RadioGroupProps = {
   value: string;
   name: string;
   disabled?: boolean;
-  onChange?: (value: string) => void;
-  children: React.ReactElement;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  children: React.ReactNode;
 };

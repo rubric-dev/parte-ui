@@ -20,7 +20,7 @@ const Radio = ({ value, label, disabled = false }: RadioProps) => {
         checked={selectedValue ? selectedValue === value : undefined}
         disabled={groupDisabled || disabled}
         onChange={(e) => {
-          onChange?.(e.target.value);
+          onChange?.(e);
         }}
       />
       <Styled.Label>{label}</Styled.Label>

@@ -2,7 +2,7 @@ import RadioGroup from './RadioGroup';
 import { Story, Meta } from '@storybook/react';
 import Radio from '../Radio/Radio';
 import { RadioGroupProps } from './RadioGroup.types';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Box } from '../Layout';
 
 export default {
@@ -15,8 +15,8 @@ export default {
 } as Meta;
 
 const Template: Story<RadioGroupProps> = ({ ...args }) => {
-  const onChange = (value: string) => {
-    setSelectedValue(value);
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(e.target.value);
   };
 
   const [selectedValue, setSelectedValue] = useState<string>('TEST');
