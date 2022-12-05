@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
+import { getInitial } from '../common/utils/badge.utils';
 import * as Styled from './Avatar.styled';
 import { AvatarProps } from './Avatar.types';
-import { getInitial } from './Avatar.utils';
 
 const Avatar = ({
   avatarColor = 'AUTO',

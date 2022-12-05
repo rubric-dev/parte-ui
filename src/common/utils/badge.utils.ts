@@ -1,5 +1,5 @@
-import { avatarColors } from './Avatar.styled';
-import { AvatarColors, AvatarProps } from './Avatar.types';
+import badgeColors from '../../@foundations/Badge/badge';
+import { BadgeColors } from '../../@foundations/Badge/badge.types';
 
 export const getInitial = (name: string, fallback = '?') => {
   if (!name) return fallback;
@@ -11,16 +11,16 @@ export const getInitial = (name: string, fallback = '?') => {
     .join('');
 };
 
-export const getColors = (avatarColor: AvatarColors = 'AUTO') => {
+export const getColors = (avatarColor: BadgeColors = 'AUTO') => {
   if (avatarColor === 'AUTO') {
-    const keys = Object.keys(avatarColors);
+    const keys = Object.keys(badgeColors);
     const colorKey = keys[
       Math.floor(Math.random() * keys.length)
-    ] as keyof typeof avatarColors;
+    ] as keyof typeof badgeColors;
 
-    return avatarColors[colorKey];
+    return badgeColors[colorKey];
   }
-  return avatarColors[avatarColor];
+  return badgeColors[avatarColor];
 };
 
 export const getAvatarInitialsFontSize = (size: number) => {
