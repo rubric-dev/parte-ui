@@ -2,11 +2,9 @@ import { css } from 'styled-components';
 import { COLORS } from '../Colors';
 
 const commonBaseTextStyle = css`
-  font-family: 'SF Pro Text';
   font-style: normal;
 `;
 const commonCodeStyle = css`
-  font-family: 'SF Mono';
   font-style: italic;
   font-weight: 400;
   font-size: 14px;

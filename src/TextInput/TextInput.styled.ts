@@ -141,7 +141,7 @@ export const Input = styled.input<TextInputProps>`
     width: ${fullWidth ? '100%' : 'fit-content'};
     color: ${theme.colorParagraph};
     ${theme.typography.P100}
-
+    font-family: inherit;
     ::placeholder {
       color: ${theme.colorTextPlaceholderDefault};
     }
