@@ -23,10 +23,3 @@ Default.args = {
   src: 'https://avatars.githubusercontent.com/u/40189520?v=4',
   showInitial: true,
 };
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  avatarColor: 'BLUE',
-  shape: 'SQUARE',
-  name: '김대균 김',
-};

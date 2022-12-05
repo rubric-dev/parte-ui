@@ -1,10 +1,10 @@
 import { HTMLAttributes } from 'react';
-import { avatarColors } from './Avatar.styled';
+import { BadgeColors } from '../@foundations/Badge/badge.types';
 
 type AvatarShape = 'CIRCLE' | 'SQUARE';
-export type AvatarColors = keyof typeof avatarColors | 'AUTO';
-export type AvatarProps = HTMLAttributes<HTMLButtonElement> & {
-  avatarColor?: AvatarColors;
+
+export type AvatarProps = HTMLAttributes<HTMLDivElement> & {
+  avatarColor?: BadgeColors;
   size?: number;
   shape?: AvatarShape;
   name?: string;
