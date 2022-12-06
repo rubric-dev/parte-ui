@@ -2,11 +2,9 @@ import { css } from 'styled-components';
 import { COLORS } from '../Colors';
 
 const commonBaseTextStyle = css`
-  font-family: 'SF Pro Text';
   font-style: normal;
 `;
 const commonCodeStyle = css`
-  font-family: 'SF Mono';
   font-style: italic;
   font-weight: 400;
   font-size: 14px;
@@ -83,6 +81,18 @@ const Typography = {
     ${commonBaseTextStyle}
     font-weight: 400;
     font-size: 12px;
+    line-height: 16px;
+  `,
+  C200: css`
+    ${commonBaseTextStyle}
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+  `,
+  C100: css`
+    ${commonBaseTextStyle}
+    font-weight: 500;
+    font-size: 10px;
     line-height: 16px;
   `,
   CD200: css`
