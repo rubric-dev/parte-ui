@@ -1,3 +1,5 @@
+import { DROPDOWN_POSITION } from '../constant';
+
 export {};
 
 declare global {
@@ -5,4 +7,10 @@ declare global {
     label: string;
     value: T;
   };
+  type GroupOption<T> = {
+    groupName: string;
+    options: Option<T>[];
+  };
+  type DropdownPosition =
+    typeof DROPDOWN_POSITION[keyof typeof DROPDOWN_POSITION];
 }
