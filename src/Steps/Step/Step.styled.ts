@@ -33,14 +33,17 @@ export const Icon = styled(Box)<{ status: StepStatus }>`
     `}
       ${status === 'complete' &&
     css`
-      color: ${theme.colors.G400};
       background-color: ${theme.colors.G200};
     `}
   `}
 `;
 export const Label = styled.span<{ status: StepStatus }>`
-  ${({ theme }) => css`
-    ${theme.typography.H300}
-    color: ${theme.colors.N700}
+  ${({ theme, status }) => css`
+    color: ${theme.colors.N700};
+    ${theme.typography.H300};
+    ${status === 'inProgress' &&
+    css`
+      color: ${theme.colors.B400};
+    `}
   `}
 `;

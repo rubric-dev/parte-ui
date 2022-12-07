@@ -23,7 +23,7 @@ Default.args = {
 };
 
 export const InProgress = Template.bind({});
-InProgress.args = { label: 'In Progress', currentStep: 1, stepIndex: 1 };
+InProgress.args = { label: 'In progress', currentStep: 1, stepIndex: 1 };
 
 export const Complete = Template.bind({});
 Complete.args = { label: 'Complete', currentStep: 2, stepIndex: 1 };
