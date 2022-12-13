@@ -1,13 +1,16 @@
 import { SelectRowProps } from './SelectRow.types';
 import * as Styled from './SelectRow.styled';
-const SelectRow = ({
-  variant = 'element',
-  status,
-  icon,
-  label,
-}: SelectRowProps) => {
-  return <Styled.SelectRow variant={variant}>Label</Styled.SelectRow>;
-};
+import { forwardRef } from 'react';
+const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>(
+  ({ variant = 'element', icon, label, tabIndex = 0 }: SelectRowProps, ref) => {
+    const tab = variant === 'title' ? -1 : tabIndex;
+    return (
+      <Styled.SelectRow variant={variant} tabIndex={tab} ref={ref}>
+        {label}
+      </Styled.SelectRow>
+    );
+  }
+);
 
 export default SelectRow;
 

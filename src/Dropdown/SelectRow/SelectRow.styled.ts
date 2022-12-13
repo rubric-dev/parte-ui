@@ -7,7 +7,8 @@ const commonSelectRowStyle = css`
   align-items: center;
   padding: 0px 12px;
   width: 240px;
-  height: 32px;
+  min-height: 32px;
+  outline: none;
   user-select: none;
 `;
 
@@ -26,6 +27,10 @@ const elementStyle = css<SelectRowProps>`
 
     &:hover {
       background-color: ${theme.colorBackgroundDropdownHover};
+    }
+
+    &:focus {
+      border: 1px solid ${theme.colors.B400};
     }
     &:active {
       background-color: ${theme.colors.B100};

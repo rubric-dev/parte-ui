@@ -11,7 +11,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DropdownProps> = ({ ...args }) => {
+const Template: Story<DropdownProps<string>> = ({ ...args }) => {
   return <Dropdown {...args} />;
 };
 

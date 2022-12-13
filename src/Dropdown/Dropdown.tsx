@@ -1,10 +1,24 @@
-import { DropdownProps } from './Dropdown.types';
+import React, {
+  Children,
+  RefObject,
+  useContext,
+  useEffect,
+  useRef,
+} from 'react';
+import * as Styled from './Dropdown.styled';
+import { DropdownProps, GroupOption } from './Dropdown.types';
+import DropdownContext from './DropdownContext';
 
-export const Dropdown = ({}: DropdownProps) => {
+import { useDropdown } from './useDropdown';
+
+const Dropdown = ({ isGroupSelect, children }: DropdownProps<string>) => {
+  const context = useContext(DropdownContext);
+  // const { dropdownRef } = useDropdown();
+
   return (
-    <div>
-      <p>Dropdown</p>
-    </div>
+    <DropdownContext.Provider value={{ isGroupSelect }}>
+      {children}
+    </DropdownContext.Provider>
   );
 };
 
