@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Menu = styled.nav`
-  box-sizing: border-box;
-  width: fit-content;
-  ${({ theme }) => theme.elevation.elevation2}
+  ${({ theme }) => css`
+    ${theme.elevation.elevation2}
+    box-sizing: border-box;
+    padding: ${({ theme }) => `${theme.spacing.spacing8}px 0`};
+    width: fit-content;
+  `}
 `;

@@ -6,6 +6,7 @@ type ContainerProps = {
   type: MenuRowType;
   hover: boolean;
   selected?: boolean;
+  disabled?: boolean;
 };
 
 const sideBarStyle = css`
@@ -22,51 +23,63 @@ const sideBarStyle = css`
 `;
 
 export const Container = styled(Box)<ContainerProps>`
-  ${({ theme, hover, selected, type }) => {
+  ${({ theme, hover, selected, type, disabled }) => {
     const isTitle = type === 'title';
     return css`
       box-sizing: border-box;
       height: ${isTitle ? '32px' : '40px'};
       min-width: 208px;
       width: fit-content;
-      background: ${theme.colors.N0};
+      background-color: ${theme.colorBackgroundDropdown};
       display: flex;
       align-items: center;
       padding: ${`0 ${theme.spacing.spacing16}px`};
       ${isTitle ? theme.typography.C100 : theme.typography.P200}
       color: ${isTitle ? theme.colors.N700 : theme.colors.N800};
-      cursor: ${isTitle ? 'default' : 'pointer'};
+      cursor: ${isTitle || disabled ? 'default' : 'pointer'};
       position: relative;
       ${hover &&
       !isTitle &&
       css`
-        background-color: ${theme.colors.N75};
+        background-color: ${theme.colorBackgroundDropdownHover};
       `}
       ${selected &&
       !isTitle &&
       css`
         ${sideBarStyle}
-        background-color: ${theme.colors.B100};
+        background-color: ${theme.colorBackgroundDropdownSelected};
         color: ${theme.colors.B400};
       `}
-      ${!isTitle &&
+      ${disabled &&
+      !isTitle &&
       css`
-        :active {
-          ${sideBarStyle}
-        }
+        color: ${theme.colors.N700};
+        background-color: ${theme.colorBackgroundDropdown};
+      `}
+      ${type === 'checkbox' &&
+      css`
+        color: ${theme.colors.N800};
       `}
     `;
   }}
 `;
 
-export const Icon = styled.div<{ selected?: boolean }>`
-  ${({ theme, selected }) =>
+export const Icon = styled.div<{ selected?: boolean; disabled?: boolean }>`
+  ${({ theme, selected, disabled }) =>
     css`
       margin-right: 16px;
       display: inline-flex;
       align-items: center;
       svg {
-        color: ${selected ? theme.colors.B400 : theme.colors.N600};
+        color: ${theme.colors.N700};
+        ${selected &&
+        css`
+          color: ${theme.colors.B400};
+        `}
+        ${disabled &&
+        css`
+          color: ${theme.colors.N600};
+        `}
       }
     `}
 `;

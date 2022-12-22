@@ -34,7 +34,6 @@ Default.args = {
 };
 export const Icon = Template.bind({});
 Icon.args = {
-  selected: false,
   leftSlot: <ActionChatIcon size={16} />,
 };
 export const Title = Template.bind({});

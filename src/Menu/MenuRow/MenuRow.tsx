@@ -5,7 +5,14 @@ import { Checkbox } from '../../Checkbox';
 
 export default function MenuRow(props: MenuRowProps) {
   const [hover, setHover] = useState(false);
-  const { type = 'element', onSelect, leftSlot, children, selected } = props;
+  const {
+    type = 'element',
+    onSelect,
+    leftSlot,
+    children,
+    selected,
+    disabled,
+  } = props;
 
   return (
     <Styled.Container
@@ -13,11 +20,16 @@ export default function MenuRow(props: MenuRowProps) {
       hover={hover}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={onSelect}
+      onClick={(e) => {
+        e.preventDefault();
+        !disabled && onSelect?.();
+      }}
       {...props}
     >
       {type === 'element' && leftSlot && (
-        <Styled.Icon selected={selected}>{leftSlot}</Styled.Icon>
+        <Styled.Icon selected={selected} disabled={disabled}>
+          {leftSlot}
+        </Styled.Icon>
       )}
       {type === 'checkbox' && (
         <Styled.CheckboxContainer>
