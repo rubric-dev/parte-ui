@@ -44,14 +44,14 @@ const Checkbox = ({
           checked={checked}
           disabled={disabled}
           onChange={(e) => {
-            onChange(e);
+            onChange?.(e);
           }}
         />
         <Box alignItems="Center" justifyContent="Center" style={{ flex: 1 }}>
           {renderIcon()}
         </Box>
       </Styled.Checkbox>
-      <Styled.Label>{label}</Styled.Label>
+      {label && <Styled.Label>{label}</Styled.Label>}
     </Styled.Container>
   );
 };
