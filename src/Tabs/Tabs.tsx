@@ -1,8 +1,8 @@
-import { TabsContainer } from './Tabs.styled';
+import * as Styled from './Tabs.styled';
 import { TabsProps } from './Tabs.types';
 
 const Tabs = (props: TabsProps) => {
-  return <TabsContainer {...props}>{props.children}</TabsContainer>;
+  return <Styled.Container {...props} />;
 };
 
 export default Tabs;

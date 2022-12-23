@@ -2,9 +2,13 @@ import styled, { css } from 'styled-components';
 import { TabProps } from './Tab.types';
 
 export const Tab = styled.button<TabProps>`
-  ${({ theme, variant, selected, disabled }) => {
+  ${({ theme, variant, selected, disabled, direction }) => {
     const primaryTabStyle = css`
       position: relative;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0px;
+      }
       ${selected &&
       css`
         &::before {
@@ -22,6 +26,12 @@ export const Tab = styled.button<TabProps>`
         color: ${theme.colors.N800};
         svg {
           color: ${theme.colors.N800};
+        }
+      }
+      &:focus {
+        color: ${theme.colors.N700};
+        svg {
+          color: ${theme.colors.N600};
         }
       }
       &:active {
@@ -49,7 +59,7 @@ export const Tab = styled.button<TabProps>`
       &:disabled {
         color: ${theme.colors.N500};
         svg {
-          color: ${theme.colors.N500};
+          color: ${theme.colors.N400};
         }
         cursor: default;
       }
@@ -57,6 +67,25 @@ export const Tab = styled.button<TabProps>`
     const secondaryTabStyle = css`
       padding: 8px 16px;
       cursor: pointer;
+
+      ${direction === 'horizontal' &&
+      css`
+         {
+          margin-right: 8px;
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      `}
+      ${direction === 'vertical' &&
+      css`
+         {
+          margin-bottom: 8px;
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+      `}
 
       &:hover {
         color: ${theme.colors.N800};
@@ -102,7 +131,8 @@ export const Tab = styled.button<TabProps>`
 
     return css`
       box-sizing: border-box;
-      display: flex;
+      display: ${direction === 'horizontal' ? 'inline-flex' : 'flex'};
+      width: ${direction === 'horizontal' ? 'auto' : '100%'};
       justify-content: center;
       align-items: center;
       border-radius: 4px;

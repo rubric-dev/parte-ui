@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Tab from './Tab/Tab';
 import { TabVariant } from './Tab/Tab.types';
 import ActionTickIcon from '../parte-icons/Icons/ActionTickIcon';
+import { SidebarTab } from './SidebarTab';
 
 export default {
   title: 'Components/Tabs',
@@ -26,13 +27,13 @@ const Template: Story<TabsProps & { variant?: TabVariant }> = ({
   variant,
   ...args
 }) => {
-  const [selected, setSeleted] = useState<Option<string>>(SAMPLE_TABS[0]);
+  const [selected, setSelected] = useState<Option<string>>(SAMPLE_TABS[0]);
   return (
     <Tabs {...args}>
       {SAMPLE_TABS.map((option) => (
         <Tab
           key={option.label}
-          onClick={() => setSeleted(option)}
+          onClick={() => setSelected(option)}
           selected={selected.label === option.label}
           variant={variant}
         >
@@ -46,7 +47,7 @@ const IconTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
   variant,
   ...args
 }) => {
-  const [selected, setSeleted] = useState<Option<string>>(SAMPLE_TABS[0]);
+  const [selected, setSelected] = useState<Option<string>>(SAMPLE_TABS[0]);
   return (
     <Tabs {...args}>
       {SAMPLE_TABS.map((option) => {
@@ -55,7 +56,7 @@ const IconTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
         return (
           <Tab
             key={option.label}
-            onClick={() => setSeleted(option)}
+            onClick={() => setSelected(option)}
             selected={active}
             variant={variant}
             rightSlot={active ? <ActionTickIcon size={12} /> : undefined}
@@ -69,15 +70,41 @@ const IconTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
 };
 
 export const Primary = Template.bind({});
-Primary.args = {
-  gap: 20,
-};
+Primary.args = {};
+
 export const Secondary = Template.bind({});
 Secondary.args = {
-  gap: 8,
   variant: 'Secondary',
 };
+
 export const IconTab = IconTemplate.bind({});
-IconTab.args = {
-  gap: 20,
+IconTab.args = {};
+
+const SideBarTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
+  variant,
+  ...args
+}) => {
+  const [selected, setSelected] = useState<Option<string>>(SAMPLE_TABS[0]);
+  return (
+    <Tabs {...args}>
+      {SAMPLE_TABS.map((option) => {
+        const active = selected.label === option.label;
+
+        return (
+          <SidebarTab
+            key={option.label}
+            onClick={() => setSelected(option)}
+            selected={active}
+            variant={variant}
+          >
+            {option.label}
+          </SidebarTab>
+        );
+      })}
+    </Tabs>
+  );
 };
+
+export const SideBarTab = SideBarTemplate.bind({});
+
+SideBarTab.args = {};
