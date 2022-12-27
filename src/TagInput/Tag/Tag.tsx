@@ -14,7 +14,7 @@ function Tag({ tag, onRemove }: TagProps) {
     >
       <Styled.Label status={tag.status}>{tag.label}</Styled.Label>
       <ActionSmallCrossIcon
-        color="danger"
+        color="error"
         size={12}
         onClick={() => onRemove(tag.value)}
       />
