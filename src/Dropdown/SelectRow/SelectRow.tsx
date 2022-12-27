@@ -1,9 +1,28 @@
 import { SelectRowProps } from './SelectRow.types';
 import * as Styled from './SelectRow.styled';
 import { forwardRef } from 'react';
+import ActionSearchIcon from '../../parte-icons/Icons/ActionSearchIcon';
+
 const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>(
-  ({ variant = 'element', icon, label, tabIndex = 0 }: SelectRowProps, ref) => {
-    const tab = variant === 'title' ? -1 : tabIndex;
+  (
+    {
+      variant = 'element',
+      icon,
+      label,
+      tabIndex = 0,
+      placeholder,
+    }: SelectRowProps,
+    ref
+  ) => {
+    const tab = variant === 'element' ? tabIndex : -1;
+    if (variant === 'search') {
+      return (
+        <Styled.SelectRow variant={variant} ref={ref}>
+          <ActionSearchIcon size={12} color="muted" />
+          <Styled.SearchInput placeholder={placeholder} />
+        </Styled.SelectRow>
+      );
+    }
     return (
       <Styled.SelectRow variant={variant} tabIndex={tab} ref={ref}>
         {label}

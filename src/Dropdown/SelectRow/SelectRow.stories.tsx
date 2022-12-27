@@ -19,4 +19,5 @@ export const Default = Template.bind({});
 Default.args = {
   variant: 'element',
   label: 'Label',
+  placeholder: 'Placeholder',
 };

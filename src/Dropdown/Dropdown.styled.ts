@@ -14,3 +14,26 @@ export const Dropdown = styled(Box)`
   overflow: auto;
   max-height: 200px;
 `;
+export const Container = styled(Box)`
+  ${() => css`
+    position: relative;
+  `}
+`;
+
+export const Trigger = styled(Box)`
+  ${({ theme }) => {
+    return css``;
+  }}
+`;
+
+export const Menu = styled(Box)<{ hidden: boolean }>`
+  ${({ theme, hidden }) => {
+    return css`
+      opacity: ${hidden ? 0 : 100};
+      position: absolute;
+      height: fit-content;
+      top: 0;
+      left: 0;
+    `;
+  }}
+`;

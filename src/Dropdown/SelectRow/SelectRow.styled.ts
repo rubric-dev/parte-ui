@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { Box } from '../../Layout';
 import { SelectRowProps } from './SelectRow.types';
@@ -50,13 +51,14 @@ const elementStyle = css<SelectRowProps>`
 `;
 const searchStyle = css<SelectRowProps>`
   ${({ theme }) => css`
-    background-color: ${theme.colors.N0};
+    background-color: ${theme.colors.N50};
     color: ${theme.colors.N600};
     ${theme.typography.C200}
   `}
 `;
 
 export const SelectRow = styled(Box)<SelectRowProps>`
+  ${commonSelectRowStyle}
   ${({ variant }) => {
     if (variant === 'title') {
       return css`
@@ -74,5 +76,21 @@ export const SelectRow = styled(Box)<SelectRowProps>`
       `;
     }
   }}
-  ${commonSelectRowStyle}
+`;
+
+export const SearchInput = styled.input<SelectRowProps>`
+  ${({ theme }) => {
+    return css`
+      background-color: transparent;
+      border: none;
+      outline: none;
+      margin-left: ${theme.spacing.spacing8}px;
+      width: 100%;
+
+      &::placeholder {
+        ${theme.typography.P100}
+        color: ${theme.colors.N600};
+      }
+    `;
+  }}
 `;
