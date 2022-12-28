@@ -3,6 +3,7 @@ import { Button } from '../Button';
 import Dropdown from './Dropdown';
 import { DropdownList } from './DropdownList';
 import { DropdownContextState } from './Dropdown.types';
+import { useState } from 'react';
 
 const OPTIONS = [
   {
@@ -29,6 +30,14 @@ export default {
 } as Meta;
 
 const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
+  const [selectValue, setSelectValue] = useState<Option<string>>({
+    label: '1-0',
+    value: '1-0',
+  });
+
+  const onSelect = (value: Option<string>) => {
+    setSelectValue(value);
+  };
   return (
     <div
       style={{
@@ -43,10 +52,14 @@ const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
       {/* <div style={{ width: '100%', height: '500px' }}>스크롤용</div> */}
       <Dropdown {...args}>
         <Dropdown.Trigger>
-          <Button variant="primary">Button</Button>
+          <Button variant="primary">{selectValue.label}</Button>
         </Dropdown.Trigger>
         <Dropdown.Menu>
-          <DropdownList options={OPTIONS} />
+          <DropdownList
+            options={OPTIONS}
+            selectValue={selectValue}
+            onSelect={onSelect}
+          />
         </Dropdown.Menu>
       </Dropdown>
     </div>

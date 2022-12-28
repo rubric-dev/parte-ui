@@ -42,6 +42,7 @@ const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
       role="selectItem"
       disabled={props.disabled}
       selected={props.selected}
+      onClick={props.onClick}
     >
       {props.label}
     </Styled.SelectRow>
