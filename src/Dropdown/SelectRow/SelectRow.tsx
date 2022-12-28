@@ -1,9 +1,10 @@
 import { SelectRowProps } from './SelectRow.types';
 import * as Styled from './SelectRow.styled';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import ActionSearchIcon from '../../parte-icons/Icons/ActionSearchIcon';
 
 const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
+  const rowRef = useRef<HTMLDivElement>(null);
   if (props.variant === 'search') {
     const { inputValue, onChange } = props;
     return (
@@ -34,11 +35,15 @@ const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
     );
   }
 
+  useEffect(() => {
+    if (props.selected && rowRef.current) rowRef.current.focus();
+  }, [props.selected]);
+
   return (
     <Styled.SelectRow
       variant="element"
       tabIndex={props.disabled ? -1 : 0}
-      ref={ref}
+      ref={rowRef}
       role="selectItem"
       disabled={props.disabled}
       selected={props.selected}

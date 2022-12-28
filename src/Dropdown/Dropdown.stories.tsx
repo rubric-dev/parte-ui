@@ -16,7 +16,7 @@ const OPTIONS = [
   },
   {
     label: 'label3',
-    value: 'value2',
+    value: 'value3',
   },
 ];
 
@@ -31,8 +31,8 @@ export default {
 
 const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
   const [selectValue, setSelectValue] = useState<Option<string>>({
-    label: '1-0',
-    value: '1-0',
+    label: 'label3',
+    value: 'value3',
   });
 
   const onSelect = (value: Option<string>) => {
@@ -66,6 +66,51 @@ const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
   );
 };
 
+const createOption = (groupNames: string[]) => {
+  return groupNames.map((gn, index) => {
+    return {
+      groupName: gn,
+      options: groupNames.map((x, xindex) => {
+        return { label: `${index}-${xindex}`, value: `${index}-${xindex}` };
+      }),
+    };
+  });
+};
+
+const GroupedTemplate: Story<DropdownContextState<string>> = ({ ...args }) => {
+  const [selectValue, setSelectValue] = useState<Option<string>>();
+
+  const onSelect = (value: Option<string>) => {
+    setSelectValue(value);
+  };
+  return (
+    <div
+      style={{
+        height: '1600px',
+        overflowY: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '30px',
+        // alignItems: 'flex-end',
+      }}
+    >
+      {/* <div style={{ width: '100%', height: '500px' }}>스크롤용</div> */}
+      <Dropdown {...args}>
+        <Dropdown.Trigger>
+          <Button variant="primary">{selectValue?.label ?? 'empty'}</Button>
+        </Dropdown.Trigger>
+        <Dropdown.Menu>
+          <DropdownList
+            options={createOption(['선민호', '서솔민', '김대균', '도혜원'])}
+            selectValue={selectValue}
+            onSelect={onSelect}
+          />
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 
 Default.args = {};
@@ -75,3 +120,6 @@ export const Portal = Template.bind({});
 Portal.args = {
   usePortal: true,
 };
+export const Grouped = GroupedTemplate.bind({});
+
+Grouped.args = {};

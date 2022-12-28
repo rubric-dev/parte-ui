@@ -16,14 +16,6 @@ const isGroupOptions = <T extends unknown>(
   }
   return false;
 };
-// const isGroupOption = <T extends unknown>(
-//   options: Option<T> | GroupOption<T>
-// ): options is GroupOption<T> => {
-//   if ('groupName' in options) {
-//     return true;
-//   }
-//   return false;
-// };
 
 const DropdownList = <T extends unknown>({
   options,
@@ -113,11 +105,15 @@ const DropdownList = <T extends unknown>({
               ))}
             </React.Fragment>
           ))
-        : options.map(({ label, value }, index) => (
+        : options.map((options, index) => (
             <SelectRow
               key={index}
-              label={label}
-              onClick={() => onSelect?.({ label, value })}
+              label={options.label}
+              onClick={() => {
+                onSelect?.(options);
+                onClose?.();
+              }}
+              selected={isSelected(options, selectValue)}
             />
           ))}
     </Styled.List>
