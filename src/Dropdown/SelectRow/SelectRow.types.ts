@@ -8,6 +8,7 @@ type SelectRowElement = {
   icon?: ReactNode;
   disabled?: boolean;
   selected?: boolean;
+  onClick?: () => void;
 };
 type SelectRowSearch = {
   variant: 'search';

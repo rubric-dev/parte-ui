@@ -1,9 +1,11 @@
 import { DropdownListProps } from './DropdownList.types';
 import * as Styled from './DropdownList.styled';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { SelectRow } from '../SelectRow';
+import shallowEqual from 'shallowequal';
+import DropdownContext from '../DropdownContext';
 
-const isGroupOption = <T extends unknown>(
+const isGroupOptions = <T extends unknown>(
   options: Option<T>[] | GroupOption<T>[]
 ): options is GroupOption<T>[] => {
   if (options.length === 0) {
@@ -14,15 +16,26 @@ const isGroupOption = <T extends unknown>(
   }
   return false;
 };
+// const isGroupOption = <T extends unknown>(
+//   options: Option<T> | GroupOption<T>
+// ): options is GroupOption<T> => {
+//   if ('groupName' in options) {
+//     return true;
+//   }
+//   return false;
+// };
 
 const DropdownList = <T extends unknown>({
   options,
-  value,
+  selectValue,
+  onSelect,
   isSearchable,
 }: DropdownListProps<T>) => {
   const [inputValue, setInputValue] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItems = useRef<HTMLDivElement[]>([]);
+
+  const { onClose } = useContext(DropdownContext);
 
   useEffect(() => {
     const root = document.getElementById('root');
@@ -63,6 +76,15 @@ const DropdownList = <T extends unknown>({
     };
   }, []);
 
+  const isSelected = (objA: Option<T>, objB?: Option<T>) => {
+    if (!objB) return false;
+    if (typeof objA.value === 'object') {
+      if (objA.value === null) return false;
+      return shallowEqual(objA.value, objB.value);
+    }
+    return objA.value === objB.value;
+  };
+
   return (
     <Styled.List ref={menuRef}>
       {isSearchable && (
@@ -74,17 +96,29 @@ const DropdownList = <T extends unknown>({
           }}
         />
       )}
-      {isGroupOption(options)
+      {isGroupOptions(options)
         ? options.map(({ groupName, options: groupOptions }, index) => (
             <React.Fragment key={index}>
               <SelectRow variant="title" label={groupName} />
-              {groupOptions.map(({ label, value }) => (
-                <SelectRow key={label} label={label} />
+              {groupOptions.map((groupOption) => (
+                <SelectRow
+                  key={groupOption.label}
+                  label={groupOption.label}
+                  onClick={() => {
+                    onSelect?.(groupOption);
+                    onClose?.();
+                  }}
+                  selected={isSelected(groupOption, selectValue)}
+                />
               ))}
             </React.Fragment>
           ))
         : options.map(({ label, value }, index) => (
-            <SelectRow key={index} label={label} />
+            <SelectRow
+              key={index}
+              label={label}
+              onClick={() => onSelect?.({ label, value })}
+            />
           ))}
     </Styled.List>
   );
