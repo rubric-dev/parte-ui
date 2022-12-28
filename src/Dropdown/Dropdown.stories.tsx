@@ -1,8 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { Button } from '../Button';
 import Dropdown from './Dropdown';
-
-import { SelectRow } from './SelectRow';
 import { DropdownList } from './DropdownList';
 import { DropdownContextState } from './Dropdown.types';
 
@@ -38,6 +36,7 @@ const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
         overflowY: 'auto',
         display: 'flex',
         flexDirection: 'column',
+        padding: '30px',
         // alignItems: 'flex-end',
       }}
     >

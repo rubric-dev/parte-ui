@@ -9,7 +9,7 @@ import { createPortal } from 'react-dom';
 import { CSSProperties } from 'styled-components';
 import useOutsideClick from '../hooks/useOutsideClick';
 import * as Styled from './Dropdown.styled';
-import { DropdownContextState, GroupOption } from './Dropdown.types';
+import { DropdownContextState } from './Dropdown.types';
 import DropdownContext from './DropdownContext';
 import {
   getDropdownPosition,
