@@ -7,6 +7,7 @@ type SelectRowElement = {
   label?: string;
   icon?: ReactNode;
   disabled?: boolean;
+  selected?: boolean;
 };
 type SelectRowSearch = {
   variant: 'search';

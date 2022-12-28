@@ -17,7 +17,7 @@ const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
         <Styled.SearchInput
           variant="search"
           role="selectItemSearchInput"
-          placeholder={props.placeholder}
+          placeholder={props.placeholder ?? 'Search'}
           value={inputValue}
           autoFocus
           onChange={onChange}
@@ -41,6 +41,7 @@ const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
       ref={ref}
       role="selectItem"
       disabled={props.disabled}
+      selected={props.selected}
     >
       {props.label}
     </Styled.SelectRow>
