@@ -29,6 +29,20 @@ const DropdownList = <T extends unknown>({
 
   const { onClose } = useContext(DropdownContext);
 
+  const handleClick = (passedOption: Option<T>) => {
+    onSelect?.(passedOption);
+    onClose?.();
+  };
+
+  const isSelected = (objA: Option<T>, objB?: Option<T>) => {
+    if (!objB) return false;
+    if (typeof objA.value === 'object') {
+      if (objA.value === null) return false;
+      return shallowEqual(objA.value, objB.value);
+    }
+    return objA.value === objB.value;
+  };
+
   useEffect(() => {
     const root = document.getElementById('root');
     const currentMenuRef = menuRef.current;
@@ -57,6 +71,11 @@ const DropdownList = <T extends unknown>({
         case 'ArrowUp':
           nextIndex = indexOfItem - 1 < 0 ? length - 1 : indexOfItem - 1;
           break;
+        case 'Enter':
+          isGroupOptions(options)
+            ? handleClick(options.flatMap((v) => v.options)[indexOfItem])
+            : handleClick(options[indexOfItem]);
+          break;
         default:
           break;
       }
@@ -67,15 +86,6 @@ const DropdownList = <T extends unknown>({
       root.removeEventListener('keydown', onKeyDown);
     };
   }, []);
-
-  const isSelected = (objA: Option<T>, objB?: Option<T>) => {
-    if (!objB) return false;
-    if (typeof objA.value === 'object') {
-      if (objA.value === null) return false;
-      return shallowEqual(objA.value, objB.value);
-    }
-    return objA.value === objB.value;
-  };
 
   return (
     <Styled.List ref={menuRef}>
@@ -96,10 +106,7 @@ const DropdownList = <T extends unknown>({
                 <SelectRow
                   key={groupOption.label}
                   label={groupOption.label}
-                  onClick={() => {
-                    onSelect?.(groupOption);
-                    onClose?.();
-                  }}
+                  onClick={() => handleClick(groupOption)}
                   selected={isSelected(groupOption, selectValue)}
                 />
               ))}
@@ -109,10 +116,7 @@ const DropdownList = <T extends unknown>({
             <SelectRow
               key={index}
               label={options.label}
-              onClick={() => {
-                onSelect?.(options);
-                onClose?.();
-              }}
+              onClick={() => handleClick(options)}
               selected={isSelected(options, selectValue)}
             />
           ))}
