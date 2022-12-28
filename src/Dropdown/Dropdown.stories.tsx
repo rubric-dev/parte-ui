@@ -5,7 +5,7 @@ import { DropdownList } from './DropdownList';
 import { DropdownContextState } from './Dropdown.types';
 import { useState } from 'react';
 
-const OPTIONS = [
+const OPTIONS: Option<string>[] = [
   {
     label: 'label1',
     value: 'value1',
@@ -13,6 +13,7 @@ const OPTIONS = [
   {
     label: 'label2',
     value: 'value2',
+    disabled: true,
   },
   {
     label: 'label3',
@@ -77,7 +78,9 @@ const createOption = (groupNames: string[]) => {
   });
 };
 
-const GroupedTemplate: Story<DropdownContextState<string>> = ({ ...args }) => {
+const GroupedTemplate: Story<
+  DropdownContextState<string> & { isSearchable?: boolean }
+> = ({ isSearchable, ...args }) => {
   const [selectValue, setSelectValue] = useState<Option<string>>();
 
   const onSelect = (value: Option<string>) => {
@@ -104,6 +107,7 @@ const GroupedTemplate: Story<DropdownContextState<string>> = ({ ...args }) => {
             options={createOption(['선민호', '서솔민', '김대균', '도혜원'])}
             selectValue={selectValue}
             onSelect={onSelect}
+            isSearchable={isSearchable}
           />
         </Dropdown.Menu>
       </Dropdown>
@@ -121,5 +125,7 @@ Portal.args = {
   usePortal: true,
 };
 export const Grouped = GroupedTemplate.bind({});
+export const GroupedSearch = GroupedTemplate.bind({});
 
 Grouped.args = {};
+GroupedSearch.args = { isSearchable: true };

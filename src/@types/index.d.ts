@@ -6,6 +6,7 @@ declare global {
   type Option<T> = {
     label: string;
     value: T;
+    disabled?: boolean;
   };
   type GroupOption<T> = {
     groupName: string;

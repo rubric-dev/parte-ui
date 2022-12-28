@@ -1,9 +1,10 @@
 import { DropdownListProps } from './DropdownList.types';
 import * as Styled from './DropdownList.styled';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { SelectRow } from '../SelectRow';
 import shallowEqual from 'shallowequal';
 import DropdownContext from '../DropdownContext';
+import { ARROW_KEYS } from '../../constant';
 
 const isGroupOptions = <T extends unknown>(
   options: Option<T>[] | GroupOption<T>[]
@@ -29,10 +30,13 @@ const DropdownList = <T extends unknown>({
 
   const { onClose } = useContext(DropdownContext);
 
-  const handleClick = (passedOption: Option<T>) => {
-    onSelect?.(passedOption);
-    onClose?.();
-  };
+  const handleClick =
+    (option: Option<T>) => (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === 'Enter') {
+        onSelect?.(option);
+        onClose?.();
+      }
+    };
 
   const isSelected = (objA: Option<T>, objB?: Option<T>) => {
     if (!objB) return false;
@@ -43,19 +47,33 @@ const DropdownList = <T extends unknown>({
     return objA.value === objB.value;
   };
 
+  const filteredOptions = useMemo(() => {
+    if (isGroupOptions(options)) {
+      return options.map((groupOption) => ({
+        ...groupOption,
+        options: groupOption.options.filter(({ label }) =>
+          label.includes(inputValue)
+        ),
+      }));
+    }
+    return options.filter(({ label }) => label.includes(inputValue));
+  }, [inputValue, options]);
+
   useEffect(() => {
     const root = document.getElementById('root');
     const currentMenuRef = menuRef.current;
     if (!currentMenuRef || !root) return;
 
-    menuItems.current = [
-      ...currentMenuRef.querySelectorAll('[role="selectItem"]:not([disabled])'),
-    ] as HTMLDivElement[];
-
     const onKeyDown = (e: KeyboardEvent) => {
-      if ((e.target as HTMLElement).role !== 'selectItemSearchInput') {
-        e.preventDefault();
-      }
+      if (ARROW_KEYS.includes(e.key)) e.preventDefault();
+      if (e.isComposing) return;
+
+      menuItems.current = [
+        ...currentMenuRef.querySelectorAll(
+          '[role="selectItem"]:not([disabled])'
+        ),
+      ] as HTMLDivElement[];
+
       const target = e.target as HTMLDivElement;
       if (target === currentMenuRef) {
         menuItems.current[0]?.focus();
@@ -71,11 +89,6 @@ const DropdownList = <T extends unknown>({
         case 'ArrowUp':
           nextIndex = indexOfItem - 1 < 0 ? length - 1 : indexOfItem - 1;
           break;
-        case 'Enter':
-          isGroupOptions(options)
-            ? handleClick(options.flatMap((v) => v.options)[indexOfItem])
-            : handleClick(options[indexOfItem]);
-          break;
         default:
           break;
       }
@@ -85,7 +98,7 @@ const DropdownList = <T extends unknown>({
     return () => {
       root.removeEventListener('keydown', onKeyDown);
     };
-  }, []);
+  }, [filteredOptions]);
 
   return (
     <Styled.List ref={menuRef}>
@@ -98,28 +111,36 @@ const DropdownList = <T extends unknown>({
           }}
         />
       )}
-      {isGroupOptions(options)
-        ? options.map(({ groupName, options: groupOptions }, index) => (
+      {isGroupOptions(filteredOptions)
+        ? filteredOptions.map(({ groupName, options: groupOptions }, index) => (
             <React.Fragment key={index}>
               <SelectRow variant="title" label={groupName} />
-              {groupOptions.map((groupOption) => (
-                <SelectRow
-                  key={groupOption.label}
-                  label={groupOption.label}
-                  onClick={() => handleClick(groupOption)}
-                  selected={isSelected(groupOption, selectValue)}
-                />
-              ))}
+              {groupOptions
+                .filter(({ label }) => label.includes(inputValue))
+                .map((groupOption) => (
+                  <SelectRow
+                    key={groupOption.label}
+                    label={groupOption.label}
+                    onClick={() => handleClick(groupOption)}
+                    selected={isSelected(groupOption, selectValue)}
+                    disabled={groupOption.disabled}
+                    onKeyDown={handleClick(groupOption)}
+                  />
+                ))}
             </React.Fragment>
           ))
-        : options.map((options, index) => (
-            <SelectRow
-              key={index}
-              label={options.label}
-              onClick={() => handleClick(options)}
-              selected={isSelected(options, selectValue)}
-            />
-          ))}
+        : filteredOptions
+            .filter(({ label }) => label.includes(inputValue))
+            .map((option, index) => (
+              <SelectRow
+                key={index}
+                label={option.label}
+                onClick={() => handleClick(option)}
+                selected={isSelected(option, selectValue)}
+                disabled={option.disabled}
+                onKeyDown={handleClick(option)}
+              />
+            ))}
     </Styled.List>
   );
 };

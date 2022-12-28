@@ -10,6 +10,7 @@ const commonSelectRowStyle = css`
   width: 240px;
   min-height: 32px;
   outline: none;
+  user-select: none;
 `;
 const indicator = css<SelectRowProps>`
   ${({ theme }) => css`
@@ -80,7 +81,7 @@ export const SelectRow = styled(Box)<SelectRowProps>`
         ${props.disabled &&
         css`
           background-color: ${theme.colors.N0} !important;
-          color: ${theme.colors.N700} !important;
+          color: ${theme.colors.N500} !important;
           cursor: default;
         `}
       `;
