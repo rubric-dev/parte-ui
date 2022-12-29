@@ -11,7 +11,7 @@ export const List = styled(Box)`
       border-radius: 4px;
       ${theme.elevation.elevation2};
       display: flex;
-      max-height: 240px;
+      max-height: 273px;
       width: fit-content;
       flex-direction: column;
       overflow-x: hidden;

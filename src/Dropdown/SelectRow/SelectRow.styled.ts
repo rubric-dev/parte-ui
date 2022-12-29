@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { Box } from '../../Layout';
-import { SelectRowProps } from './SelectRow.types';
+import { SelectRowProps, SelectRowType } from './SelectRow.types';
 
 const commonSelectRowStyle = css`
   position: relative;
@@ -11,8 +11,10 @@ const commonSelectRowStyle = css`
   min-height: 32px;
   outline: none;
   user-select: none;
+  display: flex;
+  gap: ${({ theme }) => `${theme.spacing.spacing8}px`};
 `;
-const indicator = css<SelectRowProps>`
+const indicator = css`
   ${({ theme }) => css`
     &::before {
       content: '';
@@ -27,23 +29,29 @@ const indicator = css<SelectRowProps>`
   `}
 `;
 
-const titleStyle = css<SelectRowProps>`
+const titleStyle = css`
   ${({ theme }) => css`
     background-color: ${theme.colors.N0};
     color: ${theme.colors.N600};
     ${theme.typography.C200}
+    border-bottom: 1px solid ${theme.colors.N300};
   `}
 `;
 
-const searchStyle = css<SelectRowProps>`
+const searchStyle = css`
   ${({ theme }) => css`
     background-color: ${theme.colors.N50};
     ${theme.typography.C200}
     color: ${theme.colors.N600};
+    border-bottom: 1px solid ${theme.colors.N400};
   `}
 `;
 
-export const SelectRow = styled(Box)<SelectRowProps>`
+export const SelectRow = styled(Box)<{
+  variant: SelectRowType;
+  selected?: boolean;
+  disabled?: boolean;
+}>`
   ${commonSelectRowStyle}
   ${(props) => {
     const { variant, theme } = props;
@@ -55,6 +63,7 @@ export const SelectRow = styled(Box)<SelectRowProps>`
     if (variant === 'element') {
       return css`
         background-color: ${theme.colorBackgroundDropdown};
+        border-bottom: 1px solid ${theme.colors.N300};
         color: ${theme.colors.N800};
         box-sizing: border-box;
         ${theme.typography.P100}
@@ -68,21 +77,24 @@ export const SelectRow = styled(Box)<SelectRowProps>`
             background-color: ${theme.colorBackgroundDropdownHover};
           `}
         }
-        &:active {
-          ${!props.disabled && indicator}
-        }
         ${props.selected &&
         !props.disabled &&
         css`
           background-color: ${theme.colors.B100};
           color: ${theme.colorBackgroundDropdownSelect};
           ${indicator}
+          svg {
+            color: ${theme.colorBackgroundDropdownSelect};
+          }
         `}
         ${props.disabled &&
         css`
           background-color: ${theme.colors.N0} !important;
           color: ${theme.colors.N500} !important;
           cursor: default;
+          svg {
+            color: ${theme.colors.N500} !important;
+          }
         `}
       `;
     }

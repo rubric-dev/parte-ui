@@ -30,7 +30,7 @@ const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
     return (
       <Styled.SelectRow variant="title" ref={ref} role="selectItemTitle">
         {props.icon}
-        {props.label}
+        {props.children}
       </Styled.SelectRow>
     );
   }
@@ -50,7 +50,8 @@ const SelectRow = forwardRef<HTMLDivElement, SelectRowProps>((props, ref) => {
       onClick={props.onClick}
       onKeyDown={props.onKeyDown}
     >
-      {props.label}
+      {props.icon}
+      {props.children}
     </Styled.SelectRow>
   );
 });

@@ -7,6 +7,7 @@ declare global {
     label: string;
     value: T;
     disabled?: boolean;
+    icon?: React.ReactNode;
   };
   type GroupOption<T> = {
     groupName: string;

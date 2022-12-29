@@ -4,6 +4,7 @@ import Dropdown from './Dropdown';
 import { DropdownList } from './DropdownList';
 import { DropdownContextState } from './Dropdown.types';
 import { useState } from 'react';
+import ActionChatIcon from '../parte-icons/Icons/ActionChatIcon';
 
 const OPTIONS: Option<string>[] = [
   {
@@ -11,13 +12,57 @@ const OPTIONS: Option<string>[] = [
     value: 'value1',
   },
   {
-    label: 'label2',
-    value: 'value2',
+    label: 'label1',
+    value: 'value1',
     disabled: true,
+    icon: <ActionChatIcon size={12} />,
   },
   {
-    label: 'label3',
-    value: 'value3',
+    label: 'label1',
+    value: 'value1',
+    icon: <ActionChatIcon size={12} />,
+  },
+];
+const GROUP_OPTIONS: GroupOption<string>[] = [
+  {
+    groupName: '선민호',
+    options: [
+      {
+        label: 'label1-1',
+        value: 'value1-1',
+      },
+      {
+        label: 'label1-2',
+        value: 'value1-2',
+        disabled: true,
+        icon: <ActionChatIcon size={12} />,
+      },
+      {
+        label: 'label1-3',
+        value: 'value1-3',
+        icon: <ActionChatIcon size={12} />,
+      },
+    ],
+  },
+  {
+    groupName: '서솔민',
+    options: [
+      {
+        label: 'label2-1',
+        value: 'value2-1',
+      },
+      {
+        label: 'label2-2',
+        value: 'value2-2',
+        disabled: true,
+        icon: <ActionChatIcon size={12} />,
+      },
+      {
+        label: 'label2-3',
+        value: 'value2-3',
+        icon: <ActionChatIcon size={12} />,
+      },
+    ],
   },
 ];
 
@@ -67,17 +112,6 @@ const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
   );
 };
 
-const createOption = (groupNames: string[]) => {
-  return groupNames.map((gn, index) => {
-    return {
-      groupName: gn,
-      options: groupNames.map((x, xindex) => {
-        return { label: `${index}-${xindex}`, value: `${index}-${xindex}` };
-      }),
-    };
-  });
-};
-
 const GroupedTemplate: Story<
   DropdownContextState<string> & { isSearchable?: boolean }
 > = ({ isSearchable, ...args }) => {
@@ -104,7 +138,7 @@ const GroupedTemplate: Story<
         </Dropdown.Trigger>
         <Dropdown.Menu>
           <DropdownList
-            options={createOption(['선민호', '서솔민', '김대균', '도혜원'])}
+            options={GROUP_OPTIONS}
             selectValue={selectValue}
             onSelect={onSelect}
             isSearchable={isSearchable}

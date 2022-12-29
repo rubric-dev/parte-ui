@@ -24,20 +24,24 @@ const DropdownList = <T extends unknown>({
   onSelect,
   isSearchable,
 }: DropdownListProps<T>) => {
+  console.log('list render');
   const [inputValue, setInputValue] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItems = useRef<HTMLDivElement[]>([]);
 
   const { onClose } = useContext(DropdownContext);
 
-  const handleClick =
+  const onSelectValue = (option: Option<T>) => {
+    onSelect?.(option);
+    onClose?.();
+  };
+
+  const handleKeyboard =
     (option: Option<T>) => (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (e.key === 'Enter') {
-        onSelect?.(option);
-        onClose?.();
+        onSelectValue(option);
       }
     };
-
   const isSelected = (objA: Option<T>, objB?: Option<T>) => {
     if (!objB) return false;
     if (typeof objA.value === 'object') {
@@ -114,18 +118,22 @@ const DropdownList = <T extends unknown>({
       {isGroupOptions(filteredOptions)
         ? filteredOptions.map(({ groupName, options: groupOptions }, index) => (
             <React.Fragment key={index}>
-              <SelectRow variant="title" label={groupName} />
+              {!!groupOptions.length && (
+                <SelectRow variant="title">{groupName}</SelectRow>
+              )}
               {groupOptions
                 .filter(({ label }) => label.includes(inputValue))
                 .map((groupOption) => (
                   <SelectRow
                     key={groupOption.label}
-                    label={groupOption.label}
-                    onClick={() => handleClick(groupOption)}
+                    onClick={() => onSelectValue(groupOption)}
                     selected={isSelected(groupOption, selectValue)}
                     disabled={groupOption.disabled}
-                    onKeyDown={handleClick(groupOption)}
-                  />
+                    onKeyDown={handleKeyboard(groupOption)}
+                    icon={groupOption.icon}
+                  >
+                    {groupOption.label}
+                  </SelectRow>
                 ))}
             </React.Fragment>
           ))
@@ -134,12 +142,14 @@ const DropdownList = <T extends unknown>({
             .map((option, index) => (
               <SelectRow
                 key={index}
-                label={option.label}
-                onClick={() => handleClick(option)}
+                onClick={() => onSelectValue(option)}
                 selected={isSelected(option, selectValue)}
                 disabled={option.disabled}
-                onKeyDown={handleClick(option)}
-              />
+                onKeyDown={handleKeyboard(option)}
+                icon={option.icon}
+              >
+                {option.label}
+              </SelectRow>
             ))}
     </Styled.List>
   );
