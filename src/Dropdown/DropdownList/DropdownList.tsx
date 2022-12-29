@@ -30,14 +30,17 @@ const DropdownList = <T extends unknown>({
 
   const { onClose } = useContext(DropdownContext);
 
-  const handleClick =
+  const onSelectValue = (option: Option<T>) => {
+    onSelect?.(option);
+    onClose?.();
+  };
+
+  const handleKeyboard =
     (option: Option<T>) => (e: React.KeyboardEvent<HTMLDivElement>) => {
       if (e.key === 'Enter') {
-        onSelect?.(option);
-        onClose?.();
+        onSelectValue(option);
       }
     };
-
   const isSelected = (objA: Option<T>, objB?: Option<T>) => {
     if (!objB) return false;
     if (typeof objA.value === 'object') {
@@ -121,10 +124,10 @@ const DropdownList = <T extends unknown>({
                   <SelectRow
                     key={groupOption.label}
                     label={groupOption.label}
-                    onClick={() => handleClick(groupOption)}
+                    onClick={() => onSelectValue(groupOption)}
                     selected={isSelected(groupOption, selectValue)}
                     disabled={groupOption.disabled}
-                    onKeyDown={handleClick(groupOption)}
+                    onKeyDown={handleKeyboard(groupOption)}
                   />
                 ))}
             </React.Fragment>
@@ -135,10 +138,10 @@ const DropdownList = <T extends unknown>({
               <SelectRow
                 key={index}
                 label={option.label}
-                onClick={() => handleClick(option)}
+                onClick={() => onSelectValue(option)}
                 selected={isSelected(option, selectValue)}
                 disabled={option.disabled}
-                onKeyDown={handleClick(option)}
+                onKeyDown={handleKeyboard(option)}
               />
             ))}
     </Styled.List>
