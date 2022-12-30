@@ -1,5 +1,3 @@
-import { HTMLAttributes } from 'react';
-
 type AlertType = 'alert' | 'toast' | 'alert-inline';
 
 export type AlertProps =
@@ -13,7 +11,8 @@ type AlertBasicProps = {
   title?: string;
   description?: string;
 };
-type AlertToastProps = {
+export type AlertToastProps = {
+  toastId: string | number;
   status: Status;
   type: 'toast';
   title?: string;

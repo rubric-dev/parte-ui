@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { HTMLAttributes, HTMLInputTypeAttribute, useCallback } from 'react';
 import { IconButton } from '../IconButton';
 import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
 import AlertDangerIcon from '../parte-icons/Icons/AlertDangerIcon';
@@ -8,7 +8,7 @@ import AlertWarningIcon from '../parte-icons/Icons/AlertWarningIcon';
 import * as Styled from './Alert.styled';
 import { AlertProps } from './Alert.types';
 
-const Alert = (props: AlertProps) => {
+const Alert = (props: AlertProps & HTMLAttributes<HTMLDivElement>) => {
   const renderIcon = useCallback(
     (currentStatus: Status) => {
       return (
@@ -34,6 +34,8 @@ const Alert = (props: AlertProps) => {
   if (props.type === 'toast') {
     return (
       <Styled.Alert
+        {...props}
+        toastId={props.toastId}
         type={props.type}
         status={props.status}
         onClose={props.onClose}
@@ -46,12 +48,8 @@ const Alert = (props: AlertProps) => {
               variant="minimal"
               size={24}
               Icon={<ActionCrossIcon size={12} color={props.status} />}
-            />
-            {/* <ActionCrossIcon
-              size={16}
               onClick={props.onClose}
-              style={{ cursor: 'pointer' }}
-            /> */}
+            />
           </Styled.Header>
         </Styled.InfoWrap>
         {props.description && (
@@ -62,7 +60,7 @@ const Alert = (props: AlertProps) => {
   }
 
   return (
-    <Styled.Alert type={props.type} status={props.status}>
+    <Styled.Alert {...props} type={props.type} status={props.status}>
       <Styled.InfoWrap>
         {renderIcon(props.status)}
         <Styled.Title>{props.title}</Styled.Title>

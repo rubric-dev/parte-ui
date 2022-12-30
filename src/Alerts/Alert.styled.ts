@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
 import { Box } from '../Layout';
 import { IconColor } from '../parte-icons/component/Icon';
@@ -66,6 +67,7 @@ const commonStyle = css<AlertProps>`
       theme
     );
     return css`
+      min-width: 110px;
       display: flex;
       flex-direction: column;
       background-color: ${backgroundColor};
@@ -76,6 +78,8 @@ const commonStyle = css<AlertProps>`
       gap: ${theme.spacing.spacing4}px;
       padding: ${theme.spacing.spacing12}px ${theme.spacing.spacing16}px;
       box-sizing: border-box;
+      height: fit-content;
+      width: 100%;
     `;
   }}
 `;
@@ -95,7 +99,7 @@ const alertStyle = css<AlertProps>`
   }}
 `;
 
-export const Alert = styled(Box)<AlertProps>`
+export const Alert = styled(Box)<AlertProps & HTMLAttributes<HTMLDivElement>>`
   ${(props) => {
     const { type } = props;
     if (type === 'alert-inline') {
@@ -114,6 +118,7 @@ export const Alert = styled(Box)<AlertProps>`
       `;
     }
   }}
+  position: 'relative',
 `;
 
 export const InfoWrap = styled(Box)`
