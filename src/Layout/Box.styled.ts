@@ -22,6 +22,7 @@ export const commonBoxStyle = css<BoxProps>`
     alignItems = 'Start',
     gap = 0,
     flexWrap = false,
+    flexBasis,
     padding,
     paddingTop,
     paddingBottom,
@@ -34,6 +35,7 @@ export const commonBoxStyle = css<BoxProps>`
       justify-content: ${JUSTIFY_CONTENT[justifyContent]};
       align-items: ${ALIGN_ITEMS[alignItems]};
       gap: ${gap}px;
+      flex-basis: ${flexBasis ? `${flexBasis}px` : 'unset'};
       flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
       height: 100%;
       ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}

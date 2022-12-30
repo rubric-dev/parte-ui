@@ -22,10 +22,13 @@ export const Tab = styled.button<TabProps>`
           width: 100%;
         }
       `}
+      svg {
+        color: ${theme.colors.N600};
+      }
       &:hover {
         color: ${theme.colors.N800};
         svg {
-          color: ${theme.colors.N800};
+          color: ${theme.colors.N700};
         }
       }
       &:focus {
@@ -37,7 +40,7 @@ export const Tab = styled.button<TabProps>`
       &:active {
         color: ${theme.colors.N900};
         svg {
-          color: ${theme.colors.N900};
+          color: ${theme.colors.N700};
         }
       }
       &:focus {

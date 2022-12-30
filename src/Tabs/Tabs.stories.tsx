@@ -6,6 +6,7 @@ import Tab from './Tab/Tab';
 import { TabVariant } from './Tab/Tab.types';
 import ActionTickIcon from '../parte-icons/Icons/ActionTickIcon';
 import { SidebarTab } from './SidebarTab';
+import { Box } from '../Layout';
 
 export default {
   title: 'Components/Tabs',
@@ -86,25 +87,29 @@ const SideBarTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
 }) => {
   const [selected, setSelected] = useState<Option<string>>(SAMPLE_TABS[0]);
   return (
-    <Tabs {...args}>
-      {SAMPLE_TABS.map((option) => {
-        const active = selected.label === option.label;
+    <Box>
+      <Tabs {...args}>
+        {SAMPLE_TABS.map((option) => {
+          const active = selected.label === option.label;
 
-        return (
-          <SidebarTab
-            key={option.label}
-            onClick={() => setSelected(option)}
-            selected={active}
-            variant={variant}
-          >
-            {option.label}
-          </SidebarTab>
-        );
-      })}
-    </Tabs>
+          return (
+            <SidebarTab
+              key={option.label}
+              onClick={() => setSelected(option)}
+              selected={active}
+              variant={variant}
+            >
+              {option.label}
+            </SidebarTab>
+          );
+        })}
+      </Tabs>
+    </Box>
   );
 };
 
 export const SideBarTab = SideBarTemplate.bind({});
 
-SideBarTab.args = {};
+SideBarTab.args = {
+  flexBasis: 200,
+};
