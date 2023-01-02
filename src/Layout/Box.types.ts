@@ -25,6 +25,7 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
    * */
   alignItems?: 'Start' | 'Center' | 'End';
   flexWrap?: boolean;
+  flexBasis?: number;
   gap?: Spacing[keyof typeof SPACING];
   padding?: Spacing[keyof typeof SPACING];
   paddingTop?: Spacing[keyof typeof SPACING];
