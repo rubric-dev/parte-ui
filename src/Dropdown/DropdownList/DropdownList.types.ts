@@ -3,4 +3,5 @@ export type DropdownListProps<T> = {
   selectValue?: Option<T>;
   onSelect?: (value: Option<T>) => void;
   isSearchable?: boolean;
+  noOptionsText?: string;
 };

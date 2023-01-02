@@ -34,7 +34,9 @@ const titleStyle = css`
     background-color: ${theme.colors.N0};
     color: ${theme.colors.N600};
     ${theme.typography.C200}
-    border-bottom: 1px solid ${theme.colors.N300};
+    &:not(:last-child) {
+      border-bottom: 1px solid ${theme.colors.N300};
+    }
   `}
 `;
 
@@ -43,7 +45,9 @@ const searchStyle = css`
     background-color: ${theme.colors.N50};
     ${theme.typography.C200}
     color: ${theme.colors.N600};
-    border-bottom: 1px solid ${theme.colors.N400};
+    &:not(:last-child) {
+      border-bottom: 1px solid ${theme.colors.N400};
+    }
   `}
 `;
 
@@ -63,7 +67,9 @@ export const SelectRow = styled(Box)<{
     if (variant === 'element') {
       return css`
         background-color: ${theme.colorBackgroundDropdown};
-        border-bottom: 1px solid ${theme.colors.N300};
+        &:not(:last-child) {
+          border-bottom: 1px solid ${theme.colors.N300};
+        }
         color: ${theme.colors.N800};
         box-sizing: border-box;
         ${theme.typography.P100}

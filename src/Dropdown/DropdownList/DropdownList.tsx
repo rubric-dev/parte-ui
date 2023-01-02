@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { SelectRow } from '../SelectRow';
 import shallowEqual from 'shallowequal';
 import DropdownContext from '../DropdownContext';
-import { ARROW_KEYS } from '../../constant';
+import { ARROW_VERTICAL_KEYS } from '../../constant';
 
 const isGroupOptions = <T extends unknown>(
   options: Option<T>[] | GroupOption<T>[]
@@ -23,8 +23,8 @@ const DropdownList = <T extends unknown>({
   selectValue,
   onSelect,
   isSearchable,
+  noOptionsText,
 }: DropdownListProps<T>) => {
-  console.log('list render');
   const [inputValue, setInputValue] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
   const menuItems = useRef<HTMLDivElement[]>([]);
@@ -69,7 +69,7 @@ const DropdownList = <T extends unknown>({
     if (!currentMenuRef || !root) return;
 
     const onKeyDown = (e: KeyboardEvent) => {
-      if (ARROW_KEYS.includes(e.key)) e.preventDefault();
+      if (ARROW_VERTICAL_KEYS.includes(e.key)) e.preventDefault();
       if (e.isComposing) return;
 
       menuItems.current = [
@@ -104,6 +104,14 @@ const DropdownList = <T extends unknown>({
     };
   }, [filteredOptions]);
 
+  const noOption = useMemo(() => {
+    if (filteredOptions.length === 0) return true;
+    if (isGroupOptions(filteredOptions)) {
+      return filteredOptions.every(({ options }) => options.length === 0);
+    }
+    return false;
+  }, [filteredOptions]);
+
   return (
     <Styled.List ref={menuRef}>
       {isSearchable && (
@@ -114,6 +122,11 @@ const DropdownList = <T extends unknown>({
             setInputValue(e.target.value);
           }}
         />
+      )}
+      {noOption && (
+        <Styled.NoOption justifyContent="Center" alignItems="Center">
+          {noOptionsText ?? 'No Options found'}
+        </Styled.NoOption>
       )}
       {isGroupOptions(filteredOptions)
         ? filteredOptions.map(({ groupName, options: groupOptions }, index) => (
