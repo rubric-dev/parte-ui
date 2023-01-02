@@ -1,7 +1,5 @@
-import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { Box } from '../../Layout';
-import { DropdownListProps } from './DropdownList.types';
 
 export const List = styled(Box)`
   ${({ theme }) => {
@@ -18,4 +16,14 @@ export const List = styled(Box)`
       overflow-y: auto;
     `;
   }}
+`;
+
+export const NoOption = styled(Box)`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 120px;
+    ${theme.elevation.elevation2};
+    ${theme.typography.P100}
+    color: ${theme.colors.N800};
+  `}
 `;
