@@ -43,32 +43,31 @@ export const StyledButton = styled.button<
     css`
       background-color: ${theme.colorBackgroundButtonPrimary};
       & svg {
-        color: ${IconColor[iconColor] || theme.colorTextButtonPrimary};
+        color: ${theme.colorTextButtonPrimary};
       }
       &:hover {
         background-color: ${theme.colorBackgroundButtonPrimaryHover};
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonPrimaryHover};
+          color: ${theme.colorTextButtonPrimaryHover};
         }
       }
       &:focus {
         background-color: ${theme.colorBackgroundButtonPrimaryFocused};
         ${theme.commonStyles.outline}
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonPrimaryFocused};
+          color: ${theme.colorTextButtonPrimaryFocused};
         }
       }
       &:active {
         background-color: ${theme.colorBackgroundButtonPrimaryActive};
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonPrimaryActive};
+          color: ${theme.colorTextButtonPrimaryActive};
         }
       }
       &:disabled {
         background-color: ${theme.colorBackgroundButtonPrimaryDisabled};
         & svg {
-          color: ${IconColor[iconColor] ||
-          theme.colorTextButtonPrimaryDisabled};
+          color: ${theme.colorTextButtonPrimaryDisabled};
         }
       }
     `}
@@ -152,31 +151,31 @@ export const StyledButton = styled.button<
     css`
       background-color: ${theme.colorBackgroundButtonError};
       & svg {
-        color: ${IconColor[iconColor] || theme.colorTextButtonError};
+        color: ${theme.colorTextButtonError};
       }
       &:hover {
         background-color: ${theme.colorBackgroundButtonErrorHover};
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonErrorHover};
+          color: ${theme.colorTextButtonErrorHover};
         }
       }
       &:focus {
         background-color: ${theme.colorBackgroundButtonErrorFocused};
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonErrorFocused};
+          color: ${theme.colorTextButtonErrorFocused};
         }
         ${theme.commonStyles.outlineError}
       }
       &:active {
         background-color: ${theme.colorBackgroundButtonErrorActive};
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonErrorActive};
+          color: ${theme.colorTextButtonErrorActive};
         }
       }
       &:disabled {
         background-color: ${theme.colorBackgroundButtonErrorDisabled};
         & svg {
-          color: ${IconColor[iconColor] || theme.colorTextButtonErrorDisabled};
+          color: ${theme.colorTextButtonErrorDisabled};
         }
       }
     `}

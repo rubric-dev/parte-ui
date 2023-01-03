@@ -34,7 +34,7 @@ const Template: Story<AlertProps> = ({ ...args }) => {
         onClick={() =>
           toaster.notify({
             title: '미식가세요?ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅇㅋㅋㅋㅎㅋㅋㅋㅋ',
-            status: 'info',
+            status: 'error',
           })
         }
       >
@@ -57,7 +57,7 @@ const Template: Story<AlertProps> = ({ ...args }) => {
         onClick={() =>
           toaster.notify({
             title: 'g.o.d',
-            status: 'info',
+            status: 'success',
             description:
               '지오디? ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ엌 ㅋㅋㅋㅋㅋㅋ엌ㅋㅋㅋㅋ',
           })
