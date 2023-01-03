@@ -1,7 +1,5 @@
 import { DROPDOWN_POSITION } from '../constant';
 
-export {};
-
 declare global {
   type Option<T> = {
     label: string;

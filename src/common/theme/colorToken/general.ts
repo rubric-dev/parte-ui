@@ -12,9 +12,9 @@ const generalToken = {
   colorBorderFocused: COLORS.B300,
   colorBorderDisabled: COLORS.N300,
 
-  colorBackgroundDropdown: COLORS.N0,
-  colorBackgroundDropdownHover: COLORS.N50,
-  colorBackgroundDropdownSelected: COLORS.B100,
+  colorBackgroundMenu: COLORS.N0,
+  colorBackgroundMenuHover: COLORS.N50,
+  colorBackgroundMenuSelected: COLORS.B100,
 } as const;
 
 export default {

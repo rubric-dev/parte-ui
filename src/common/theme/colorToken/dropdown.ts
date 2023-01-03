@@ -3,7 +3,7 @@ import { COLORS } from '../../../@foundations/Colors';
 const dropdownToken = {
   colorBackgroundDropdown: COLORS.N0,
   colorBackgroundDropdownHover: COLORS.N50,
-  colorBackgroundDropdownSelect: COLORS.B400,
+  colorBackgroundDropdownSelected: COLORS.B100,
 } as const;
 
 export default {

@@ -18,12 +18,23 @@ const isGroupOptions = <T extends unknown>(
   return false;
 };
 
+const compareValue = (value1: unknown, value2: unknown) => {
+  if (typeof value1 === 'object' && typeof value2 === 'object') {
+    if (value1 === null) return value1 === value2;
+    return shallowEqual(value1, value2);
+  }
+  return value1 === value2;
+};
+
 const DropdownList = <T extends unknown>({
   options,
-  selectValue,
+  value,
   onSelect,
+  onChange,
   isSearchable,
   noOptionsText,
+  isMulti,
+  closeOnSelect,
 }: DropdownListProps<T>) => {
   const [inputValue, setInputValue] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
@@ -33,7 +44,29 @@ const DropdownList = <T extends unknown>({
 
   const onSelectValue = (option: Option<T>) => {
     onSelect?.(option);
-    onClose?.();
+    if (isMulti) {
+      if (!value) {
+        onChange?.([option]);
+      } else if (!('length' in value)) {
+        console.warn(
+          'value props should be array type if you use isMulti option.'
+        );
+      } else {
+        const newValue = value.find(({ value: selectedValue }) =>
+          compareValue(selectedValue, option.value)
+        )
+          ? value.filter(
+              ({ value: selectedValue }) =>
+                !compareValue(selectedValue, option.value)
+            )
+          : [...value, option];
+        onChange?.(newValue);
+      }
+    } else {
+      onChange?.(option);
+    }
+    const isCloseOnSelect = closeOnSelect ?? !isMulti;
+    if (isCloseOnSelect) onClose?.();
   };
 
   const handleKeyboard =
@@ -42,13 +75,18 @@ const DropdownList = <T extends unknown>({
         onSelectValue(option);
       }
     };
-  const isSelected = (objA: Option<T>, objB?: Option<T>) => {
-    if (!objB) return false;
-    if (typeof objA.value === 'object') {
-      if (objA.value === null) return false;
-      return shallowEqual(objA.value, objB.value);
+
+  const isSelected = (
+    targetOpt: Option<T>,
+    selectedOpt?: Option<T> | Option<T>[]
+  ) => {
+    if (!selectedOpt) return false;
+    if ('length' in selectedOpt) {
+      return selectedOpt.some(({ value }) =>
+        compareValue(targetOpt.value, value)
+      );
     }
-    return objA.value === objB.value;
+    return compareValue(targetOpt.value, selectedOpt.value);
   };
 
   const filteredOptions = useMemo(() => {
@@ -113,7 +151,7 @@ const DropdownList = <T extends unknown>({
   }, [filteredOptions]);
 
   return (
-    <Styled.List ref={menuRef}>
+    <Styled.List ref={menuRef} direction="column">
       {isSearchable && (
         <SelectRow
           variant="search"
@@ -140,10 +178,11 @@ const DropdownList = <T extends unknown>({
                   <SelectRow
                     key={groupOption.label}
                     onClick={() => onSelectValue(groupOption)}
-                    selected={isSelected(groupOption, selectValue)}
+                    selected={isSelected(groupOption, value)}
                     disabled={groupOption.disabled}
                     onKeyDown={handleKeyboard(groupOption)}
                     icon={groupOption.icon}
+                    shouldFocusWhenSelected={!isMulti}
                   >
                     {groupOption.label}
                   </SelectRow>
@@ -156,10 +195,11 @@ const DropdownList = <T extends unknown>({
               <SelectRow
                 key={index}
                 onClick={() => onSelectValue(option)}
-                selected={isSelected(option, selectValue)}
+                selected={isSelected(option, value)}
                 disabled={option.disabled}
                 onKeyDown={handleKeyboard(option)}
                 icon={option.icon}
+                shouldFocusWhenSelected={!isMulti}
               >
                 {option.label}
               </SelectRow>
