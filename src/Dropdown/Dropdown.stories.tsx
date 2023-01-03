@@ -12,14 +12,14 @@ const OPTIONS: Option<string>[] = [
     value: 'value1',
   },
   {
-    label: 'label1',
-    value: 'value1',
+    label: 'label2',
+    value: 'value2',
     disabled: true,
     icon: <ActionChatIcon size={12} />,
   },
   {
-    label: 'label1',
-    value: 'value1',
+    label: 'label3',
+    value: 'value3',
     icon: <ActionChatIcon size={12} />,
   },
 ];
@@ -64,6 +64,26 @@ const GROUP_OPTIONS: GroupOption<string>[] = [
       },
     ],
   },
+  {
+    groupName: '김대균',
+    options: [
+      {
+        label: 'label3-1',
+        value: 'value3-1',
+      },
+      {
+        label: 'label3-2',
+        value: 'value3-2',
+        disabled: true,
+        icon: <ActionChatIcon size={12} />,
+      },
+      {
+        label: 'label3-3',
+        value: 'value3-3',
+        icon: <ActionChatIcon size={12} />,
+      },
+    ],
+  },
 ];
 
 export default {
@@ -103,7 +123,7 @@ const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
         <Dropdown.Menu>
           <DropdownList
             options={OPTIONS}
-            selectValue={selectValue}
+            value={selectValue}
             onSelect={onSelect}
           />
         </Dropdown.Menu>
@@ -128,10 +148,8 @@ const GroupedTemplate: Story<
         display: 'flex',
         flexDirection: 'column',
         padding: '30px',
-        // alignItems: 'flex-end',
       }}
     >
-      {/* <div style={{ width: '100%', height: '500px' }}>스크롤용</div> */}
       <Dropdown {...args}>
         <Dropdown.Trigger>
           <Button variant="primary">{selectValue?.label ?? 'empty'}</Button>
@@ -139,9 +157,48 @@ const GroupedTemplate: Story<
         <Dropdown.Menu>
           <DropdownList
             options={GROUP_OPTIONS}
-            selectValue={selectValue}
+            value={selectValue}
             onSelect={onSelect}
             isSearchable={isSearchable}
+          />
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
+  );
+};
+const MultiTemplate: Story<
+  DropdownContextState<string> & { closeOnSelect: boolean }
+> = ({ closeOnSelect, ...args }) => {
+  const [selectValue, setSelectValue] = useState<Option<string>[]>();
+
+  return (
+    <div
+      style={{
+        height: '1600px',
+        overflowY: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: '30px',
+      }}
+    >
+      <Dropdown {...args}>
+        <Dropdown.Trigger>
+          <Button variant="primary">
+            {selectValue?.map(({ label }) => label).join(', ') || 'empty'}
+          </Button>
+        </Dropdown.Trigger>
+        <Dropdown.Menu>
+          <DropdownList
+            options={GROUP_OPTIONS}
+            value={selectValue}
+            isMulti
+            onChange={(options) => {
+              if ('length' in options) {
+                setSelectValue(options);
+              }
+            }}
+            isSearchable
+            closeOnSelect={closeOnSelect}
           />
         </Dropdown.Menu>
       </Dropdown>
@@ -163,3 +220,5 @@ export const GroupedSearch = GroupedTemplate.bind({});
 
 Grouped.args = {};
 GroupedSearch.args = { isSearchable: true };
+export const MultiSelect = MultiTemplate.bind({});
+MultiSelect.args = { closeOnSelect: false };

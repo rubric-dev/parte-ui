@@ -2,7 +2,7 @@ import { ChangeEvent, KeyboardEvent, ReactNode } from 'react';
 
 export type SelectRowType = 'search' | 'title' | 'element';
 
-type SelectRowElement = {
+export type SelectRowElement = {
   variant?: 'element';
   children?: ReactNode;
   icon?: ReactNode;
@@ -10,15 +10,16 @@ type SelectRowElement = {
   selected?: boolean;
   onClick?: () => void;
   onKeyDown?: (e: KeyboardEvent<HTMLDivElement>) => void;
+  shouldFocusWhenSelected?: boolean;
 };
-type SelectRowSearch = {
+export type SelectRowSearch = {
   variant: 'search';
   inputValue?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   disabled?: boolean;
 };
-type SelectRowTitle = {
+export type SelectRowTitle = {
   variant: 'title';
   children?: ReactNode;
   icon?: ReactNode;

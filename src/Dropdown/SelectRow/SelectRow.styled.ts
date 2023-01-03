@@ -86,20 +86,20 @@ export const SelectRow = styled(Box)<{
         ${props.selected &&
         !props.disabled &&
         css`
-          background-color: ${theme.colors.B100};
-          color: ${theme.colorBackgroundDropdownSelect};
+          background-color: ${theme.colorBackgroundDropdownSelected};
+          color: ${theme.colors.B400};
           ${indicator}
           svg {
-            color: ${theme.colorBackgroundDropdownSelect};
+            color: ${theme.colors.B400};
           }
         `}
         ${props.disabled &&
         css`
-          background-color: ${theme.colors.N0} !important;
-          color: ${theme.colors.N500} !important;
+          background-color: ${theme.colors.N0};
+          color: ${theme.colors.N500};
           cursor: default;
           svg {
-            color: ${theme.colors.N500} !important;
+            color: ${theme.colors.N400};
           }
         `}
       `;

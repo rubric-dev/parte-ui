@@ -27,7 +27,7 @@ const Dropdown = ({ children, ...rest }: DropdownContextState<string>) => {
   const onClose = useCallback(() => {
     setIsOpen(false);
   }, []);
-  useOutsideClick([dropdownRef], () => onClose?.());
+  useOutsideClick([dropdownRef], () => onClose());
 
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
     if (e.key === 'Escape') onClose();

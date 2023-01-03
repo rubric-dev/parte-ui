@@ -30,7 +30,7 @@ export const Container = styled(Box)<ContainerProps>`
       height: ${isTitle ? '32px' : '40px'};
       min-width: 208px;
       width: fit-content;
-      background-color: ${theme.colorBackgroundDropdown};
+      background-color: ${theme.colorBackgroundMenu};
       display: flex;
       align-items: center;
       padding: ${`0 ${theme.spacing.spacing16}px`};
@@ -41,20 +41,20 @@ export const Container = styled(Box)<ContainerProps>`
       ${hover &&
       !isTitle &&
       css`
-        background-color: ${theme.colorBackgroundDropdownHover};
+        background-color: ${theme.colorBackgroundMenuHover};
       `}
       ${selected &&
       !isTitle &&
       css`
         ${sideBarStyle}
-        background-color: ${theme.colorBackgroundDropdownSelected};
+        background-color: ${theme.colorBackgroundMenuSelected};
         color: ${theme.colors.B400};
       `}
       ${disabled &&
       !isTitle &&
       css`
         color: ${theme.colors.N700};
-        background-color: ${theme.colorBackgroundDropdown};
+        background-color: ${theme.colorBackgroundMenu};
       `}
       ${type === 'checkbox' &&
       css`

@@ -8,10 +8,8 @@ export const List = styled(Box)`
       border: 1px solid ${theme.colors.N300};
       border-radius: 4px;
       ${theme.elevation.elevation2};
-      display: flex;
       max-height: 273px;
       width: fit-content;
-      flex-direction: column;
       overflow-x: hidden;
       overflow-y: auto;
     `;
