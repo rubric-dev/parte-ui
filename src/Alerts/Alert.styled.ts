@@ -86,7 +86,7 @@ const commonStyle = css<AlertProps>`
 const toastStyle = css<AlertProps>`
   ${({ theme }) => {
     return css`
-      ${theme.elevation.elevation2};
+      ${theme.elevation.elevation1};
       ${commonStyle}
     `;
   }}
