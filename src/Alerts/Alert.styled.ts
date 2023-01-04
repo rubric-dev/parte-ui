@@ -66,17 +66,21 @@ const commonStyle = css<AlertProps>`
       status,
       theme
     );
+
+    const borderPixel = 1;
+
     return css`
       min-width: 110px;
       display: flex;
       flex-direction: column;
       background-color: ${backgroundColor};
       color: ${color};
-      border: 1px solid ${iconColor};
+      border: ${borderPixel}px solid ${iconColor};
       border-radius: 8px;
       max-width: 487px;
       gap: ${theme.spacing.spacing4}px;
-      padding: ${theme.spacing.spacing12}px ${theme.spacing.spacing16}px;
+      padding: ${theme.spacing.spacing12 - borderPixel}px
+        ${theme.spacing.spacing16 - borderPixel}px;
       box-sizing: border-box;
       height: fit-content;
       width: 100%;
