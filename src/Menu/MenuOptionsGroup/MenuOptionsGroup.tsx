@@ -1,0 +1,32 @@
+import ActionTickIcon from '../../parte-icons/Icons/ActionTickIcon';
+import { MenuRow } from '../MenuRow';
+import * as Styled from './MenuOptionsGroup.styled';
+import { MenuOptionsGroupProps } from './MenuOptionsGroup.types';
+
+export default function MenuOptionsGroup<T>({
+  title,
+  options,
+  selected,
+  onChange,
+}: MenuOptionsGroupProps<T>) {
+  return (
+    <Styled.Group direction="column">
+      {title && <MenuRow type="title">{title}</MenuRow>}
+      {options.map(({ label, value }) => {
+        const isSelected = value === selected;
+        return (
+          <MenuRow
+            leftSlot={
+              isSelected ? <ActionTickIcon size={16} /> : <Styled.EmptyIcon />
+            }
+            type="element"
+            selected={isSelected}
+            onSelect={() => onChange(value)}
+          >
+            {label}
+          </MenuRow>
+        );
+      })}
+    </Styled.Group>
+  );
+}

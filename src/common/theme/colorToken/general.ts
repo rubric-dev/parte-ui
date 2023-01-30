@@ -11,6 +11,10 @@ const generalToken = {
   // colorBorderDefault: 속성이 없음,
   colorBorderFocused: COLORS.B300,
   colorBorderDisabled: COLORS.N300,
+
+  colorBackgroundMenu: COLORS.N0,
+  colorBackgroundMenuHover: COLORS.N50,
+  colorBackgroundMenuSelected: COLORS.B100,
 } as const;
 
 export default {

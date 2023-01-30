@@ -131,6 +131,7 @@ export default css`
     list-style-type: none;
   }
   button {
+    padding: 0;
     outline: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -142,6 +143,7 @@ export default css`
 
   input,
   textarea,
+  button,
   body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system,
       BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
