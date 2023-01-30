@@ -44,7 +44,7 @@ const createOption = (groupNames: string[]) => {
 export const Default = Template.bind({});
 Default.args = {
   options: OPTION,
-  selectValue: {
+  value: {
     label: 'label1-2',
     value: 'value1-2',
   },
