@@ -18,5 +18,4 @@ const Template: Story<SelectRowProps> = ({ ...args }) => {
 export const Default = Template.bind({});
 Default.args = {
   variant: 'element',
-  label: 'Label',
 };
