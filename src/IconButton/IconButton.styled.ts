@@ -3,7 +3,7 @@ import { IconColor } from '../parte-icons/component/Icon';
 import { IconButtonProps } from './IconButton.types';
 
 const commonButtonStyles = css<Omit<IconButtonProps, 'Icon'>>`
-  ${({ theme, size = 16 }) => css`
+  ${({ size = 16 }) => css`
     width: ${size}px;
     height: ${size}px;
   `}
@@ -38,7 +38,7 @@ export const StyledButton = styled.button<
   }
 >`
   ${commonButtonStyles}
-  ${({ theme, variant, iconColor = 'default' }) =>
+  ${({ theme, variant }) =>
     variant === 'primary' &&
     css`
       background-color: ${theme.colorBackgroundButtonPrimary};
@@ -146,7 +146,7 @@ export const StyledButton = styled.button<
         }
       }
     `}
-  ${({ theme, variant, iconColor = 'default' }) =>
+  ${({ theme, variant }) =>
     variant === 'error' &&
     css`
       background-color: ${theme.colorBackgroundButtonError};

@@ -34,7 +34,7 @@ function ColorList() {
             {colorMap[letter[0]]?.map((color) => {
               const [key, value] = Object.entries(color)[0];
               return (
-                <Item color={value}>
+                <Item key={value} color={value}>
                   <Name>{key}</Name>
                   <ColorCode>{value}</ColorCode>
                 </Item>

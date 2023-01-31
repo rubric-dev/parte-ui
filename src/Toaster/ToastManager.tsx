@@ -80,7 +80,7 @@ const ToastManager = memo(function ToastManager({
   };
 
   const notify: NotifyHandler = (toastState) => {
-    let tempToasts = toasts;
+    const tempToasts = toasts;
 
     const instance = createToastInstance(toastState);
     setToasts([instance, ...tempToasts]);

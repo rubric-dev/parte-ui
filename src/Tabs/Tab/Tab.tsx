@@ -9,10 +9,8 @@ const Tab = forwardRef<HTMLButtonElement, TabProps>((props: TabProps, ref) => {
     children,
     variant = 'Primary',
     direction = 'horizontal',
-    disabled,
   } = props;
 
-  console.log(disabled);
   return (
     <Styled.Tab
       ref={ref}

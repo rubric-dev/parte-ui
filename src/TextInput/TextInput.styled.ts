@@ -123,13 +123,13 @@ export const ErrorText = styled.p`
 `;
 
 export const Input = styled.input<TextInputProps>`
-  ${({ theme, leftSlot, rightSlot, errorText, fullWidth }) => css`
+  ${({ theme, leftSlot, fullWidth }) => css`
     outline: none;
     border: none;
     box-sizing: border-box;
     height: 32px;
     padding: ${theme.spacing.spacing8}px ${theme.spacing.spacing12}px;
-    padding-left: ${!!leftSlot
+    padding-left: ${leftSlot
       ? css`
           ${theme.spacing.spacing8}px
         `

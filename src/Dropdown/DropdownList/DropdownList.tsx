@@ -6,7 +6,7 @@ import shallowEqual from 'shallowequal';
 import DropdownContext from '../DropdownContext';
 import { ARROW_VERTICAL_KEYS } from '../../constant';
 
-const isGroupOptions = <T extends unknown>(
+const isGroupOptions = <T,>(
   options: Option<T>[] | GroupOption<T>[]
 ): options is GroupOption<T>[] => {
   if (options.length === 0) {
@@ -26,7 +26,7 @@ const compareValue = (value1: unknown, value2: unknown) => {
   return value1 === value2;
 };
 
-const DropdownList = <T extends unknown>({
+const DropdownList = <T,>({
   options,
   value,
   onSelect,

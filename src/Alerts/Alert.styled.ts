@@ -96,7 +96,7 @@ const toastStyle = css<AlertProps>`
   }}
 `;
 const alertStyle = css<AlertProps>`
-  ${({ theme }) => {
+  ${() => {
     return css`
       ${commonStyle}
     `;

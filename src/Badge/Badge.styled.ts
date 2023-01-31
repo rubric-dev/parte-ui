@@ -19,7 +19,7 @@ export const Badge = styled(Box)<BadgeProps>`
 `;
 
 export const Text = styled.span<BadgeProps>`
-  ${({ theme }) => css`
+  ${() => css`
     font-weight: 600;
     font-size: 11px;
     line-height: 16px;

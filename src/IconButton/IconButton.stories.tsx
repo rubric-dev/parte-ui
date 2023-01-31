@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import IconButton from './IconButton';
 import { Story, Meta } from '@storybook/react';
 import { IconButtonProps } from './IconButton.types';

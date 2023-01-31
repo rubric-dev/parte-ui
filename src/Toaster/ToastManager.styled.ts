@@ -4,7 +4,7 @@ import { Box } from '../Layout';
 const ANIMATION_DURATION = 240;
 
 export const ToastContainer = styled(Box)`
-  ${({ theme }) => css`
+  ${() => css`
     position: fixed;
     top: 0;
     left: 0;

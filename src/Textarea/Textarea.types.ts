@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from 'react';
+import { TextareaHTMLAttributes } from 'react';
 
 export type TextAreaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   errorText?: string;

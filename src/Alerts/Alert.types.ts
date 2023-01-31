@@ -1,5 +1,3 @@
-type AlertType = 'alert' | 'toast' | 'alert-inline';
-
 export type AlertProps =
   | AlertBasicProps
   | AlertToastProps
