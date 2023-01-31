@@ -13,7 +13,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<AlertProps> = ({ ...args }) => {
+const Template: Story<AlertProps> = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <Button

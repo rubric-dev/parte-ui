@@ -12,7 +12,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<MenuGroupProps> = ({ children, ...args }) => {
+const Template: Story<MenuGroupProps> = ({ ...args }) => {
   return (
     <MenuGroup {...args}>
       <MenuRow>Label 1</MenuRow>

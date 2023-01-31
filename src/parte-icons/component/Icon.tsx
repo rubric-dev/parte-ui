@@ -70,9 +70,6 @@ const Icon = React.forwardRef<HTMLSpanElement, IconProps>((props, ref) => {
   );
 });
 
-// @ts-ignore
-// Icon.elementType = 'Icon';
-
 type SvgFn = (
   props: Pick<IconProps, 'style' | 'color' | 'size'>
 ) => JSX.Element;
@@ -87,8 +84,7 @@ const convertIcon = (Svg: SvgFn, iconType: string) => {
   >((props, ref) => (
     <Icon svg={<Svg />} type={iconType} ref={ref as any} {...props} />
   ));
-  // @ts-ignore
-  // InnerIcon.elementType = 'Icon';
+
   return InnerIcon;
 };
 

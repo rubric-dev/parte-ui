@@ -52,7 +52,6 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
       }
 
       if (!inputValue) {
-        console.log('값을 입력해 주세요');
         return;
       }
 

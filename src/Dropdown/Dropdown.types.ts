@@ -1,6 +1,6 @@
-import React, { HTMLAttributes, RefObject, ReactNode } from 'react';
+import { RefObject, ReactNode } from 'react';
 
-export type GroupOption<T> = {
+export type GroupOption = {
   title: string;
 };
 export type DropdownContextState<T> = {

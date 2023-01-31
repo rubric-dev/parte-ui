@@ -50,7 +50,7 @@ const Trigger = ({ children }: { children: React.ReactNode }) => {
 };
 
 const Menu = ({ children }: { children: React.ReactNode }) => {
-  const { usePortal, isOpen, dropdownRef, offset, onClose, onClick } =
+  const { usePortal, isOpen, dropdownRef, offset } =
     useContext(DropdownContext);
   const menuRef = useRef<HTMLDivElement>(null);
 

@@ -2,7 +2,6 @@ import MenuOptionsGroup from './MenuOptionsGroup';
 import { Story, Meta } from '@storybook/react';
 import { MenuOptionsGroupProps } from './MenuOptionsGroup.types';
 import Menu from '../Menu';
-import { MenuRow } from '../MenuRow';
 import { MenuDivider } from '../MenuDivider';
 import { useState } from 'react';
 
@@ -15,7 +14,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<MenuOptionsGroupProps<string>> = ({ ...args }) => {
+const Template: Story<MenuOptionsGroupProps<string>> = () => {
   const [selectedOrder, setSelectedOrder] = useState('asc');
   const [selectedField, setSelectedField] = useState('email');
 

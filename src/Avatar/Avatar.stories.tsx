@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import Avatar from './Avatar';
 import { Story, Meta } from '@storybook/react';
 import { AvatarProps } from './Avatar.types';
@@ -12,7 +11,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<AvatarProps> = ({ children, ...args }) => {
+const Template: Story<AvatarProps> = ({ ...args }) => {
   return <Avatar {...args} />;
 };
 

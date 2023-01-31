@@ -1,4 +1,4 @@
-import { HTMLAttributes, HTMLInputTypeAttribute, useCallback } from 'react';
+import { HTMLAttributes } from 'react';
 import { IconButton } from '../IconButton';
 import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
 import AlertDangerIcon from '../parte-icons/Icons/AlertDangerIcon';
