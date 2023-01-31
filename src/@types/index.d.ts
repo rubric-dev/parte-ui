@@ -13,4 +13,6 @@ declare global {
   };
   type DropdownPosition =
     typeof DROPDOWN_POSITION[keyof typeof DROPDOWN_POSITION];
+
+  type Status = 'success' | 'info' | 'warning' | 'error';
 }

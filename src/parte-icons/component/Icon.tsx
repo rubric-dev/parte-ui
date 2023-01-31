@@ -1,15 +1,18 @@
 import React, { CSSProperties, DetailedHTMLProps } from 'react';
 import { COLORS } from '../../@foundations/Colors';
 
-const IconColor = {
+export const IconColor: Record<
+  Status | 'default' | 'muted' | 'disabled' | 'selected',
+  string
+> = {
   default: COLORS.N700,
   muted: COLORS.N600,
   disabled: COLORS.N400,
   selected: COLORS.B500,
-  info: COLORS.B500,
-  success: COLORS.G500,
-  warning: COLORS.O500,
-  danger: COLORS.R500,
+  info: COLORS.B400,
+  success: COLORS.G400,
+  warning: COLORS.Y400,
+  error: COLORS.R400,
 } as const;
 
 type IconColorType = keyof typeof IconColor;
@@ -24,8 +27,6 @@ export interface IconProps
   color?: IconColorType;
   type?: string;
 }
-
-const getColor = (type: IconColorType) => {};
 
 const Icon = React.forwardRef<HTMLSpanElement, IconProps>((props, ref) => {
   const {
