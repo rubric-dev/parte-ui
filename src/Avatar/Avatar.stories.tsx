@@ -17,7 +17,7 @@ const Template: Story<AvatarProps> = ({ ...args }) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  avatarColor: 'AUTO',
+  avatarColor: 'BLUE',
   name: 'solmin Seo',
   src: 'https://avatars.githubusercontent.com/u/40189520?v=4',
   showInitial: true,
