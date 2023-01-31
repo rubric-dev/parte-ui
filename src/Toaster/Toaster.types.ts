@@ -5,4 +5,5 @@ export type ToastMinimumState = {
   description?: string;
 };
 
-export type ToastHandlerType<T> = (passedProps: T) => void;
+export type NotifyHandler = (toastProps: ToastMinimumState) => void;
+export type RemoveHandler = (id: string | number) => void;

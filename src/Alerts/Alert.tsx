@@ -8,21 +8,20 @@ import AlertWarningIcon from '../parte-icons/Icons/AlertWarningIcon';
 import * as Styled from './Alert.styled';
 import { AlertProps } from './Alert.types';
 
-const Alert = (props: AlertProps & HTMLAttributes<HTMLDivElement>) => {
-  const renderIcon = useCallback(
-    (currentStatus: Status) => {
-      return (
-        <>
-          {currentStatus === 'success' && <AlertSuccessIcon size={16} />}
-          {currentStatus === 'info' && <AlertInfoIcon size={16} />}
-          {currentStatus === 'warning' && <AlertWarningIcon size={16} />}
-          {currentStatus === 'error' && <AlertDangerIcon size={16} />}
-        </>
-      );
-    },
-    [props.status]
-  );
+const renderIcon = (currentStatus: Status) => {
+  switch (currentStatus) {
+    case 'success':
+      return <AlertSuccessIcon size={16} />;
+    case 'info':
+      return <AlertInfoIcon size={16} />;
+    case 'warning':
+      return <AlertWarningIcon size={16} />;
+    case 'error':
+      return <AlertDangerIcon size={16} />;
+  }
+};
 
+const Alert = (props: AlertProps & HTMLAttributes<HTMLDivElement>) => {
   if (props.type === 'alert-inline') {
     return (
       <Styled.Alert type={props.type} status={props.status}>

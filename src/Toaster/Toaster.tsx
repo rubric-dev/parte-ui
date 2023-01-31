@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from '../common/theme';
-import { ToastMinimumState, ToastHandlerType } from './Toaster.types';
+import { NotifyHandler, RemoveHandler } from './Toaster.types';
 import ToastManager from './ToastManager';
 
 /**
@@ -10,8 +10,8 @@ import ToastManager from './ToastManager';
  */
 
 interface IToaster {
-  notifyHandler: ToastHandlerType<ToastMinimumState>;
-  removeHandler: (id: string | number) => void;
+  notifyHandler: NotifyHandler;
+  removeHandler: RemoveHandler;
 }
 
 const getMajorVersion = (version: string) => {
@@ -20,8 +20,8 @@ const getMajorVersion = (version: string) => {
 };
 
 export default class Toaster implements IToaster {
-  notifyHandler = (passedProps: ToastMinimumState) => {};
-  removeHandler = (id: string | number) => {};
+  notifyHandler: NotifyHandler = () => {};
+  removeHandler: RemoveHandler = () => {};
 
   constructor() {
     const canUseDom = Boolean(typeof window !== 'undefined' && window.document);
@@ -57,19 +57,19 @@ export default class Toaster implements IToaster {
     ReactDOM.render(toastManager(), container);
   }
 
-  _bindNotify = (handler: ToastHandlerType<ToastMinimumState>) => {
+  _bindNotify = (handler: NotifyHandler) => {
     this.notifyHandler = handler;
   };
 
-  _bindRemove = (handler: ToastHandlerType<string | number>) => {
+  _bindRemove = (handler: RemoveHandler) => {
     this.removeHandler = handler;
   };
 
-  notify = (passedProps: ToastMinimumState) => {
-    return this.notifyHandler(passedProps);
+  notify: NotifyHandler = (toastProps) => {
+    return this.notifyHandler(toastProps);
   };
 
-  remove = (id: string | number) => {
+  remove: RemoveHandler = (id) => {
     return this.removeHandler(id);
   };
 }

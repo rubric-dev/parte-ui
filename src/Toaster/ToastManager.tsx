@@ -1,7 +1,10 @@
-import { memo, useState } from 'react';
-import { AlertToastProps } from '../Alerts/Alert.types';
+import { memo, useRef, useState } from 'react';
 import Toast from './Toast';
-import { ToastHandlerType, ToastMinimumState } from './Toaster.types';
+import {
+  NotifyHandler,
+  RemoveHandler,
+  ToastMinimumState,
+} from './Toaster.types';
 
 import * as Styled from './ToastManager.styled';
 
@@ -15,15 +18,16 @@ export type ToastState = {
 };
 
 type ToastManagerProps = {
-  bindNotify: (handler: ToastHandlerType<ToastMinimumState>) => void;
-  bindRemove: (handler: ToastHandlerType<number | string>) => void;
+  bindNotify: (handler: NotifyHandler) => void;
+  bindRemove: (hanlder: RemoveHandler) => void;
 };
+
 const ToastManager = memo(function ToastManager({
   bindNotify,
   bindRemove,
 }: ToastManagerProps) {
   const [toasts, setToasts] = useState<ToastState[]>([]);
-  const [idCounter, setIdCounter] = useState(0);
+  const idCounter = useRef(0);
 
   const removeToast = (id: number | string) => {
     const updatedToasts = toasts.filter(
@@ -55,15 +59,14 @@ const ToastManager = memo(function ToastManager({
     );
 
     if (toastToRemove) {
-      // console.log('asd');
       closeToast(toastToRemove.id);
     }
   };
 
   const createToastInstance = (passedProps: ToastMinimumState): ToastState => {
     const { title, description, status } = passedProps;
-    const uniqueId = idCounter;
-    setIdCounter(idCounter + 1);
+    const uniqueId = idCounter.current;
+    idCounter.current += 1;
 
     const fixedId = uniqueId;
 
@@ -76,7 +79,7 @@ const ToastManager = memo(function ToastManager({
     };
   };
 
-  const notify = (toastState: ToastMinimumState) => {
+  const notify: NotifyHandler = (toastState) => {
     let tempToasts = toasts;
 
     const instance = createToastInstance(toastState);

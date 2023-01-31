@@ -1,9 +1,9 @@
-import { memo, useRef, useState, useEffect, useCallback, useMemo } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { Transition } from 'react-transition-group';
 import { Alert } from '../Alerts';
+import { Box } from '../Layout';
 import { ToastState } from './ToastManager';
 import * as Styled from './ToastManager.styled';
-import { Transition } from 'react-transition-group';
-import { Box } from '../Layout';
 
 type ToastProps = {
   toast: ToastState;
@@ -15,7 +15,7 @@ const Toast = memo(function Toast({ toast, onRemove }: ToastProps) {
   const transitionRef = useRef(null);
   const [isShown, setIsShown] = useState(true);
   const [height, setHeight] = useState(0);
-  const closeTimer = useRef<any>(null);
+  const closeTimer = useRef<NodeJS.Timeout | null>(null);
 
   const clearCloseTimer = useCallback(() => {
     if (closeTimer.current) {
@@ -62,7 +62,7 @@ const Toast = memo(function Toast({ toast, onRemove }: ToastProps) {
     [startCloseTimer]
   );
 
-  const onRef = useCallback((ref: any) => {
+  const onRef = useCallback((ref: HTMLDivElement) => {
     if (ref === null) return;
 
     const { height: rectHeight } = ref.getBoundingClientRect();
