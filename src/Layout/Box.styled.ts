@@ -37,7 +37,6 @@ export const commonBoxStyle = css<BoxProps>`
       gap: ${gap}px;
       flex-basis: ${flexBasis ? `${flexBasis}px` : 'unset'};
       flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
-      height: 100%;
       ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
       ${[
         typeof paddingLeft === 'number'
@@ -49,14 +48,10 @@ export const commonBoxStyle = css<BoxProps>`
           ? `padding-right: ${paddingRight}px;`
           : '',
       ]}
-      ${[
-        typeof paddingTop === 'number'
-          ? `padding-bottom: ${paddingTop}px;`
-          : '',
-      ]}
+      ${[typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '']}
       ${[
         typeof paddingBottom === 'number'
-          ? `padding-top: ${paddingBottom}px;`
+          ? `padding-bottom: ${paddingBottom}px;`
           : '',
       ]}
     `}

@@ -190,11 +190,14 @@ const Overlay = memo(
         >
           {(state) => (
             <Styled.BackDrop
+              justifyContent="Center"
               ref={containerRef}
               onClick={handleBackdropClick}
               data-state={state}
             >
-              {children}
+              {typeof children === 'function'
+                ? children({ state, close })
+                : children}
             </Styled.BackDrop>
           )}
         </Transition>

@@ -1,9 +1,11 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
+export type ButtonVariant = 'primary' | 'secondary' | 'minimal' | 'error';
+
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant: 'primary' | 'secondary' | 'minimal' | 'error';
-  leadingIcon?: React.ReactNode;
-  trailingIcon?: React.ReactNode;
+  variant: ButtonVariant;
+  leftSlot?: React.ReactNode;
+  rightSlot?: React.ReactNode;
   disabled?: boolean;
   fullWidth?: boolean;
   /**

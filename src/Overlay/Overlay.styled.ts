@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { Box } from '../Layout';
 
 const animationEasing = {
   deceleration: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
@@ -25,7 +26,7 @@ const fadeOutAnimation = keyframes`
   }
 `;
 
-export const BackDrop = styled.div`
+export const BackDrop = styled(Box)`
   ${() => css`
     background: rgba(67, 90, 111, 0.7);
     box-sizing: border-box;
@@ -35,6 +36,7 @@ export const BackDrop = styled.div`
     width: 100%;
     height: 100%;
     z-index: 100;
+
     &[data-state='entering'] {
       animation: ${fadeInAnimation} ${ANIMATION_DURATION}ms
         ${animationEasing.deceleration} both;
