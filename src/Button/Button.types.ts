@@ -1,6 +1,6 @@
-import React, { HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
-export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant: 'primary' | 'secondary' | 'minimal' | 'error';
   leftSlot?: React.ReactNode;
   rightSlot?: React.ReactNode;
