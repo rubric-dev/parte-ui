@@ -4,8 +4,8 @@ import { TabProps } from './Tab.types';
 
 const Tab = forwardRef<HTMLButtonElement, TabProps>((props: TabProps, ref) => {
   const {
-    leftSlot,
-    rightSlot,
+    leadingIcon,
+    trailingIcon,
     children,
     variant = 'Primary',
     direction = 'horizontal',
@@ -19,9 +19,9 @@ const Tab = forwardRef<HTMLButtonElement, TabProps>((props: TabProps, ref) => {
       variant={variant}
       direction={direction}
     >
-      {leftSlot}
+      {leadingIcon}
       {children}
-      {rightSlot}
+      {trailingIcon}
     </Styled.Tab>
   );
 });

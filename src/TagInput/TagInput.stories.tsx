@@ -36,7 +36,7 @@ const Template: Story<TagInputProps> = ({ ...args }) => {
   return (
     <TagInput
       {...args}
-      rightSlot={
+      trailingIcon={
         <div style={{ display: 'flex', gap: '8px' }}>
           <ActionCrossIcon
             size={12}

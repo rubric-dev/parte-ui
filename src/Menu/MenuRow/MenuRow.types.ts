@@ -8,5 +8,5 @@ export type MenuRowProps = {
   onSelect?: () => void;
   selected?: boolean;
   disabled?: boolean;
-  leftSlot?: React.ReactNode;
+  leadingIcon?: React.ReactNode;
 };

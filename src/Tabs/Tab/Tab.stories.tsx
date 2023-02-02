@@ -28,11 +28,11 @@ Disabled.args = {
 };
 export const Icon = Template.bind({});
 Icon.args = {
-  rightSlot: <ActionLockIcon size={12} />,
+  trailingIcon: <ActionLockIcon size={12} />,
 };
 export const IconDisabled = Template.bind({});
 IconDisabled.args = {
-  rightSlot: <ActionLockIcon size={12} />,
+  trailingIcon: <ActionLockIcon size={12} />,
   disabled: true,
   variant: 'Primary',
 };

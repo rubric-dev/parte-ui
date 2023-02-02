@@ -19,13 +19,15 @@ const Template: Story<MenuProps> = () => {
   return (
     <Menu>
       <Menu.Group title="TITLE">
-        <Menu.Row leftSlot={<ActionChatIcon size={16} />}>Label 1</Menu.Row>
-        <Menu.Row leftSlot={<ActionChatIcon size={16} />}>Label 2</Menu.Row>
-        <Menu.Row leftSlot={<ActionRefreshIcon size={16} />}>Label 3</Menu.Row>
+        <Menu.Row leadingIcon={<ActionChatIcon size={16} />}>Label 1</Menu.Row>
+        <Menu.Row leadingIcon={<ActionChatIcon size={16} />}>Label 2</Menu.Row>
+        <Menu.Row leadingIcon={<ActionRefreshIcon size={16} />}>
+          Label 3
+        </Menu.Row>
       </Menu.Group>
       <Menu.Divider />
       <Menu.Group title="TITLE 2">
-        <Menu.Row leftSlot={<ActionCrossIcon size={16} />}>Label</Menu.Row>
+        <Menu.Row leadingIcon={<ActionCrossIcon size={16} />}>Label</Menu.Row>
       </Menu.Group>
     </Menu>
   );
@@ -46,7 +48,7 @@ const SelectableTemplate: Story<MenuProps> = () => {
             key={label}
             onSelect={() => setSelected(value)}
             selected={selected === value}
-            leftSlot={<ActionChatIcon size={16} />}
+            leadingIcon={<ActionChatIcon size={16} />}
           >
             {label}
           </Menu.Row>
@@ -54,7 +56,7 @@ const SelectableTemplate: Story<MenuProps> = () => {
       </Menu.Group>
       <Menu.Divider />
       <Menu.Group title="TITLE 2">
-        <Menu.Row leftSlot={<ActionCrossIcon size={16} />}>Delete</Menu.Row>
+        <Menu.Row leadingIcon={<ActionCrossIcon size={16} />}>Delete</Menu.Row>
       </Menu.Group>
     </Menu>
   );
