@@ -30,7 +30,7 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
       label,
       description,
       required = false,
-      rightSlot,
+      trailingIcon,
       errorText,
       disabled,
       onFocus,
@@ -136,9 +136,9 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
               }}
             />
           </Box>
-          {rightSlot && (
+          {trailingIcon && (
             <Styled.RightIconContainer disabled={!!props.disabled}>
-              {rightSlot}
+              {trailingIcon}
             </Styled.RightIconContainer>
           )}
         </Styled.InputWrapper>

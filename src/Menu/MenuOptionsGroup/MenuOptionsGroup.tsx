@@ -17,7 +17,7 @@ export default function MenuOptionsGroup<T>({
         return (
           <MenuRow
             key={label}
-            leftSlot={
+            leadingIcon={
               isSelected ? <ActionTickIcon size={16} /> : <Styled.EmptyIcon />
             }
             type="element"

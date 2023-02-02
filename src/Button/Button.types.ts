@@ -2,8 +2,8 @@ import React, { ButtonHTMLAttributes } from 'react';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant: 'primary' | 'secondary' | 'minimal' | 'error';
-  leftSlot?: React.ReactNode;
-  rightSlot?: React.ReactNode;
+  leadingIcon?: React.ReactNode;
+  trailingIcon?: React.ReactNode;
   disabled?: boolean;
   fullWidth?: boolean;
   /**

@@ -23,13 +23,13 @@ Default.args = {};
 
 export const Search = Template.bind({});
 Search.args = {
-  leftSlot: <ActionSearchIcon size={12} color="muted" />,
+  leadingIcon: <ActionSearchIcon size={12} color="muted" />,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  leftSlot: <ActionSearchIcon size={12} color="muted" />,
-  rightSlot: (
+  leadingIcon: <ActionSearchIcon size={12} color="muted" />,
+  trailingIcon: (
     <div style={{ display: 'flex', gap: '8px' }}>
       <ActionCrossIcon size={12} color="muted" />
       <InterfaceCaretDownIcon size={12} color="muted" />
@@ -40,7 +40,7 @@ Disabled.args = {
 
 export const Error = Template.bind({});
 Error.args = {
-  rightSlot: <ActionSearchIcon size={12} color="muted" />,
+  trailingIcon: <ActionSearchIcon size={12} color="muted" />,
   errorText: 'error!!',
 };
 
@@ -61,16 +61,16 @@ WithDescription.args = {
   description: 'Description',
 };
 
-export const WithRightSlot = Template.bind({});
-WithRightSlot.args = {
-  leftSlot: <ActionSearchIcon size={12} color="muted" />,
-  rightSlot: <InterfaceCaretDownIcon size={12} color="muted" />,
+export const WithTrailingIcon = Template.bind({});
+WithTrailingIcon.args = {
+  leadingIcon: <ActionSearchIcon size={12} color="muted" />,
+  trailingIcon: <InterfaceCaretDownIcon size={12} color="muted" />,
 };
 
 export const WithManyIcon = Template.bind({});
 WithManyIcon.args = {
-  leftSlot: <ActionSearchIcon size={12} color="muted" />,
-  rightSlot: (
+  leadingIcon: <ActionSearchIcon size={12} color="muted" />,
+  trailingIcon: (
     // 여기는 어떻게 하는게 좋을까요
     // 오른쪽에 2개의 아이콘이 들어갈 경우가있는데, 두 아이콘 사이의 간격은 항상 8px 이어야합니다.
     // 그런데 사용측에서 직접 8px을 넘겨줘야해요

@@ -60,7 +60,7 @@ const IconTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
             onClick={() => setSelected(option)}
             selected={active}
             variant={variant}
-            rightSlot={active ? <ActionTickIcon size={12} /> : undefined}
+            trailingIcon={active ? <ActionTickIcon size={12} /> : undefined}
           >
             {option.label}
           </Tab>
