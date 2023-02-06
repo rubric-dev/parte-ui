@@ -1,4 +1,11 @@
-import { memo, useState, useEffect, useRef, MouseEventHandler } from 'react';
+import {
+  memo,
+  useState,
+  useEffect,
+  useRef,
+  MouseEventHandler,
+  useCallback,
+} from 'react';
 import preventBodyScroll from '../common/utils/scroll.util';
 import { Portal } from '../Portal';
 import { OverlayProps } from './Overlay.types';
@@ -10,7 +17,7 @@ const Overlay = memo(
   ({
     children,
     preventBodyScrolling = true,
-    shouldAutoFocus = true,
+    shouldAutoFocus = false,
     shouldCloseOnClick = true,
     shouldCloseOnEsc = true,
     beforeClose,
@@ -35,10 +42,10 @@ const Overlay = memo(
       }
     }, [isShown]);
 
-    const close = () => {
+    const close = useCallback(() => {
       if (beforeClose?.()) return;
       setStatus('exiting');
-    };
+    }, [beforeClose]);
 
     const onEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && shouldCloseOnEsc) close();

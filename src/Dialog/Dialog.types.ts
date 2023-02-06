@@ -1,37 +1,40 @@
 import { ReactNode } from 'react';
+import { TransitionStatus } from 'react-transition-group';
+import {
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemedStyledProps,
+} from 'styled-components';
+import { Elevation } from '../@foundations/Elevation/elevation';
 import { ButtonVariant } from '../Button/Button.types';
+import { BoxProps } from '../Layout/Box.types';
 
 type DialogSubCompProps = { close: () => void };
 export type DialogSubComponent = ({ close }: DialogSubCompProps) => ReactNode;
 type CloseHandler = (close: () => void) => void;
 
 export interface DialogProps {
+  close: () => void;
+  onCancel?: CloseHandler;
+  onConfirm?: CloseHandler;
   children?: ReactNode | DialogSubComponent;
-  preventBodyScrolling?: boolean;
-  shouldAutoFocus?: boolean;
-  shouldCloseOnEsc?: boolean;
-  shouldCloseOnOverlayClick?: boolean;
-  cancelLabel?: string;
-  confirmLabel?: string;
-  // containerProps?: {};
-  // contentContainerProps?: {};
-  footer?: DialogSubComponent;
-  hasCancel?: boolean;
-  hasClose?: boolean;
-  hasFooter?: boolean;
   hasHeader?: boolean;
   header?: DialogSubComponent;
+  hasClose?: boolean;
+  title?: string;
+  footer?: DialogSubComponent;
+  hasFooter?: boolean;
+  hasCancel?: boolean;
+  cancelLabel?: string;
+  confirmLabel?: string;
+  confirmVariant?: ButtonVariant;
   isConfirmDisabled?: boolean;
   isConfirmLoading?: boolean;
-  isShown: boolean;
   minHeightContent?: number;
-  onCancel?: CloseHandler;
-  onCloseComplete?: () => void;
-  onConfirm?: CloseHandler;
-  onOpenComplete?: () => void;
-  sideOffset?: string;
-  title?: string;
-  topOffset?: string;
   width?: number;
-  confirmVariant?: ButtonVariant;
+  elevation?: Elevation;
+  state?: TransitionStatus;
+  overrideStyles?: FlattenInterpolation<
+    ThemedStyledProps<BoxProps, DefaultTheme>
+  >;
 }

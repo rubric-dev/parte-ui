@@ -5,9 +5,11 @@ import {
   TransitionStatus,
 } from 'react-transition-group/Transition';
 
+export type OverlayClose = () => void;
+
 export type OverlayChildrenProps = {
   state: TransitionStatus;
-  close: () => void;
+  close: OverlayClose;
 };
 export interface OverlayProps {
   children?:

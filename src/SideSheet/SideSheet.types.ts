@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+import { OverlayClose } from '../Overlay/Overlay.types';
 
-type SideSheetSubCompProps = { close: () => void };
+type SideSheetSubCompProps = { close: OverlayClose };
 export type SideSheetSubComponent = ({
   close,
 }: SideSheetSubCompProps) => ReactNode;

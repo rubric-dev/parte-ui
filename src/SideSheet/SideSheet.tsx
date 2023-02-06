@@ -13,7 +13,7 @@ const SideSheet = memo(function SideSheet(props: SideSheetProps) {
     onOpenComplete,
     onCloseComplete,
     beforeClose,
-    shouldAutoFocus = true,
+    shouldAutoFocus = false,
     shouldCloseOnOverlayClick = true,
     shouldCloseOnEscapePress = true,
     // position = Position.RIGHT,

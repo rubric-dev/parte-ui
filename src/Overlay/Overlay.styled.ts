@@ -1,10 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
+import { animationEasing } from '../constant';
 import { Box } from '../Layout';
 
-const animationEasing = {
-  deceleration: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
-  acceleration: 'cubic-bezier(0.4, 0.0, 1, 1)',
-};
+const { deceleration, acceleration } = animationEasing;
 
 export const ANIMATION_DURATION = 240;
 
@@ -27,8 +25,8 @@ const fadeOutAnimation = keyframes`
 `;
 
 export const BackDrop = styled(Box)`
-  ${() => css`
-    background: rgba(67, 90, 111, 0.7);
+  ${({ theme }) => css`
+    background-color: ${theme.colorModalBackground};
     box-sizing: border-box;
     position: fixed;
     top: 0px;
@@ -38,20 +36,18 @@ export const BackDrop = styled(Box)`
     z-index: 100;
 
     &[data-state='entering'] {
-      animation: ${fadeInAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.deceleration} both;
+      animation: ${fadeInAnimation} ${ANIMATION_DURATION}ms ${deceleration} both;
     }
     &[data-state='entered'] {
-      animation: ${fadeInAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.deceleration} both;
+      animation: ${fadeInAnimation} ${ANIMATION_DURATION}ms ${deceleration} both;
     }
     &[data-state='exiting'] {
-      animation: ${fadeOutAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.acceleration} both;
+      animation: ${fadeOutAnimation} ${ANIMATION_DURATION}ms ${acceleration}
+        both;
     }
     &[data-state='exited'] {
-      animation: ${fadeOutAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.acceleration} both;
+      animation: ${fadeOutAnimation} ${ANIMATION_DURATION}ms ${acceleration}
+        both;
     }
   `}
 `;

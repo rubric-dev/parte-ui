@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 
+export type Elevation = 0 | 1 | 2 | 3;
 const elevation = {
   elevation0: css`
     box-shadow: 0px 0px 1px 0px #1018404d, 0px 2px 4px -2px #435a6f78;

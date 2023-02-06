@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { getElevation } from '../common/utils/elevation.util';
 import { BoxProps } from './Box.types';
 
 const JUSTIFY_CONTENT = {
@@ -29,6 +30,7 @@ export const commonBoxStyle = css<BoxProps>`
     paddingLeft,
     paddingRight,
     fullWidth,
+    elevation,
   }) =>
     css`
       display: flex;
@@ -57,5 +59,6 @@ export const commonBoxStyle = css<BoxProps>`
           ? `padding-bottom: ${paddingBottom}px;`
           : '',
       ]}
+      ${typeof elevation === 'number' && getElevation(elevation)}
     `}
 `;

@@ -1,52 +1,10 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Box } from '../Layout';
 
-const animationEasing = {
-  deceleration: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
-  acceleration: 'cubic-bezier(0.4, 0.0, 1, 1)',
-};
-
-export const ANIMATION_DURATION = 200;
-
-const openAnimation = keyframes`
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1
-  }
-`;
-
-const closeAnimation = keyframes`
-  from {
-    transform: scale(1);
-    opacity: 1
-  }
-  to {
-    transform: scale(0.8);
-    opacity: 0
-  }
-`;
 export const DialogContainer = styled(Box)`
   ${({ theme }) => css`
     background-color: ${theme.colors.N0};
     display: flex;
-    ${theme.elevation.elevation0}
-
-    &[data-state='entering'] {
-      animation: ${openAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.deceleration} both;
-    }
-    &[data-state='entered'] {
-      animation: ${openAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.deceleration} both;
-    }
-    &[data-state='exiting'] {
-      animation: ${closeAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.acceleration} both;
-    }
   `}
 `;
 export const Header = styled(Box)`

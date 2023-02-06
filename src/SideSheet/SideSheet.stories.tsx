@@ -101,11 +101,17 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
         onCloseComplete={() => setOpen(false)}
       >
         <Containter direction="column" fullWidth>
-          <Header padding={16} direction="column" fullWidth>
+          <Header
+            padding={32}
+            paddingTop={24}
+            paddingBottom={24}
+            direction="column"
+            fullWidth
+          >
             <Title>Title</Title>
             Optional description or sub title
           </Header>
-          <TabList padding={8} fullWidth>
+          <TabList padding={8} paddingLeft={32} paddingRight={32} fullWidth>
             <Tabs>
               {['Traits', 'Event History', 'Identities'].map((tab, index) => (
                 <Tab
@@ -120,7 +126,7 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
             </Tabs>
           </TabList>
         </Containter>
-        <Body fullWidth padding={16}>
+        <Body fullWidth padding={16} paddingLeft={32} paddingRight={32}>
           <Card alignItems="Center" justifyContent="Center">
             Some content
           </Card>
