@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { TagProps } from './Tag.types';
 
 export default {
-  title: 'Components/TagInput/Tag',
+  title: 'Components/Forms/TagInput/Tag',
   component: Tag,
   parameters: {
     layout: 'centered',

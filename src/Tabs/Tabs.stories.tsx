@@ -9,7 +9,7 @@ import { SidebarTab } from './SidebarTab';
 import { Box } from '../Layout';
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Components/Controls/Tabs',
   component: Tabs,
   parameters: {
     layout: 'centered',

@@ -3,7 +3,7 @@ import { BadgeProps } from './Badge.types';
 import Badge from './Badge';
 
 export default {
-  title: 'Components/Badges',
+  title: 'Components/Avatars & Badges/Badges',
   component: Badge,
   parameters: {
     layout: 'centered',

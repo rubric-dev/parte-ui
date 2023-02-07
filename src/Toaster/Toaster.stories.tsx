@@ -5,7 +5,7 @@ import { AlertProps } from '../Alerts/Alert.types';
 import { Button } from '../Button';
 
 export default {
-  title: 'Components/Toaster',
+  title: 'Components/Alerts/Toaster',
   component: Alert,
   parameters: {
     layout: 'centered',

@@ -6,7 +6,7 @@ import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon'
 import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
 
 export default {
-  title: 'Components/TextInput',
+  title: 'Components/Forms/TextInput',
   component: TextInput,
   parameters: {
     layout: 'centered',

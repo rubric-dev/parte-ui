@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { TagOption } from './Tag/Tag.types';
 
 export default {
-  title: 'Components/TagInput',
+  title: 'Components/Forms/TagInput',
   component: TagInput,
   parameters: {
     layout: 'centered',

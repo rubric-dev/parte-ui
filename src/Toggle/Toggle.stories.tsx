@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { ToggleProps } from './Toggle.types';
 
 export default {
-  title: 'Components/Toggle',
+  title: 'Components/Controls/Toggle',
   component: Toggle,
   parameters: {
     layout: 'centered',
