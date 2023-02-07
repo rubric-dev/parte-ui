@@ -3,7 +3,7 @@ import { AlertProps } from './Alert.types';
 import Alert from './Alert';
 
 export default {
-  title: 'Components/Alert',
+  title: 'Components/Alerts/Alert',
   component: Alert,
   parameters: {
     layout: 'centered',

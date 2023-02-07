@@ -9,7 +9,7 @@ import styled, { css } from 'styled-components';
 import { Box } from '../Layout';
 
 export default {
-  title: 'Components/SideSheet',
+  title: 'Components/Overlays/SideSheet',
   component: SideSheet,
   parameters: {
     layout: 'centered',
@@ -126,7 +126,13 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
             </Tabs>
           </TabList>
         </Containter>
-        <Body fullWidth padding={16} paddingLeft={32} paddingRight={32}>
+        <Body
+          fullWidth
+          padding={16}
+          paddingTop={24}
+          paddingLeft={32}
+          paddingRight={32}
+        >
           <Card alignItems="Center" justifyContent="Center">
             Some content
           </Card>

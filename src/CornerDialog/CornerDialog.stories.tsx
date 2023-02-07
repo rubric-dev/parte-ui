@@ -5,7 +5,7 @@ import CornerDialog from './CornerDialog';
 import { CornerDialogProps } from './CornerDialog.types';
 
 export default {
-  title: 'Components/CornerDialog',
+  title: 'Components/Overlays/CornerDialog',
   component: CornerDialog,
   parameters: {
     layout: 'centered',

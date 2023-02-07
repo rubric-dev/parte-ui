@@ -5,7 +5,7 @@ import Overlay from './Overlay';
 import { OverlayProps } from './Overlay.types';
 
 export default {
-  title: 'Components/Overlay',
+  title: 'Components/Overlays/Overlay',
   component: Overlay,
   parameters: {
     layout: 'centered',

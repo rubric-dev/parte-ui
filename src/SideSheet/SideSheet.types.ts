@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { TransitionStatus } from 'react-transition-group';
 import { OverlayClose } from '../Overlay/Overlay.types';
 
 type SideSheetSubCompProps = { close: OverlayClose };
@@ -16,10 +17,10 @@ export type SideSheetProps = {
   shouldAutoFocus?: boolean;
   shouldCloseOnOverlayClick?: boolean;
   shouldCloseOnEscapePress?: boolean;
-  // position: ;
   preventBodyScrolling?: boolean;
 };
 
 export type SideCloseProps = {
   onClick: () => void;
+  state: TransitionStatus;
 };

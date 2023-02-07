@@ -16,7 +16,6 @@ const SideSheet = memo(function SideSheet(props: SideSheetProps) {
     shouldAutoFocus = false,
     shouldCloseOnOverlayClick = true,
     shouldCloseOnEscapePress = true,
-    // position = Position.RIGHT,
     preventBodyScrolling = false,
   } = props;
 
@@ -38,7 +37,7 @@ const SideSheet = memo(function SideSheet(props: SideSheetProps) {
             width: ${width}px;
           `}
         >
-          <SheetClose data-state={state} onClick={close} />
+          <SheetClose state={state} onClick={close} />
           <Styled.Content
             data-state={state}
             direction="column"

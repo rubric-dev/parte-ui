@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { RadioProps } from './Radio.types';
 
 export default {
-  title: 'Components/Radio',
+  title: 'Components/Controls/RadioGroup/Radio',
   component: Radio,
   parameters: {
     layout: 'centered',

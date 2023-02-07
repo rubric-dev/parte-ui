@@ -4,7 +4,7 @@ import { TabProps } from './Tab.types';
 import ActionLockIcon from '../../parte-icons/Icons/ActionLockIcon';
 
 export default {
-  title: 'Components/Tabs/Tab',
+  title: 'Components/Controls/Tabs/Tab',
   component: Tab,
   parameters: {
     layout: 'centered',

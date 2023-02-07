@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { ButtonProps } from './Button.types';
 
 export default {
-  title: 'Components/Buttons',
+  title: 'Components/Buttons/Button',
   component: Button,
   parameters: {
     layout: 'centered',

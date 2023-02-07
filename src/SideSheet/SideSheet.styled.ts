@@ -68,7 +68,8 @@ export const Close = styled(Box)`
     margin-left: -${theme.spacing.spacing12}px;
     margin-top: ${theme.spacing.spacing12}px;
     transform: translateX(-100%);
-
+    width: 32px;
+    height: 32px;
     svg {
       color: ${theme.colors.N0};
     }

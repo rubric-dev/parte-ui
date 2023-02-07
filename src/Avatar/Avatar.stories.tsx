@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { AvatarProps } from './Avatar.types';
 
 export default {
-  title: 'Components/Avatars',
+  title: 'Components/Avatars & Badges/Avatars',
   component: Avatar,
   parameters: {
     layout: 'centered',

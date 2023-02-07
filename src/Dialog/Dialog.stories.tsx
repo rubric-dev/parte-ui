@@ -3,7 +3,7 @@ import Dialog from './Dialog';
 import { DialogProps } from './Dialog.types';
 
 export default {
-  title: 'Components/Dialog',
+  title: 'Components/Overlays/Dialog',
   component: Dialog,
   parameters: {
     layout: 'centered',

@@ -8,7 +8,7 @@ import DialogModal from './DialogModal';
 import { DialogModalProps } from './DialogModal.types';
 
 export default {
-  title: 'Components/DialogModal',
+  title: 'Components/Overlays/DialogModal',
   component: DialogModal,
   parameters: {
     layout: 'centered',
