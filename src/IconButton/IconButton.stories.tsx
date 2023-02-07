@@ -4,7 +4,7 @@ import { IconButtonProps } from './IconButton.types';
 import TableThIcon from '../parte-icons/Icons/TableThIcon';
 
 export default {
-  title: 'Components/IconButtons',
+  title: 'Components/Buttons/IconButton',
   component: IconButton,
   parameters: {
     layout: 'centered',

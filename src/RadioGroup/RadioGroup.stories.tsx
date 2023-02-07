@@ -6,7 +6,7 @@ import { ChangeEvent, useState } from 'react';
 import { Box } from '../Layout';
 
 export default {
-  title: 'Components/RadioGroup',
+  title: 'Components/Controls/RadioGroup',
   component: RadioGroup,
   parameters: {
     layout: 'centered',

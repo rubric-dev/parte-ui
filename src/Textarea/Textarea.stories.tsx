@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { TextAreaProps } from './Textarea.types';
 
 export default {
-  title: 'Components/Textarea',
+  title: 'Components/Forms/Textarea',
   component: Textarea,
   parameters: {
     layout: 'centered',

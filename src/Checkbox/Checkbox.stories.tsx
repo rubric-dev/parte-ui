@@ -5,7 +5,7 @@ import { Box } from '../Layout';
 import { useState } from 'react';
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Components/Controls/Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'centered',
