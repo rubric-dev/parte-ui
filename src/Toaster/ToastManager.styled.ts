@@ -1,7 +1,9 @@
 import styled, { css, keyframes } from 'styled-components';
+import { animationEasing } from '../constant';
 import { Box } from '../Layout';
 
 const ANIMATION_DURATION = 240;
+const { deceleration, acceleration, spring } = animationEasing;
 
 export const ToastContainer = styled(Box)`
   ${() => css`
@@ -16,12 +18,6 @@ export const ToastContainer = styled(Box)`
     max-width: 560px;
   `}
 `;
-
-const animationEasing = {
-  deceleration: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
-  acceleration: 'cubic-bezier(0.4, 0.0, 1, 1)',
-  spring: 'cubic-bezier(0.175, 0.885, 0.320, 1.175)',
-};
 
 const openAnimation = keyframes`
   from {
@@ -54,19 +50,16 @@ export const ToastBox = styled(Box)<{ marginBottom: number; height: number }>`
     height: 0px;
     width: 100%;
     height: fit-content;
-    transition: all ${ANIMATION_DURATION}ms ${animationEasing.deceleration};
+    transition: all ${ANIMATION_DURATION}ms ${deceleration};
 
     &[data-state='entering'] {
-      animation: ${openAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.spring} both;
+      animation: ${openAnimation} ${ANIMATION_DURATION}ms ${spring} both;
     }
     &[data-state='entered'] {
-      animation: ${openAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.spring} both;
+      animation: ${openAnimation} ${ANIMATION_DURATION}ms ${spring} both;
     }
     &[data-state='exiting'] {
-      animation: ${closeAnimation} ${ANIMATION_DURATION}ms
-        ${animationEasing.acceleration} both;
+      animation: ${closeAnimation} ${ANIMATION_DURATION}ms ${acceleration} both;
     }
   `}
 `;

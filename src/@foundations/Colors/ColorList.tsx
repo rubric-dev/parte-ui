@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import styled from 'styled-components';
 import colors from './colors';
 
@@ -28,7 +29,7 @@ function ColorList() {
   return (
     <Container>
       {CATEGORY.map((letter) => (
-        <>
+        <Fragment key={letter}>
           <Title>{letter}</Title>
           <List>
             {colorMap[letter[0]]?.map((color) => {
@@ -41,7 +42,7 @@ function ColorList() {
               );
             })}
           </List>
-        </>
+        </Fragment>
       ))}
     </Container>
   );
