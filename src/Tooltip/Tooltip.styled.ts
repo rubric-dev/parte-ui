@@ -11,7 +11,7 @@ export const Content = styled.div`
     padding: 8px 16px;
     border-radius: 8px;
     color: ${theme.colors.N0};
-    max-width: 240px;
+    max-width: 232px;
     box-shadow: 0px 4px 8px rgba(16, 24, 64, 0.08);
     width: fit-content;
     font-size: 12px;
