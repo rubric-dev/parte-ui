@@ -16,7 +16,6 @@ const CommonTextStyle = ({
   CommonProps,
   'marginBottom' | 'marginLeft' | 'marginRight' | 'marginTop'
 >) => css`
-  font-style: normal;
   margin-top: ${marginTop ? `${marginTop}px` : 'unset'};
   margin-bottom: ${marginBottom ? `${marginBottom}px` : 'unset'};
   margin-left: ${marginLeft ? `${marginLeft}px` : 'unset'};
@@ -49,7 +48,7 @@ export const Paragraph = styled.p<Exclude<ParagraphProps, 'children'>>`
   `}
 `;
 
-export const Caption = styled.caption<Exclude<CaptionProps, 'children'>>`
+export const Caption = styled.span<Exclude<CaptionProps, 'children'>>`
   ${({ theme, size, color = 'N900', ...marginProps }) => css`
     ${CommonTextStyle(marginProps)}
     color: ${theme.colors[color]};
@@ -61,12 +60,6 @@ export const Caption = styled.caption<Exclude<CaptionProps, 'children'>>`
 export const Code = styled.code<Exclude<CodeProps, 'children'>>`
   ${({ theme, variant = 'default', ...marginProps }) => css`
     ${CommonTextStyle(marginProps)}
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 4px 8px;
-    box-sizing: border-box;
-    border-radius: 4px;
     ${variant === 'default' && theme.typography.CD200}
     ${variant === 'minimal' && theme.typography.CM200}
   `}
