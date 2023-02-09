@@ -4,12 +4,14 @@ import { COLORS } from '../Colors';
 const commonBaseTextStyle = css`
   font-style: normal;
 `;
+
 const commonCodeStyle = css`
   font-style: italic;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
 `;
+
 const Typography = {
   H900: css`
     ${commonBaseTextStyle}
