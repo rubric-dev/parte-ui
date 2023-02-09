@@ -2,7 +2,7 @@ import { TooltipProps } from './Tooltip.types';
 import Positioner from '../Positioner/Positioner';
 import { Position } from '../Positioner';
 import * as Styled from './Tooltip.styled';
-import { Fragment, useRef } from 'react';
+import { Fragment, useState } from 'react';
 
 const Tooltip = ({
   children,
@@ -14,18 +14,17 @@ const Tooltip = ({
 }: TooltipProps) => {
   const child: React.ReactNode =
     typeof content === 'string' ? <p>{content}</p> : content;
-
-  const targetRef = useRef<HTMLDivElement>(null);
+  const [targetRef, setTargetRef] = useState<HTMLDivElement | null>(null);
 
   return (
     <Fragment>
-      <Styled.TargetWrapper ref={targetRef}>{children}</Styled.TargetWrapper>
+      <Styled.TargetWrapper ref={setTargetRef}>{children}</Styled.TargetWrapper>
       {isShown && (
         <Positioner
           position={position}
-          ref={targetRef}
           showDelay={showDelay}
           hideDelay={hideDelay}
+          targetEl={targetRef}
         >
           <Styled.Content>{child}</Styled.Content>
         </Positioner>
