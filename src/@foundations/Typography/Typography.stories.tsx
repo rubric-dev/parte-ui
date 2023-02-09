@@ -12,7 +12,7 @@ export default {
 
 const Template: Story = () => {
   return (
-    <Box direction="row" gap={56}>
+    <Box direction="row" justifyContent="Space Between">
       <Box direction="column" gap={10}>
         <Heading size={900}>Heading 900</Heading>
         <Heading size={800}>Heading 800</Heading>
@@ -45,7 +45,7 @@ export const Default = Template.bind({});
 
 const CustomStyle: Story = () => {
   return (
-    <Box direction="row" gap={56}>
+    <Box direction="row" justifyContent="Space Between">
       <Box direction="column" gap={10}>
         <Heading size={900} marginBottom={20}>
           Heading 900

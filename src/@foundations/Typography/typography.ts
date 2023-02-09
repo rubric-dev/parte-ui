@@ -6,10 +6,12 @@ const commonBaseTextStyle = css`
 `;
 
 const commonCodeStyle = css`
-  font-style: italic;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
 `;
 
 const Typography = {
@@ -100,10 +102,14 @@ const Typography = {
   CD200: css`
     ${commonCodeStyle}
     color: ${COLORS.N800};
+    background-color: ${COLORS.N50};
+    border: 1px solid ${COLORS.N400};
   `,
   CM200: css`
     ${commonCodeStyle}
     color: ${COLORS.B600};
+    background-color: ${COLORS.B50};
+    border: 1px solid ${COLORS.B200};
   `,
 };
 
