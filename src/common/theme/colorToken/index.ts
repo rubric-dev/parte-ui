@@ -4,6 +4,7 @@ import { default as formToken } from './form';
 import { default as generalToken } from './general';
 import { default as dropdownToken } from './dropdown';
 import { default as overlayToken } from './overlay';
+import { default as linkToken } from './link';
 
 export const tokens = {
   ...buttonColorToken,
@@ -12,5 +13,6 @@ export const tokens = {
   ...generalToken,
   ...dropdownToken,
   ...overlayToken,
+  ...linkToken,
 };
 export type TokenType = typeof tokens;

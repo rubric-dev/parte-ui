@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { CSSProperties } from 'styled-components';
 import { Colors } from '../Colors/colors.types';
 import typography from './typography';
@@ -10,7 +11,7 @@ export type CommonProps = {
   marginBottom?: number;
   marginLeft?: number;
   marginRight?: number;
-  children: string;
+  children: ReactNode;
   overrideStyles?: CSSProperties;
   color?: keyof Colors;
 };
