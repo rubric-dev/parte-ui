@@ -15,4 +15,6 @@ declare global {
     typeof DROPDOWN_POSITION[keyof typeof DROPDOWN_POSITION];
 
   type Status = 'success' | 'info' | 'warning' | 'error';
+
+  type Nullable<T> = T | null;
 }

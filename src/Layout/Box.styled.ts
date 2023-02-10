@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 import { getElevation } from '../common/utils/elevation.util';
+import { getHeightStyle, getWidthStyle } from '../common/utils/style.util';
 import { BoxProps } from './Box.types';
 
 const JUSTIFY_CONTENT = {
@@ -18,12 +19,15 @@ const ALIGN_ITEMS = {
 
 export const commonBoxStyle = css<BoxProps>`
   ${({
+    width,
+    height,
     direction = 'row',
     justifyContent = 'Start',
     alignItems = 'Start',
     gap = 0,
     flexWrap = false,
     flexBasis,
+    flex,
     padding,
     paddingTop,
     paddingBottom,
@@ -33,14 +37,17 @@ export const commonBoxStyle = css<BoxProps>`
     elevation,
   }) =>
     css`
+      width: ${fullWidth ? `100%` : `inherit`};
+      ${getWidthStyle(width)}
+      ${getHeightStyle(height)}
       display: flex;
       flex-direction: ${direction};
       justify-content: ${JUSTIFY_CONTENT[justifyContent]};
       align-items: ${ALIGN_ITEMS[alignItems]};
       gap: ${gap}px;
       flex-basis: ${flexBasis ? `${flexBasis}px` : 'unset'};
+      flex: ${flex};
       flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
-      width: ${fullWidth ? `100%` : `inherit`};
 
       ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
       ${[
