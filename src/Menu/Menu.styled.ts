@@ -6,5 +6,6 @@ export const Menu = styled.nav`
     box-sizing: border-box;
     padding: ${({ theme }) => `${theme.spacing.spacing8}px 0`};
     width: fit-content;
+    background-color: ${theme.colors.N0};
   `}
 `;
