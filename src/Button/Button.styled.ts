@@ -3,7 +3,6 @@ import { ButtonProps } from './Button.types';
 
 const commonButtonStyles = css<ButtonProps>`
   position: relative;
-  font-weight: 500;
   display: inline-flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -15,6 +14,7 @@ const commonButtonStyles = css<ButtonProps>`
   user-select: none;
   cursor: pointer;
   white-space: nowrap;
+  box-sizing: border-box;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
@@ -24,6 +24,9 @@ const commonButtonStyles = css<ButtonProps>`
   column-gap: 8px;
   border-radius: 4px;
   font-family: inherit;
+  &:disabled {
+    cursor: default;
+  }
   &::-moz-focus-inner {
     border: 0;
   }
