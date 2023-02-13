@@ -75,15 +75,14 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
   };
   const calculateMenuStyle = (pos: DropdownPosition) => {
     const dropdownRect = dropdownRef?.current?.getBoundingClientRect();
-    if (dropdownRect) {
-      const { innerWidth, innerHeight } = window;
-      const style = getDropdownStyle(
-        pos,
-        dropdownRect,
-        innerWidth,
-        innerHeight,
-        { usePortal, offset }
-      );
+    const menuRect = menuRef.current?.getBoundingClientRect();
+
+    if (dropdownRect && menuRect) {
+      const { innerHeight } = window;
+      const style = getDropdownStyle(pos, dropdownRect, menuRect, innerHeight, {
+        usePortal,
+        offset,
+      });
       return style;
     }
     return undefined;

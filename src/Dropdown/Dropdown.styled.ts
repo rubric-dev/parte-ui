@@ -18,9 +18,10 @@ export const Trigger = styled.div`
 export const Menu = styled(Box)<{ hidden: boolean; usePortal?: boolean }>`
   ${({ hidden, usePortal }) => {
     return css`
-      opacity: ${hidden ? 0 : 100};
+      opacity: ${hidden ? 0 : 1};
       position: ${usePortal ? 'fixed' : 'absolute'};
       height: fit-content;
+      width: fit-content;
     `;
   }}
 `;
