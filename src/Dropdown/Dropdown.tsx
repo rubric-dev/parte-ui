@@ -9,16 +9,21 @@ import { createPortal } from 'react-dom';
 import { CSSProperties } from 'styled-components';
 import useOutsideClick from '../hooks/useOutsideClick';
 import * as Styled from './Dropdown.styled';
-import { DropdownContextState } from './Dropdown.types';
+import {
+  DropdownMenuProps,
+  DropdownProps,
+  DropdownTriggerProps,
+} from './Dropdown.types';
 import DropdownContext from './DropdownContext';
 import {
   getDropdownPosition,
   getDropdownStyle,
 } from './DropdownList/styleUtil';
 
-const Dropdown = ({ children, ...rest }: DropdownContextState<string>) => {
+const Dropdown = ({ children, ...rest }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const onClick = useCallback(() => {
     setIsOpen((props) => !props);
@@ -27,15 +32,15 @@ const Dropdown = ({ children, ...rest }: DropdownContextState<string>) => {
   const onClose = useCallback(() => {
     setIsOpen(false);
   }, []);
-  useOutsideClick([dropdownRef], () => onClose());
 
+  useOutsideClick([dropdownRef, menuRef], onClose);
   const onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
     if (e.key === 'Escape') onClose();
   };
 
   return (
     <DropdownContext.Provider
-      value={{ ...rest, dropdownRef, isOpen, onClick, onClose }}
+      value={{ ...rest, dropdownRef, isOpen, onClick, onClose, menuRef }}
     >
       <Styled.Container ref={dropdownRef} onKeyDown={onKeyDown}>
         {children}
@@ -44,21 +49,20 @@ const Dropdown = ({ children, ...rest }: DropdownContextState<string>) => {
   );
 };
 
-const Trigger = ({ children }: { children: React.ReactNode }) => {
+const Trigger = ({ children }: DropdownTriggerProps) => {
   const { onClick } = useContext(DropdownContext);
   return <Styled.Trigger onClick={onClick}>{children}</Styled.Trigger>;
 };
 
-const Menu = ({ children }: { children: React.ReactNode }) => {
-  const { usePortal, isOpen, dropdownRef, offset } =
+const Menu = ({ children }: DropdownMenuProps) => {
+  const { usePortal, isOpen, dropdownRef, offset, onClose, menuRef } =
     useContext(DropdownContext);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const [position, setPosition] = useState<DropdownPosition | null>(null);
   const [menuStyle, setMenuStyle] = useState<CSSProperties>();
 
   const calculateDropdownPosition = () => {
-    const menuRect = menuRef.current?.getBoundingClientRect();
+    const menuRect = menuRef?.current?.getBoundingClientRect();
     const dropdownRect = dropdownRef?.current?.getBoundingClientRect();
     if (menuRect && dropdownRect) {
       const { innerWidth, innerHeight } = window;
@@ -75,7 +79,7 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
   };
   const calculateMenuStyle = (pos: DropdownPosition) => {
     const dropdownRect = dropdownRef?.current?.getBoundingClientRect();
-    const menuRect = menuRef.current?.getBoundingClientRect();
+    const menuRect = menuRef?.current?.getBoundingClientRect();
 
     if (dropdownRect && menuRect) {
       const { innerHeight } = window;
@@ -132,7 +136,7 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
         style={menuStyle}
         usePortal
       >
-        {children}
+        {typeof children === 'function' ? children({ onClose }) : children}
       </Styled.Menu>,
       rootDom
     );
@@ -144,7 +148,7 @@ const Menu = ({ children }: { children: React.ReactNode }) => {
       direction="column"
       style={menuStyle}
     >
-      {children}
+      {typeof children === 'function' ? children({ onClose }) : children}
     </Styled.Menu>
   );
 };

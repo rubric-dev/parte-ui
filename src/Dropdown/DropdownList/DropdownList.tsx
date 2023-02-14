@@ -48,6 +48,7 @@ const DropdownList = <T,>({
       if (!value) {
         onChange?.([option]);
       } else if (!('length' in value)) {
+        // eslint-disable-next-line no-console
         console.warn(
           'value props should be array type if you use isMulti option.'
         );

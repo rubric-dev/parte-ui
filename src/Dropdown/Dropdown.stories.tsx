@@ -1,10 +1,10 @@
-import { Story, Meta } from '@storybook/react';
-import { Button } from '../Button';
-import Dropdown from './Dropdown';
-import { DropdownList } from './DropdownList';
-import { DropdownContextState } from './Dropdown.types';
+import { Meta, Story } from '@storybook/react';
 import { useState } from 'react';
+import { Button } from '../Button';
 import ActionChatIcon from '../parte-icons/Icons/ActionChatIcon';
+import Dropdown from './Dropdown';
+import { DropdownProps } from './Dropdown.types';
+import { DropdownList } from './DropdownList';
 
 const OPTIONS: Option<string>[] = [
   {
@@ -95,7 +95,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
+const Template: Story<DropdownProps> = ({ ...args }) => {
   const [selectValue, setSelectValue] = useState<Option<string>>({
     label: 'label3',
     value: 'value3',
@@ -132,9 +132,10 @@ const Template: Story<DropdownContextState<string>> = ({ ...args }) => {
   );
 };
 
-const GroupedTemplate: Story<
-  DropdownContextState<string> & { isSearchable?: boolean }
-> = ({ isSearchable, ...args }) => {
+const GroupedTemplate: Story<DropdownProps & { isSearchable?: boolean }> = ({
+  isSearchable,
+  ...args
+}) => {
   const [selectValue, setSelectValue] = useState<Option<string>>();
 
   const onSelect = (value: Option<string>) => {
@@ -166,9 +167,10 @@ const GroupedTemplate: Story<
     </div>
   );
 };
-const MultiTemplate: Story<
-  DropdownContextState<string> & { closeOnSelect: boolean }
-> = ({ closeOnSelect, ...args }) => {
+const MultiTemplate: Story<DropdownProps & { closeOnSelect: boolean }> = ({
+  closeOnSelect,
+  ...args
+}) => {
   const [selectValue, setSelectValue] = useState<Option<string>[]>();
 
   return (
