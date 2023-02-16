@@ -29,6 +29,7 @@ export const DialogContainer = styled(Box)`
     position: fixed;
     bottom: 50px;
     right: 50px;
+    width: fit-content;
 
     &[data-state='entering'] {
       animation: ${openAnimation} ${ANIMATION_DURATION}ms ${spring} both;
