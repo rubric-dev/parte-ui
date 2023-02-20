@@ -17,7 +17,10 @@ function Tag({ tag, onRemove }: TagProps) {
       <ActionSmallCrossIcon
         color="error"
         size={12}
-        onClick={() => onRemove(tag.value)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onRemove(tag.value);
+        }}
       />
     </Styled.Container>
   );
