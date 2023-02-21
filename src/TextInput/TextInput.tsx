@@ -22,6 +22,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const [hover, setHover] = useState(false);
     const [focused, setFocused] = useState(false);
 
+    console.log('123123');
     return (
       <Styled.Container fullWidth={fullWidth}>
         {label && (
