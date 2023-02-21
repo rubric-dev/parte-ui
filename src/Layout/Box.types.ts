@@ -7,27 +7,41 @@ import {
 import { Elevation } from '../@foundations/Elevation/elevation';
 import { SPACING } from '../@foundations/Spacing';
 import { Spacing } from '../@foundations/Spacing/spacing.types';
+import {
+  Display,
+  FlexDirection,
+  JustifyContent,
+  AlignItems,
+  AlignContent,
+  FlexWrap,
+  AlignSelf,
+} from '../constant';
 
 export type BoxProps = HTMLAttributes<HTMLDivElement> & {
-  direction?: 'row' | 'column';
-  /** Determines whether the Select is open. For use with controlled components.
-   * @uxpinpropname Distribute
-   * @uxpindescription Test
-   * */
-  justifyContent?:
-    | 'Start'
-    | 'Center'
-    | 'End'
-    | 'Space Between'
-    | 'Space Around'
-    | 'Space Evenly';
-  /**
-   * @uxpinpropname Align
-   * */
-  alignItems?: 'Start' | 'Center' | 'End';
-  flexWrap?: boolean;
-  flexBasis?: number;
+  display?: Display;
+
+  // flex parent properties
+  flexDirection?: FlexDirection;
+  justifyContent?: JustifyContent;
+  alignItems?: AlignItems;
+  alignContent?: AlignContent;
+  flexWrap?: FlexWrap;
   gap?: Spacing[keyof typeof SPACING];
+  rowGap?: Spacing[keyof typeof SPACING];
+  columnGap?: Spacing[keyof typeof SPACING];
+
+  // flex child properties
+  order?: number;
+  flexGrow?: number;
+  flexShrink?: number;
+  flexBasis?: number | string;
+  flex?: string;
+  alignSelf?: AlignSelf;
+
+  // grid parent properties
+  gridTemplateColumns?: string;
+  gridTemplateRows?: string;
+
   padding?: Spacing[keyof typeof SPACING];
   paddingTop?: Spacing[keyof typeof SPACING];
   paddingBottom?: Spacing[keyof typeof SPACING];

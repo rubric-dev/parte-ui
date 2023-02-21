@@ -18,7 +18,7 @@ const ALIGN_ITEMS = {
 
 export const commonBoxStyle = css<BoxProps>`
   ${({
-    direction = 'row',
+    flexDirection = 'row',
     justifyContent = 'Start',
     alignItems = 'Start',
     gap = 0,
@@ -34,7 +34,7 @@ export const commonBoxStyle = css<BoxProps>`
   }) =>
     css`
       display: flex;
-      flex-direction: ${direction};
+      flex-direction: ${flexDirection};
       justify-content: ${JUSTIFY_CONTENT[justifyContent]};
       align-items: ${ALIGN_ITEMS[alignItems]};
       gap: ${gap}px;
