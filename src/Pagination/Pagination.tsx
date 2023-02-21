@@ -8,6 +8,7 @@ import { Heading } from '../@foundations/Typography';
 import { IconButton } from '../IconButton';
 
 const MAX_HANDLES_TO_SHOW = 7;
+const ELLIPSIS_TEXT = '...';
 
 type Props = {
   page: number | string;
@@ -24,7 +25,7 @@ const PaginationButton = ({
   page,
   children,
 }: Props) => {
-  const isEllipsis = typeof page === 'string' && page === '...';
+  const isEllipsis = typeof page === 'string' && page === ELLIPSIS_TEXT;
 
   const onClick = useCallback(() => {
     if (typeof page === 'number') {
@@ -76,17 +77,26 @@ const getPaginationButtonContent = ({
   }
 
   if (totalPages > MAX_HANDLES_TO_SHOW && page <= 4) {
-    return [...range(1, 5), '...', totalPages];
+    return [...range(1, 5), ELLIPSIS_TEXT, totalPages];
   }
 
   if (totalPages - page < 4) {
-    return [1, '...', ...range(totalPages - 4, totalPages)];
+    return [1, ELLIPSIS_TEXT, ...range(totalPages - 4, totalPages)];
   }
 
-  return [1, '...', ...range(page - 1, page + 1), '...', totalPages];
+  return [
+    1,
+    ELLIPSIS_TEXT,
+    ...range(page - 1, page + 1),
+    ELLIPSIS_TEXT,
+    totalPages,
+  ];
 };
 
 const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
+  const prevDisabled = page === 1 || totalPages === 0;
+  const nextDisabled = page === totalPages || totalPages === 0;
+
   return (
     <Box alignItems="Center" padding={0} gap={4}>
       <IconButton
@@ -94,15 +104,16 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
         Icon={
           <InterfaceChevronLeftIcon
             size={12}
-            color={page === 1 ? 'disabled' : 'muted'}
+            color={prevDisabled ? 'disabled' : 'muted'}
           />
         }
         size={32}
-        disabled={page === 1}
+        disabled={prevDisabled}
         onClick={() => {
-          if (page > 1) {
-            onPageChange(page - 1);
+          if (prevDisabled) {
+            return;
           }
+          onPageChange(page - 1);
         }}
       />
       {getPaginationButtonContent({ totalPages, page }).map((val, i) => {
@@ -124,15 +135,16 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
         Icon={
           <InterfaceChevronRightIcon
             size={12}
-            color={page === totalPages ? 'disabled' : 'muted'}
+            color={nextDisabled ? 'disabled' : 'muted'}
           />
         }
         size={32}
-        disabled={page === totalPages}
+        disabled={nextDisabled}
         onClick={() => {
-          if (page < totalPages) {
-            onPageChange(page + 1);
+          if (nextDisabled) {
+            return;
           }
+          onPageChange(page + 1);
         }}
       />
     </Box>
