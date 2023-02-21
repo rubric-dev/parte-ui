@@ -18,18 +18,19 @@ export const PaginationButton = styled.button<{
     color: ${theme.colors.N700};
     &:not(:disabled):hover {
       background-color: ${theme.colors.N100};
+      color: ${theme.colors.N800};
     }
     &:not(:disabled):focus {
-      background-color: ${theme.colors.N200};
+      background-color: ${theme.colors.N50};
       ${theme.commonStyles.outline}
+      color: ${theme.colors.N700};
     }
     &:not(:disabled):active {
-      background-color: ${theme.colors.N50};
+      background-color: ${theme.colors.N200};
+      color: ${theme.colors.N800};
     }
-
     &:disabled {
       cursor: default;
-      background-color: ${theme.colors.N0};
       color: ${theme.colors.N400};
     }
     ${isSelected &&
