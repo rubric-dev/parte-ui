@@ -121,7 +121,7 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
 
         return (
           <PaginationButton
-            key={i}
+            key={`${val}-${i}`}
             isSelected={isSelected}
             page={val}
             onPageChange={onPageChange}
