@@ -19,7 +19,10 @@ export default {
 } as Meta;
 
 const Template: Story<
-  AsyncSelectProps<string> & { isMulti?: boolean; isError?: boolean }
+  AsyncSelectProps<string> & {
+    isMulti?: boolean;
+    isError?: boolean;
+  }
 > = ({ isMulti, ...args }) => {
   const [selectedValue, setSelectedValue] =
     useState<Option<string>[] | SingleValue<Option<string>> | undefined>();
@@ -88,6 +91,13 @@ Default.args = {
   isClearable: true,
 };
 
+export const OpenMenuDefault = Template.bind({});
+OpenMenuDefault.args = {
+  isSearchable: false,
+  isClearable: true,
+  menuIsOpen: true,
+};
+
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
   label: 'TEST',
@@ -114,7 +124,10 @@ Disabled.args = {
 };
 
 const GroupTemplate: Story<
-  AsyncSelectProps<string> & { isMulti?: boolean; isError?: boolean }
+  AsyncSelectProps<string> & {
+    isMulti?: boolean;
+    isError?: boolean;
+  }
 > = ({ isMulti, ...args }) => {
   const loadOptions = async (
     search: string,
@@ -181,6 +194,12 @@ export const GroupDefault = GroupTemplate.bind({});
 
 GroupDefault.args = {
   isSearchable: false,
+};
+export const OpenMenuGroupDefault = GroupTemplate.bind({});
+
+OpenMenuGroupDefault.args = {
+  isSearchable: false,
+  menuIsOpen: true,
 };
 
 export const GroupMultiDefault = GroupTemplate.bind({});

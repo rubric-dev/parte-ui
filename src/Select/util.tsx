@@ -23,9 +23,14 @@ export const getStyles = ({
       borderRadius: '4px',
       backgroundColor: '#ffffff',
       // 원래는 상하 패딩은 8인데, border는 control 컴포넌트에서 관리하기때문에, boxSizing이 적용안됨
-      padding: '7px 12px',
+      padding: '7px 10px 7px 12px',
       display: 'flex',
-      gap: '8px',
+      svg: {
+        color: '#8F95B2',
+      },
+      '&:hover': {
+        borderColor: '#9DB5FF',
+      },
       ...(props.isFocused
         ? {
             borderColor: '#9DB5FF',
@@ -36,6 +41,9 @@ export const getStyles = ({
             borderColor: '#D8DAE5',
             '&:hover': {
               borderColor: '#8F95B2',
+              '& div[id$=placeholder]': {
+                color: '#696F8C !important',
+              },
             },
           }),
       ...(isError
@@ -46,8 +54,11 @@ export const getStyles = ({
         : {}),
       ...(props.isDisabled
         ? {
-            borderColor: '#D8DAE5',
+            borderColor: '#E6E8F0',
             backgroundColor: '#F4F6FA !important',
+            svg: {
+              color: '#C1C4D6',
+            },
           }
         : {}),
     };
@@ -136,6 +147,7 @@ export const getStyles = ({
     return {
       ...css,
       padding: '0',
+      paddingLeft: '8px',
       ...(props.isMulti
         ? {
             gap: '8px',
@@ -151,14 +163,16 @@ export const getStyles = ({
     color: '#474D66',
     ...(props.isDisabled ? { color: '#8F95B2' } : {}),
   }),
-  placeholder: (css) => ({
+  placeholder: (css, props) => ({
     ...css,
     padding: 0,
     margin: 0,
     fontWeight: '400',
     fontSize: '12px',
     lineHeight: '16px',
-    color: '#696F8C',
+    color: '#8F95B2',
+    ...(props.isFocused ? { color: '#696F8C' } : {}),
+    ...(props.isDisabled ? { color: '#8F95B2' } : {}),
   }),
   input: (css, props) => ({
     ...css,
@@ -207,13 +221,45 @@ export const getStyles = ({
         : {}),
     };
   },
-  indicatorsContainer: (css) => ({
+  indicatorsContainer: (css, props) => ({
     ...css,
     padding: '0px',
+    paddingLeft: '12px',
+    paddingTop: '2px',
+    columnGap: '8px',
+    alignSelf: 'flex-start',
+    svg: {
+      color: '#8F95B2',
+    },
+    ...(props.isDisabled
+      ? {
+          svg: {
+            color: '#8F95B2',
+          },
+        }
+      : {}),
   }),
   indicatorSeparator: (css) => ({ ...css, display: 'none' }),
-  // clearIndicator: (css) => ({ ...css, display: 'none' }),
-  // multiValue: (css) => ({ ...css, display: 'none' }),
+  clearIndicator: (css, props) => ({
+    ...css,
+    padding: 0,
+    svg: {
+      color: '##8F95B2',
+    },
+    '&:hover': {
+      svg: {
+        color: '#696F8C',
+      },
+    },
+  }),
+  dropdownIndicator: (css, props) => ({
+    ...css,
+    padding: 0,
+    svg: {
+      color: '##8F95B2',
+    },
+    ...(props.isDisabled ? { color: '##8F95B2' } : {}),
+  }),
 });
 
 // FIXME: Tag의 옵션의 value타입이 string이라 일단 util을 통해 value를 변경함....

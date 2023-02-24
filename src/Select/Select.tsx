@@ -10,11 +10,14 @@ import StaticSelect, {
   IndicatorsContainerProps,
   LoadingIndicatorProps,
   MultiValueRemoveProps,
+  ClearIndicatorProps,
+  DropdownIndicatorProps,
 } from 'react-select';
 import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
 import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
 import ActionUploadingSmallIcon from '../parte-icons/Icons/ActionUploadingSmallIcon';
 import ActionSmallCrossIcon from '../parte-icons/Icons/ActionSmallCrossIcon';
+import ActionDeleteIcon from '../parte-icons/Icons/ActionDeleteIcon';
 import { ComponentType, useMemo } from 'react';
 import { getStyles } from './util';
 import { SelectProps } from './Select.types';
@@ -52,14 +55,37 @@ const LoadingIndicator = ({
     </components.LoadingIndicator>
   );
 };
+
 export const IndicatorsContainer = ({
   children,
   ...props
 }: IndicatorsContainerProps<Option<unknown>, boolean>) => {
   return (
     <components.IndicatorsContainer {...props}>
-      <InterfaceCaretDownIcon size={12} />
+      {children}
     </components.IndicatorsContainer>
+  );
+};
+
+export const ClearIndicator = ({
+  children,
+  ...props
+}: ClearIndicatorProps<Option<unknown>, boolean>) => {
+  return (
+    <components.ClearIndicator {...props}>
+      <ActionDeleteIcon size={12} />
+    </components.ClearIndicator>
+  );
+};
+
+export const DropdownIndicator = ({
+  children,
+  ...props
+}: DropdownIndicatorProps<Option<unknown>, boolean>) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <InterfaceCaretDownIcon size={12} />
+    </components.DropdownIndicator>
   );
 };
 
@@ -100,6 +126,12 @@ export default function Select<T>(props: SelectProps<T>) {
       MultiValueRemove: MultiValueRemove as ComponentType<
         MultiValueRemoveProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
+      DropdownIndicator: DropdownIndicator as ComponentType<
+        DropdownIndicatorProps<Option<T>, boolean, GroupBase<Option<T>>>
+      >,
+      ClearIndicator: ClearIndicator as ComponentType<
+        ClearIndicatorProps<Option<T>, boolean, GroupBase<Option<T>>>
+      >,
     }),
     []
   );
@@ -122,7 +154,6 @@ export default function Select<T>(props: SelectProps<T>) {
         {...props}
         isDisabled={isDisabled}
         onChange={onChangeSelect}
-        autoFocus
         value={value}
         components={defaultComponents}
         hideSelectedOptions={isMulti}
@@ -130,6 +161,7 @@ export default function Select<T>(props: SelectProps<T>) {
         placeholder={placeholder}
         isClearable
         isSearchable
+        closeMenuOnSelect={!isMulti}
         noOptionsMessage={NoOptionsMessage}
       />
     ) : (
@@ -137,7 +169,6 @@ export default function Select<T>(props: SelectProps<T>) {
         {...props}
         isDisabled={isDisabled}
         onChange={onChangeSelect}
-        autoFocus
         value={value}
         components={asyncComponents}
         hideSelectedOptions={isMulti}
@@ -145,6 +176,7 @@ export default function Select<T>(props: SelectProps<T>) {
         placeholder={placeholder}
         isClearable
         isSearchable
+        closeMenuOnSelect={!isMulti}
         noOptionsMessage={NoOptionsMessage}
       />
     );

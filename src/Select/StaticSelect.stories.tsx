@@ -72,6 +72,13 @@ Default.args = {
   isClearable: true,
 };
 
+export const OpenMenuDefault = Template.bind({});
+OpenMenuDefault.args = {
+  isSearchable: false,
+  isClearable: true,
+  menuIsOpen: true,
+};
+
 export const DefaultWithLabel = Template.bind({});
 DefaultWithLabel.args = {
   label: 'TEST',
@@ -154,6 +161,13 @@ export const GroupDefault = GroupTemplate.bind({});
 
 GroupDefault.args = {
   isSearchable: false,
+};
+
+export const OpenMenuGroupDefault = GroupTemplate.bind({});
+
+OpenMenuGroupDefault.args = {
+  isSearchable: false,
+  menuIsOpen: true,
 };
 
 export const GroupMultiDefault = GroupTemplate.bind({});
