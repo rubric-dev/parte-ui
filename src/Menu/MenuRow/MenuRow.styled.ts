@@ -38,6 +38,7 @@ export const Container = styled(Box)<ContainerProps>`
       color: ${isTitle ? theme.colors.N700 : theme.colors.N800};
       cursor: ${isTitle || disabled ? 'default' : 'pointer'};
       position: relative;
+      text-transform: none;
       ${hover &&
       !isTitle &&
       css`

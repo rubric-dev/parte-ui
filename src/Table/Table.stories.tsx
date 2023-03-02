@@ -269,8 +269,7 @@ const RowSelectTemplate: Story = () => {
 };
 
 const ScrollContainer = styled.div`
-  overflow-y: auto;
-  max-height: 600px;
+  height: 600px;
 `;
 
 const ScrollTableTemplate: Story<{ sticky?: boolean }> = ({ sticky }) => {
@@ -293,6 +292,7 @@ Default.args = {
   enableRowSelection: true,
 };
 export const RowSelect = RowSelectTemplate.bind({});
+
 export const ScrollTable = ScrollTableTemplate.bind({});
 ScrollTable.args = {
   sticky: true,
