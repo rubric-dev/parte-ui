@@ -1,4 +1,3 @@
-import React from 'react';
 import { SPACING } from '../@foundations/Spacing';
 import { Spacing } from '../@foundations/Spacing/spacing.types';
 import { BoxProps } from '../Layout/Box.types';

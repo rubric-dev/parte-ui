@@ -9,7 +9,7 @@ import { SidebarTab } from './SidebarTab';
 import { Box } from '../Layout';
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Components/Controls/Tabs',
   component: Tabs,
   parameters: {
     layout: 'centered',
@@ -60,7 +60,7 @@ const IconTemplate: Story<TabsProps & { variant?: TabVariant }> = ({
             onClick={() => setSelected(option)}
             selected={active}
             variant={variant}
-            rightSlot={active ? <ActionTickIcon size={12} /> : undefined}
+            trailingIcon={active ? <ActionTickIcon size={12} /> : undefined}
           >
             {option.label}
           </Tab>

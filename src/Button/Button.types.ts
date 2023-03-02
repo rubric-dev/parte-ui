@@ -1,13 +1,16 @@
-import React, { HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
-export type ButtonProps = HTMLAttributes<HTMLButtonElement> & {
-  variant: 'primary' | 'secondary' | 'minimal' | 'error';
-  leftSlot?: React.ReactNode;
-  rightSlot?: React.ReactNode;
+export type ButtonVariant = 'primary' | 'secondary' | 'minimal' | 'error';
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant: ButtonVariant;
+  leadingIcon?: React.ReactNode;
+  trailingIcon?: React.ReactNode;
   disabled?: boolean;
   fullWidth?: boolean;
   /**
    * @uxpinignoreprop
    */
   children: React.ReactNode;
+  isLoading?: boolean;
 };

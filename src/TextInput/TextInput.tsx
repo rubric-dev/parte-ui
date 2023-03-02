@@ -10,8 +10,8 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       label,
       description,
       required = false,
-      leftSlot,
-      rightSlot,
+      leadingIcon,
+      trailingIcon,
       errorText,
       disabled,
       onFocus,
@@ -45,9 +45,9 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
-          {leftSlot && (
+          {leadingIcon && (
             <Styled.LeftIconContainer disabled={props.disabled}>
-              {leftSlot}
+              {leadingIcon}
             </Styled.LeftIconContainer>
           )}
           <Styled.Input
@@ -63,9 +63,9 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               setFocused(false);
             }}
           />
-          {rightSlot && (
+          {trailingIcon && (
             <Styled.RightIconContainer disabled={props.disabled}>
-              {rightSlot}
+              {trailingIcon}
             </Styled.RightIconContainer>
           )}
         </Styled.InputWrapper>

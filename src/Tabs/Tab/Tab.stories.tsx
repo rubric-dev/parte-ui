@@ -4,7 +4,7 @@ import { TabProps } from './Tab.types';
 import ActionLockIcon from '../../parte-icons/Icons/ActionLockIcon';
 
 export default {
-  title: 'Components/Tabs/Tab',
+  title: 'Components/Controls/Tabs/Tab',
   component: Tab,
   parameters: {
     layout: 'centered',
@@ -28,11 +28,11 @@ Disabled.args = {
 };
 export const Icon = Template.bind({});
 Icon.args = {
-  rightSlot: <ActionLockIcon size={12} />,
+  trailingIcon: <ActionLockIcon size={12} />,
 };
 export const IconDisabled = Template.bind({});
 IconDisabled.args = {
-  rightSlot: <ActionLockIcon size={12} />,
+  trailingIcon: <ActionLockIcon size={12} />,
   disabled: true,
   variant: 'Primary',
 };

@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { TagOption } from './Tag/Tag.types';
 
 export default {
-  title: 'Components/TagInput',
+  title: 'Components/Forms/TagInput',
   component: TagInput,
   parameters: {
     layout: 'centered',
@@ -36,7 +36,7 @@ const Template: Story<TagInputProps> = ({ ...args }) => {
   return (
     <TagInput
       {...args}
-      rightSlot={
+      trailingIcon={
         <div style={{ display: 'flex', gap: '8px' }}>
           <ActionCrossIcon
             size={12}

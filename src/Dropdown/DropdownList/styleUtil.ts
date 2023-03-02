@@ -1,8 +1,5 @@
 import { CSSProperties } from 'styled-components';
 
-/**
- * @param {any[]} arr
- */
 export const getDropdownPosition = (
   menuRect: DOMRect,
   parentRect: DOMRect,
@@ -23,7 +20,7 @@ export const getDropdownPosition = (
 export const getDropdownStyle = (
   position: DropdownPosition,
   parentRect: DOMRect,
-  innerWidth: number,
+  menuRect: DOMRect,
   innerHeight: number,
   option?: {
     offset?: number;
@@ -42,6 +39,7 @@ export const getDropdownStyle = (
     bottom: parnetBottom,
     left: parentLeft,
   } = parentRect;
+  const { width } = menuRect;
 
   switch (vertical) {
     case 'TOP':
@@ -60,7 +58,11 @@ export const getDropdownStyle = (
       style.left = usePortal ? parentLeft : 0;
       break;
     case 'RIGHT':
-      style.right = usePortal ? innerWidth - (parentLeft + parentWidth) : 0;
+      if (usePortal) {
+        style.left = parentLeft - width + parentWidth;
+      } else {
+        style.right = 0;
+      }
       break;
     default:
       break;

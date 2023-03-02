@@ -8,7 +8,7 @@ export default function MenuRow(props: MenuRowProps) {
   const {
     type = 'element',
     onSelect,
-    leftSlot,
+    leadingIcon,
     children,
     selected,
     disabled,
@@ -26,9 +26,9 @@ export default function MenuRow(props: MenuRowProps) {
       }}
       {...props}
     >
-      {type === 'element' && leftSlot && (
+      {type === 'element' && leadingIcon && (
         <Styled.Icon selected={selected} disabled={disabled}>
-          {leftSlot}
+          {leadingIcon}
         </Styled.Icon>
       )}
       {type === 'checkbox' && (

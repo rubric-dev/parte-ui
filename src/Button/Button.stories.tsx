@@ -1,10 +1,9 @@
-import styled from 'styled-components';
 import Button from './Button';
 import { Story, Meta } from '@storybook/react';
 import { ButtonProps } from './Button.types';
 
 export default {
-  title: 'Components/Buttons',
+  title: 'Components/Buttons/Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -12,7 +11,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<ButtonProps> = ({ children, ...args }) => {
+const Template: Story<ButtonProps> = ({ ...args }) => {
   return <Button {...args}>button</Button>;
 };
 

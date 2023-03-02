@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import * as Styled from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 

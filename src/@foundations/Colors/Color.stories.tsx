@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import ColorList from './ColorList';
 
 import { Story, Meta } from '@storybook/react';
@@ -12,7 +11,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = ({ children, ...args }) => {
+const Template: Story = () => {
   return <ColorList />;
 };
 

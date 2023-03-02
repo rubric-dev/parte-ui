@@ -1,0 +1,19 @@
+import { memo } from 'react';
+import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
+import * as Styled from './SideSheet.styled';
+import { SideCloseProps } from './SideSheet.types';
+
+const SheetClose = memo(({ onClick, state }: SideCloseProps) => {
+  return (
+    <Styled.Close
+      alignItems="Center"
+      justifyContent="Center"
+      data-state={state}
+      onClick={onClick}
+    >
+      <ActionCrossIcon />
+    </Styled.Close>
+  );
+});
+
+export default SheetClose;

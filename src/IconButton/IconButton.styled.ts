@@ -1,11 +1,17 @@
 import styled, { css } from 'styled-components';
+import { IconColor } from '../parte-icons/component/Icon';
 import { IconButtonProps } from './IconButton.types';
 
 const commonButtonStyles = css<Omit<IconButtonProps, 'Icon'>>`
+  ${({ size = 16 }) => css`
+    width: ${size}px;
+    height: ${size}px;
+  `}
   position: relative;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: nowrap;
   justify-content: center;
   text-decoration: none;
@@ -18,7 +24,6 @@ const commonButtonStyles = css<Omit<IconButtonProps, 'Icon'>>`
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: ${({ theme }) => `${theme.spacing.spacing10}px`};
   column-gap: 8px;
   border-radius: 4px;
 
@@ -27,7 +32,11 @@ const commonButtonStyles = css<Omit<IconButtonProps, 'Icon'>>`
   }
 `;
 
-export const StyledButton = styled.button<Omit<IconButtonProps, 'Icon'>>`
+export const StyledButton = styled.button<
+  Omit<IconButtonProps, 'Icon'> & {
+    iconColor?: Status | 'default' | 'muted' | 'disabled' | 'selected';
+  }
+>`
   ${commonButtonStyles}
   ${({ theme, variant }) =>
     variant === 'primary' &&
@@ -62,19 +71,19 @@ export const StyledButton = styled.button<Omit<IconButtonProps, 'Icon'>>`
         }
       }
     `}
-  ${({ theme, variant }) =>
+  ${({ theme, variant, iconColor = 'default' }) =>
     variant === 'secondary' &&
     css`
       background-color: ${theme.colorBackgroundButtonSecondary};
       border: 1px solid ${theme.colorBorderButtonSecondary};
       & svg {
-        color: ${theme.colorTextButtonSecondary};
+        color: ${IconColor[iconColor] || theme.colorTextButtonSecondary};
       }
       &:hover {
         background-color: ${theme.colorBackgroundButtonSecondaryHover};
         border: 1px solid ${theme.colorBorderButtonSecondaryHover};
         & svg {
-          color: ${theme.colorTextButtonSecondaryHover};
+          color: ${IconColor[iconColor] || theme.colorTextButtonSecondaryHover};
         }
       }
       &:focus {
@@ -82,54 +91,58 @@ export const StyledButton = styled.button<Omit<IconButtonProps, 'Icon'>>`
         border: 1px solid ${theme.colorBorderButtonSecondaryFocused};
         ${theme.commonStyles.outline}
         & svg {
-          color: ${theme.colorTextButtonSecondaryFocused};
+          color: ${IconColor[iconColor] ||
+          theme.colorTextButtonSecondaryFocused};
         }
       }
       &:active {
         background-color: ${theme.colorBackgroundButtonSecondaryActive};
         border: 1px solid ${theme.colorBorderButtonSecondaryActive};
         & svg {
-          color: ${theme.colorTextButtonSecondaryActive};
+          color: ${IconColor[iconColor] ||
+          theme.colorTextButtonSecondaryActive};
         }
       }
       &:disabled {
         background-color: ${theme.colorBackgroundButtonSecondaryDisabled};
         border: 1px solid ${theme.colorBorderButtonSecondaryDisabled};
         & svg {
-          color: ${theme.colorTextButtonSecondaryDisabled};
+          color: ${IconColor[iconColor] ||
+          theme.colorTextButtonSecondaryDisabled};
         }
       }
     `}
-  ${({ theme, variant }) =>
+  ${({ theme, variant, iconColor = 'default' }) =>
     variant === 'minimal' &&
     css`
       background-color: ${theme.colorBackgroundButtonMinimal};
       & svg {
-        color: ${theme.colorTextButtonMinimal};
+        color: ${IconColor[iconColor] || theme.colorTextButtonMinimal};
       }
       &:hover {
         background-color: ${theme.colorBackgroundButtonMinimalHover};
         & svg {
-          color: ${theme.colorTextButtonMinimalHover};
+          color: ${IconColor[iconColor] || theme.colorTextButtonMinimalHover};
         }
       }
       &:focus {
         background-color: ${theme.colorBackgroundButtonMinimalFocused};
         & svg {
-          color: ${theme.colorTextButtonMinimalFocused};
+          color: ${IconColor[iconColor] || theme.colorTextButtonMinimalFocused};
         }
         ${theme.commonStyles.outline}
       }
       &:active {
         background-color: ${theme.colorBackgroundButtonMinimalActive};
         & svg {
-          color: ${theme.colorTextButtonMinimalActive};
+          color: ${IconColor[iconColor] || theme.colorTextButtonMinimalActive};
         }
       }
       &:disabled {
         background-color: ${theme.colorBackgroundButtonMinimalDisabled};
         & svg {
-          color: ${theme.colorTextButtonMinimalDisabled};
+          color: ${IconColor[iconColor] ||
+          theme.colorTextButtonMinimalDisabled};
         }
       }
     `}

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { StepProps } from './Step.types';
 
 export default {
-  title: 'Components/Steps/Step',
+  title: 'Components/Controls/Steps/Step',
   component: Step,
   parameters: {
     layout: 'centered',

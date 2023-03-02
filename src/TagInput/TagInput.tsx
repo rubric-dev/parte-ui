@@ -30,7 +30,7 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
       label,
       description,
       required = false,
-      rightSlot,
+      trailingIcon,
       errorText,
       disabled,
       onFocus,
@@ -52,7 +52,6 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
       }
 
       if (!inputValue) {
-        console.log('값을 입력해 주세요');
         return;
       }
 
@@ -137,9 +136,9 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
               }}
             />
           </Box>
-          {rightSlot && (
+          {trailingIcon && (
             <Styled.RightIconContainer disabled={!!props.disabled}>
-              {rightSlot}
+              {trailingIcon}
             </Styled.RightIconContainer>
           )}
         </Styled.InputWrapper>

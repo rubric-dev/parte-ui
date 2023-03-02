@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { getElevation } from '../common/utils/elevation.util';
 import { BoxProps } from './Box.types';
 
 const JUSTIFY_CONTENT = {
@@ -28,6 +29,8 @@ export const commonBoxStyle = css<BoxProps>`
     paddingBottom,
     paddingLeft,
     paddingRight,
+    fullWidth,
+    elevation,
   }) =>
     css`
       display: flex;
@@ -37,7 +40,8 @@ export const commonBoxStyle = css<BoxProps>`
       gap: ${gap}px;
       flex-basis: ${flexBasis ? `${flexBasis}px` : 'unset'};
       flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
-      height: 100%;
+      width: ${fullWidth ? `100%` : `inherit`};
+
       ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
       ${[
         typeof paddingLeft === 'number'
@@ -49,15 +53,12 @@ export const commonBoxStyle = css<BoxProps>`
           ? `padding-right: ${paddingRight}px;`
           : '',
       ]}
-      ${[
-        typeof paddingTop === 'number'
-          ? `padding-bottom: ${paddingTop}px;`
-          : '',
-      ]}
+      ${[typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '']}
       ${[
         typeof paddingBottom === 'number'
-          ? `padding-top: ${paddingBottom}px;`
+          ? `padding-bottom: ${paddingBottom}px;`
           : '',
       ]}
+      ${typeof elevation === 'number' && getElevation(elevation)}
     `}
 `;

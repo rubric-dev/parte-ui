@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import styled from 'styled-components';
 import colors from './colors';
 
@@ -28,20 +29,20 @@ function ColorList() {
   return (
     <Container>
       {CATEGORY.map((letter) => (
-        <>
+        <Fragment key={letter}>
           <Title>{letter}</Title>
           <List>
             {colorMap[letter[0]]?.map((color) => {
               const [key, value] = Object.entries(color)[0];
               return (
-                <Item color={value}>
+                <Item key={value} color={value}>
                   <Name>{key}</Name>
                   <ColorCode>{value}</ColorCode>
                 </Item>
               );
             })}
           </List>
-        </>
+        </Fragment>
       ))}
     </Container>
   );

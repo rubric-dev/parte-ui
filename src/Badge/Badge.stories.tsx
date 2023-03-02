@@ -3,7 +3,7 @@ import { BadgeProps } from './Badge.types';
 import Badge from './Badge';
 
 export default {
-  title: 'Components/Badges',
+  title: 'Components/Avatars & Badges/Badges',
   component: Badge,
   parameters: {
     layout: 'centered',
@@ -11,12 +11,12 @@ export default {
   },
 } as Meta;
 
-const Template: Story<BadgeProps> = ({ children, ...args }) => {
+const Template: Story<BadgeProps> = ({ ...args }) => {
   return <Badge {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
   text: '555',
-  badgeColor: 'AUTO',
+  badgeColor: 'BLUE',
 };

@@ -4,6 +4,7 @@ import {
   FlattenInterpolation,
   ThemedStyledProps,
 } from 'styled-components';
+import { Elevation } from '../@foundations/Elevation/elevation';
 import { SPACING } from '../@foundations/Spacing';
 import { Spacing } from '../@foundations/Spacing/spacing.types';
 
@@ -33,6 +34,7 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   paddingLeft?: Spacing[keyof typeof SPACING];
   paddingRight?: Spacing[keyof typeof SPACING];
   fullWidth?: boolean;
+  elevation?: Elevation;
   /**
    * @uxpinignoreprop
    */
