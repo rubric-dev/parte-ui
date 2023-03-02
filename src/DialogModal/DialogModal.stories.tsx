@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { useState } from 'react';
 import { css } from 'styled-components';
-import { Button } from '../Button';
+import Button from '../Button';
 import theme from '../common/theme';
 import { Box } from '../Layout';
 import DialogModal from './DialogModal';

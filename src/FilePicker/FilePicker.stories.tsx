@@ -41,16 +41,12 @@ export const CustomInputName = Template.bind({});
 CustomInputName.args = {
   name: 'custom-name-file-picker',
   multiple: true,
-  inputText: (files) => files.map((file) => file.name).join(', '),
-};
-
-export const Error = Template.bind({});
-
-Error.args = {
-  name: 'error-file-picker',
-  errorMessage: 'error ocurred',
-  // FIXME: 지우기
-  occurError: true,
+  inputText: (files) => {
+    if (files.length) {
+      return 'custom file name';
+    }
+    return 'select file';
+  },
 };
 
 export const Disabled = Template.bind({});

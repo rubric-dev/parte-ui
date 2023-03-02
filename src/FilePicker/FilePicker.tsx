@@ -1,8 +1,9 @@
 import { FilePickerProps } from './FilePicker.types';
 import * as Styled from './FilePicker.styled';
 import { ChangeEvent, useCallback, useRef, useState } from 'react';
-import { Caption, Paragraph } from '../@foundations/Typography';
 import { Box } from '../Layout';
+import { Caption, Paragraph } from '../@foundations/Typography';
+import TextInput from '../TextInput';
 
 const defaultButtonText = (files: File[]) => {
   const fileCount = files.length;
@@ -34,27 +35,20 @@ const FilePicker = ({
   multiple,
   accept,
   errorMessage,
-  buttonText = defaultButtonText,
   inputText = getInputValue,
+  buttonText = defaultButtonText,
   onBlur,
   onChange,
-  // FIXME: 지우기
-  occurError,
 }: FilePickerProps) => {
   const [files, setFiles] = useState<File[]>([]);
-  const [hover, setHover] = useState(false);
-  const [focused, setFocused] = useState(false);
-  const [error, setError] = useState(false);
-
+  const [inputFocused, setInputFocused] = useState(false);
+  // textInput 컴포넌트를 참조
+  const inputRef = useRef<HTMLInputElement>(null);
+  // file picker의 역할을하는 input엘리먼트를 참조
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = useCallback(
     (e: ChangeEvent) => {
-      setError(false);
-      if (occurError) {
-        setError(true);
-        return;
-      }
       // Firefox returns the same array instance each time for some reason
       const filesCopy = [...((e.target as HTMLInputElement)?.files ?? [])];
 
@@ -108,26 +102,7 @@ const FilePicker = ({
           )}
         </Box>
       )}
-      <Styled.Container
-        error={error}
-        disabled={disabled}
-        onMouseEnter={(e) => {
-          setHover(true);
-        }}
-        onMouseLeave={(e) => {
-          setHover(false);
-        }}
-        onMouseDown={(e) => {
-          setFocused(true);
-        }}
-        onMouseUp={(e) => {
-          setFocused(false);
-        }}
-        onBlurCapture={(e) => {
-          e.stopPropagation();
-        }}
-        onClick={handleButtonClick}
-      >
+      <Styled.Container>
         <input
           style={{
             position: 'absolute',
@@ -148,32 +123,26 @@ const FilePicker = ({
           onChange={handleFileChange}
           onBlur={handleBlur}
         />
-        <Styled.TextWrapper>
-          <Paragraph size={100} color={files.length ? 'N800' : 'N600'}>
-            {files.length ? inputText(files) : placeholder}
-          </Paragraph>
-        </Styled.TextWrapper>
-        <Styled.Button
-          hover={hover}
-          focused={focused}
-          error={error}
-          disabled={disabled}
-        >
-          <Styled.ButtonText
-            hover={hover}
-            focused={focused}
+        <Styled.FilePickerInput focused={inputFocused}>
+          <TextInput
             disabled={disabled}
-            error={error}
-          >
-            {buttonText(files)}
-          </Styled.ButtonText>
-        </Styled.Button>
+            ref={inputRef}
+            onFocus={() => setInputFocused(true)}
+            onBlur={() => setInputFocused(false)}
+            fullWidth
+            errorText={errorMessage}
+            placeholder={placeholder}
+            value={inputText(files)}
+          />
+        </Styled.FilePickerInput>
+        <Styled.FilePickerButton
+          variant="secondary"
+          disabled={disabled}
+          onClick={handleButtonClick}
+        >
+          {buttonText(files)}
+        </Styled.FilePickerButton>
       </Styled.Container>
-      {error && errorMessage && (
-        <Paragraph size={100} color="R400" marginTop={2}>
-          error text
-        </Paragraph>
-      )}
     </Box>
   );
 };
