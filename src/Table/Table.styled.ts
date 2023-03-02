@@ -7,6 +7,7 @@ export const Table = styled(Box)`
   ${() => css`
     box-sizing: border-box;
     width: 100%;
+    height: 100%;
   `}
 `;
 
@@ -19,6 +20,7 @@ const stickyStyle = css`
 export const HeaderContainer = styled(Box)<HeaderContainerProps>`
   ${({ theme, sticky }) => css`
     width: 100%;
+    height: fit-content;
     border: 1px solid ${theme.colors.N300};
     border-top-left-radius: ${theme.spacing.spacing4}px;
     border-top-right-radius: ${theme.spacing.spacing4}px;
@@ -26,7 +28,15 @@ export const HeaderContainer = styled(Box)<HeaderContainerProps>`
   `}
 `;
 
-export const Body = styled(Box)``;
+export const Body = styled(Box)`
+  ${({ theme }) => css`
+    overflow-y: auto;
+    flex: 1;
+    border: 1px solid ${theme.colors.N300};
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  `}
+`;
 
 export const HeaderRow = styled(Box)`
   ${({ theme }) => css`
@@ -35,10 +45,7 @@ export const HeaderRow = styled(Box)`
     height: 100%;
     padding: 0 ${theme.spacing.spacing16}px;
     background-color: ${theme.colors.N50};
-    &:first-child {
-      border-top-left-radius: ${theme.spacing.spacing4}px;
-      border-top-right-radius: ${theme.spacing.spacing4}px;
-    }
+    border-radius: 4px 4px 0 0;
   `}
 `;
 
@@ -58,12 +65,8 @@ export const Row = styled(Box)<BoxProps & RowProps>`
       height: 64px;
       background-color: ${selected ? theme.colors.B50 : theme.colors.N0};
       padding: 0 ${theme.spacing.spacing16}px;
-      border: 1px solid ${theme.colors.N300};
-      border-top: none;
-
-      &:last-child {
-        border-bottom-left-radius: ${theme.spacing.spacing4}px;
-        border-bottom-right-radius: ${theme.spacing.spacing4}px;
+      &:not(:last-child) {
+        border-bottom: 1px solid ${theme.colors.N300};
       }
       ${selectable && selectableTrStyle}
     `;
@@ -74,12 +77,14 @@ export const HeaderCell = styled(Box)`
   ${({ theme }) => css`
     ${theme.typography.C100}
     color: ${theme.colors.N700};
+    text-transform: uppercase;
   `}
 `;
 
 export const Cell = styled(Box)`
   ${({ theme }) => css`
     ${theme.typography.P100};
+    color: ${theme.colors.N700};
   `}
 `;
 
