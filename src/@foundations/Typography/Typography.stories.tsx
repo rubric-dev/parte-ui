@@ -12,8 +12,8 @@ export default {
 
 const Template: Story = () => {
   return (
-    <Box direction="row" justifyContent="Space Between">
-      <Box direction="column" gap={10}>
+    <Box flexDirection="row" justifyContent="space-between">
+      <Box flexDirection="column" gap={10}>
         <Heading size={900}>Heading 900</Heading>
         <Heading size={800}>Heading 800</Heading>
         <Heading size={700}>Heading 700</Heading>
@@ -24,16 +24,16 @@ const Template: Story = () => {
         <Heading size={200}>Heading 200</Heading>
         <Heading size={100}>Heading 100</Heading>
       </Box>
-      <Box direction="column" gap={10}>
+      <Box flexDirection="column" gap={10}>
         <Paragraph size={300}>Paragraph 300</Paragraph>
         <Paragraph size={200}>Paragraph 200</Paragraph>
         <Paragraph size={100}>Paragraph 100</Paragraph>
       </Box>
-      <Box direction="column" gap={10}>
+      <Box flexDirection="column" gap={10}>
         <Caption size={200}>Caption 200</Caption>
         <Caption size={100}>Caption 100</Caption>
       </Box>
-      <Box direction="column" gap={10}>
+      <Box flexDirection="column" gap={10}>
         <Code>Code Default</Code>
         <Code variant="minimal">Code Minimal</Code>
       </Box>
@@ -45,8 +45,8 @@ export const Default = Template.bind({});
 
 const CustomStyle: Story = () => {
   return (
-    <Box direction="row" justifyContent="Space Between">
-      <Box direction="column" gap={10}>
+    <Box flexDirection="row" justifyContent="space-between">
+      <Box flexDirection="column" gap={10}>
         <Heading size={900} marginBottom={20}>
           Heading 900
         </Heading>
@@ -61,20 +61,20 @@ const CustomStyle: Story = () => {
         <Heading size={200}>Heading 200</Heading>
         <Heading size={100}>Heading 100</Heading>
       </Box>
-      <Box direction="column" gap={10}>
+      <Box flexDirection="column" gap={10}>
         <Paragraph size={300}>Paragraph 300</Paragraph>
         <Paragraph size={200} color="Y600">
           Paragraph 200
         </Paragraph>
         <Paragraph size={100}>Paragraph 100</Paragraph>
       </Box>
-      <Box direction="column" gap={10}>
+      <Box flexDirection="column" gap={10}>
         <Caption size={200}>Caption 200</Caption>
         <Caption size={100} marginTop={50} color="ChartBlue">
           Caption 100
         </Caption>
       </Box>
-      <Box direction="column" gap={10}>
+      <Box flexDirection="column" gap={10}>
         <Code>Code Default</Code>
         <Code variant="minimal">Code Minimal</Code>
       </Box>

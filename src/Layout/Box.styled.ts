@@ -1,64 +1,113 @@
 import { css } from 'styled-components';
 import { getElevation } from '../common/utils/elevation.util';
+import { getWidthStyle } from '../common/utils/style.util';
 import { BoxProps } from './Box.types';
-
-const JUSTIFY_CONTENT = {
-  Start: 'flex-start',
-  Center: 'center',
-  End: 'flex-end',
-  'Space Between': 'space-between',
-  'Space Around': 'space-around',
-  'Space Evenly': 'space-evenly',
-} as const;
-const ALIGN_ITEMS = {
-  Start: 'flex-start',
-  Center: 'center',
-  End: 'flex-end',
-} as const;
 
 export const commonBoxStyle = css<BoxProps>`
   ${({
+    display = 'block',
+    width,
+    height,
+    // ====================
+    backgroundColor,
+    color,
+    // ====================
     flexDirection = 'row',
-    justifyContent = 'Start',
-    alignItems = 'Start',
+    justifyContent = 'start',
+    alignItems = 'start',
+    alignContent = 'start',
+    flexWrap = 'nowrap',
     gap = 0,
-    flexWrap = false,
-    flexBasis,
+    rowGap = 0,
+    columnGap = 0,
+    // ====================
+    order = 0,
+    flexGrow = 0,
+    flexShrink = 1,
+    flexBasis = 'auto',
+    flex = '0 1 auto',
+    alignSelf = 'auto',
+    // ====================
+    gridTemplateColumns = 'none',
+    gridTemplateRows = 'none',
+
     padding,
     paddingTop,
     paddingBottom,
     paddingLeft,
     paddingRight,
-    fullWidth,
+
+    margin,
+    marginTop,
+    marginBottom,
+    marginLeft,
+    marginRight,
     elevation,
   }) =>
     css`
-      display: flex;
-      flex-direction: ${flexDirection};
-      justify-content: ${JUSTIFY_CONTENT[justifyContent]};
-      align-items: ${ALIGN_ITEMS[alignItems]};
-      gap: ${gap}px;
-      flex-basis: ${flexBasis ? `${flexBasis}px` : 'unset'};
-      flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
-      width: ${fullWidth ? `100%` : `inherit`};
+      display: ${display};
+      ${getWidthStyle(width)};
+      ${getWidthStyle(height)};
 
-      ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
+      background-color: ${backgroundColor};
+      color: ${color};
+
+      flex-direction: ${flexDirection};
+      justify-content: ${justifyContent};
+      align-items: ${alignItems};
+      align-content: ${alignContent};
+      flex-wrap: ${flexWrap};
+      row-gap: ${rowGap}px;
+      column-gap: ${columnGap}px;
+      gap: ${gap}px;
+
+      order: ${typeof order === 'number' ? `${order}px` : order};
+      flex-grow: ${flexGrow};
+      flex-shrink: ${flexShrink};
+      flex-basis: ${typeof flexBasis === 'number'
+        ? `${flexBasis}px`
+        : flexBasis};
+      flex: ${flex};
+      align-self: ${alignSelf};
+
+      grid-template-columns: ${gridTemplateColumns};
+      grid-template-rows: ${gridTemplateRows};
+
+      ${[typeof padding === 'number' ? ` ${padding}px;` : '']};
       ${[
         typeof paddingLeft === 'number'
           ? `padding-left: ${paddingLeft}px;`
           : '',
-      ]}
+      ]};
       ${[
         typeof paddingRight === 'number'
           ? `padding-right: ${paddingRight}px;`
           : '',
-      ]}
-      ${[typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '']}
+      ]};
+      ${[
+        typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '',
+      ]};
       ${[
         typeof paddingBottom === 'number'
           ? `padding-bottom: ${paddingBottom}px;`
           : '',
-      ]}
-      ${typeof elevation === 'number' && getElevation(elevation)}
+      ]};
+      ${[typeof margin === 'number' ? ` ${margin}px;` : '']};
+      ${[
+        typeof marginLeft === 'number' ? `margin-left: ${marginLeft}px;` : '',
+      ]};
+      ${[
+        typeof marginRight === 'number'
+          ? `margin-right: ${marginRight}px;`
+          : '',
+      ]};
+      ${[typeof marginTop === 'number' ? `margin-top: ${marginTop}px;` : '']};
+      ${[
+        typeof marginBottom === 'number'
+          ? `margin-bottom: ${marginBottom}px;`
+          : '',
+      ]};
+
+      ${typeof elevation === 'number' && getElevation(elevation)};
     `}
 `;

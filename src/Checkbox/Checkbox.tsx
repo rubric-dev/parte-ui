@@ -37,7 +37,7 @@ const Checkbox = ({
         pressed={pressed}
         checked={checked || indeterminate}
         disabled={disabled}
-        alignItems="Center"
+        alignItems="center"
       >
         <Styled.Input
           type="checkbox"
@@ -47,7 +47,12 @@ const Checkbox = ({
             onChange?.(e);
           }}
         />
-        <Box alignItems="Center" justifyContent="Center" style={{ flex: 1 }}>
+        <Box
+          alignItems="center"
+          justifyContent="center"
+          flex={1}
+          style={{ flex: 1 }}
+        >
           {renderIcon()}
         </Box>
       </Styled.Checkbox>

@@ -101,7 +101,7 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
             paddingLeft={12}
             paddingRight={12}
             gap={8}
-            flexWrap
+            flexWrap="wrap"
           >
             {!!values.length && (
               <>

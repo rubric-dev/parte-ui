@@ -23,7 +23,7 @@ const Template: Story<RadioGroupProps> = ({ ...args }) => {
 
   return (
     <RadioGroup {...args} onChange={onChange} value={selectedValue}>
-      <Box gap={10} direction="column">
+      <Box gap={10} flexDirection="column">
         <Radio value="TEST" label="TEST" />
         <Radio value="TEST1" label="TEST1" />
         <Radio value="TEST2" label="TEST2" />

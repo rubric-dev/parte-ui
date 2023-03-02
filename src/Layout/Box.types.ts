@@ -19,6 +19,11 @@ import {
 
 export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   display?: Display;
+  width?: string | number;
+  height?: string | number;
+
+  backgroundColor: string;
+  color: string;
 
   // flex parent properties
   flexDirection?: FlexDirection;
@@ -47,8 +52,15 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   paddingBottom?: Spacing[keyof typeof SPACING];
   paddingLeft?: Spacing[keyof typeof SPACING];
   paddingRight?: Spacing[keyof typeof SPACING];
-  fullWidth?: boolean;
+
+  margin?: Spacing[keyof typeof SPACING];
+  marginTop?: Spacing[keyof typeof SPACING];
+  marginBottom?: Spacing[keyof typeof SPACING];
+  marginLeft?: Spacing[keyof typeof SPACING];
+  marginRight?: Spacing[keyof typeof SPACING];
+
   elevation?: Elevation;
+
   /**
    * @uxpinignoreprop
    */
