@@ -1,13 +1,11 @@
-import { COLORS } from '../../../@foundations/Colors';
-
 const LinkToken = {
-  colorTextLink: COLORS.B400,
-  colorTextLinkHover: COLORS.B500,
-  colorTextLinkPressed: COLORS.B600,
-  colorTextLinkFocused: COLORS.B500,
-  colorTextLinkDisabled: COLORS.N500,
-  colorTextLinkVisited: COLORS.V400,
-} as const;
+  colorTextLink: 'B400',
+  colorTextLinkHover: 'B500',
+  colorTextLinkPressed: 'B600',
+  colorTextLinkFocused: 'B500',
+  colorTextLinkDisabled: 'N500',
+  colorTextLinkVisited: 'V400',
+};
 
 export default {
   ...LinkToken,

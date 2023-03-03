@@ -76,6 +76,6 @@ const colors = {
   ChartPink: '#FD8ADC',
   ChartAqua: '#70B0FF',
   ChartOrange: '#FF9D66',
-} as const;
+};
 
 export default colors;

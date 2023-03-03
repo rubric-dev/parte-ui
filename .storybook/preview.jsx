@@ -1,17 +1,22 @@
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '../src';
 import { GlobalStyle } from './decorators/GlobalStyles';
-import theme from '../src/common/theme';
 
 export const decorators = [
   (Story) => {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider
+      // theme={{
+      //   colors: { B400: '#0AA2C0' },
+      //   colorBackgroundButtonPrimary: 'red',
+      // }}
+      >
         <GlobalStyle />
         <Story />
       </ThemeProvider>
     );
   },
 ];
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

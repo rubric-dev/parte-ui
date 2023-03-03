@@ -1,21 +1,19 @@
-import { COLORS } from '../../../@foundations/Colors';
-
 const generalToken = {
-  colorBackgroundDefault: COLORS.N0,
-  colorBackgroundHover: COLORS.N0,
+  colorBackgroundDefault: 'N0',
+  colorBackgroundHover: 'N0',
   // colorBackgroundDefault: 속성이 없음,
-  colorBackgroundFocused: COLORS.N50,
-  colorBackgroundDisabled: COLORS.N100,
-  colorBorderDefault: COLORS.N400,
-  colorBorderHover: COLORS.N400,
+  colorBackgroundFocused: 'N50',
+  colorBackgroundDisabled: 'N100',
+  colorBorderDefault: 'N400',
+  colorBorderHover: 'N400',
   // colorBorderDefault: 속성이 없음,
-  colorBorderFocused: COLORS.B300,
-  colorBorderDisabled: COLORS.N300,
+  colorBorderFocused: 'B300',
+  colorBorderDisabled: 'N300',
 
-  colorBackgroundMenu: COLORS.N0,
-  colorBackgroundMenuHover: COLORS.N50,
-  colorBackgroundMenuSelected: COLORS.B100,
-} as const;
+  colorBackgroundMenu: 'N0',
+  colorBackgroundMenuHover: 'N50',
+  colorBackgroundMenuSelected: 'B100',
+};
 
 export default {
   ...generalToken,
