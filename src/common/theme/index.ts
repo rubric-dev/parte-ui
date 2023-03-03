@@ -3,7 +3,7 @@ import { SPACING } from '../../@foundations/Spacing';
 import { TYPOGRAPHY } from '../../@foundations/Typography';
 import { ELEVATION } from '../../@foundations/Elevation';
 import { commonStyles } from '../commonStyles';
-import { tokens } from './colorToken';
+import { colorTokens } from './colorToken';
 
 const theme = {
   colors: COLORS,
@@ -11,6 +11,6 @@ const theme = {
   typography: TYPOGRAPHY,
   elevation: ELEVATION,
   commonStyles,
-  ...tokens,
+  ...colorTokens,
 };
 export default theme;

@@ -1,13 +1,11 @@
-import { COLORS } from '../../../@foundations/Colors';
-
 const formToken = {
-  colorTextPlaceholderDefault: COLORS.N600,
-  colorTextPlaceholderHover: COLORS.N700,
-  colorTextPlaceholderFocused: COLORS.N700,
-  colorTextPlaceholderDisabled: COLORS.N600,
-  colorTextDefault: COLORS.N800,
-  colorTextDisabled: COLORS.N600,
-} as const;
+  colorTextPlaceholderDefault: 'N600',
+  colorTextPlaceholderHover: 'N700',
+  colorTextPlaceholderFocused: 'N700',
+  colorTextPlaceholderDisabled: 'N600',
+  colorTextDefault: 'N800',
+  colorTextDisabled: 'N600',
+};
 
 export default {
   ...formToken,

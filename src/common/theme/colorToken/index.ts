@@ -6,7 +6,7 @@ import { default as dropdownToken } from './dropdown';
 import { default as overlayToken } from './overlay';
 import { default as linkToken } from './link';
 
-export const tokens = {
+export const colorTokens = {
   ...buttonColorToken,
   ...typographyToken,
   ...formToken,
@@ -15,4 +15,5 @@ export const tokens = {
   ...overlayToken,
   ...linkToken,
 };
-export type TokenType = typeof tokens;
+
+export type ColorTokenType = Record<keyof typeof colorTokens, string>;
