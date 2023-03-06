@@ -1,1 +1,1 @@
-export { default as Toggle } from './Pagination';
+export { default } from './Pagination';
