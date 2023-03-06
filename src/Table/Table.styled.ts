@@ -62,7 +62,6 @@ export const Row = styled(Box)<BoxProps & RowProps>`
       box-sizing: border-box;
       display: flex;
       width: 100%;
-      height: 64px;
       background-color: ${selected ? theme.colors.B50 : theme.colors.N0};
       padding: 0 ${theme.spacing.spacing16}px;
       &:not(:last-child) {

@@ -44,7 +44,7 @@ const MOCK_USERS: User[] = [
   {
     name: 'Dorothy',
     type: 'user',
-    position: 'Study lead',
+    position: 'mukbang youtuber',
     bio: 'naver.com',
     active: true,
   },
