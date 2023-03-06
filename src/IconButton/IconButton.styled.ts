@@ -27,6 +27,9 @@ const commonButtonStyles = css<Omit<IconButtonProps, 'Icon'>>`
   column-gap: 8px;
   border-radius: 4px;
 
+  &:disabled {
+    cursor: default;
+  }
   &::-moz-focus-inner {
     border: 0;
   }

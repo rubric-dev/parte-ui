@@ -17,6 +17,7 @@ export * from './IconButton';
 export * from './Layout';
 export * from './Menu';
 export * from './Overlay';
+export * from './Pagination';
 export * from './Radio';
 export * from './RadioGroup';
 export * from './SideSheet';
