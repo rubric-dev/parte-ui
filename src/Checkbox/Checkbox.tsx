@@ -48,10 +48,10 @@ const Checkbox = ({
           }}
         />
         <Box
+          display="flex"
           alignItems="center"
           justifyContent="center"
-          flex={1}
-          style={{ flex: 1 }}
+          flex="1"
         >
           {renderIcon()}
         </Box>

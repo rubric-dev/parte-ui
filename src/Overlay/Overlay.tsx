@@ -197,7 +197,8 @@ const Overlay = memo(
         >
           {(state) => (
             <Styled.BackDrop
-              justifyContent="Center"
+              display="flex"
+              justifyContent="center"
               ref={containerRef}
               onClick={handleBackdropClick}
               data-state={state}

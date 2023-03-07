@@ -28,6 +28,7 @@ export const Checkbox = styled(Box)<{
     position: relative;
     box-sizing: border-box;
     border: 1px solid ${theme.colors.N400};
+    display: flex;
     & svg {
       color: ${theme.colors.N0};
     }

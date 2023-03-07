@@ -22,8 +22,8 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   width?: string | number;
   height?: string | number;
 
-  backgroundColor: string;
-  color: string;
+  backgroundColor?: string;
+  color?: string;
 
   // flex parent properties
   flexDirection?: FlexDirection;
@@ -47,17 +47,17 @@ export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   gridTemplateColumns?: string;
   gridTemplateRows?: string;
 
-  padding?: Spacing[keyof typeof SPACING];
-  paddingTop?: Spacing[keyof typeof SPACING];
-  paddingBottom?: Spacing[keyof typeof SPACING];
-  paddingLeft?: Spacing[keyof typeof SPACING];
-  paddingRight?: Spacing[keyof typeof SPACING];
+  padding?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
+  paddingLeft?: number;
+  paddingRight?: number;
 
-  margin?: Spacing[keyof typeof SPACING];
-  marginTop?: Spacing[keyof typeof SPACING];
-  marginBottom?: Spacing[keyof typeof SPACING];
-  marginLeft?: Spacing[keyof typeof SPACING];
-  marginRight?: Spacing[keyof typeof SPACING];
+  margin?: number;
+  marginTop?: number;
+  marginBottom?: number;
+  marginLeft?: number;
+  marginRight?: number;
 
   elevation?: Elevation;
 

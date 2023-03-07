@@ -5,6 +5,7 @@ export const DialogContainer = styled(Box)`
   ${({ theme }) => css`
     background-color: ${theme.colors.N0};
     display: flex;
+    height: fit-content;
   `}
 `;
 export const Header = styled(Box)`
@@ -29,6 +30,7 @@ export const Content = styled(Box)`
 
 export const Footer = styled(Box)`
   ${({ theme }) => css`
+    display: flex;
     padding: ${theme.spacing.spacing32}px;
     padding-top: ${theme.spacing.spacing24}px;
     justify-content: flex-end;

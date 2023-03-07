@@ -21,7 +21,7 @@ const Template: Story<CheckboxProps> = ({ ...args }) => {
   };
 
   return (
-    <Box gap={12} flexDirection="column">
+    <Box display="flex" gap={12} flexDirection="column">
       <Checkbox {...args} onChange={onChange} checked={checked} />
       <Checkbox {...args} disabled onChange={onChange} checked={checked} />
     </Box>

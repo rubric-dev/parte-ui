@@ -1,6 +1,10 @@
 import { css } from 'styled-components';
 import { getElevation } from '../common/utils/elevation.util';
-import { getWidthStyle } from '../common/utils/style.util';
+import {
+  getWidthStyle,
+  getFlexBasisStyle,
+  getHeightStyle,
+} from '../common/utils/style.util';
 import { BoxProps } from './Box.types';
 
 export const commonBoxStyle = css<BoxProps>`
@@ -12,24 +16,24 @@ export const commonBoxStyle = css<BoxProps>`
     backgroundColor,
     color,
     // ====================
-    flexDirection = 'row',
-    justifyContent = 'start',
-    alignItems = 'start',
-    alignContent = 'start',
-    flexWrap = 'nowrap',
-    gap = 0,
-    rowGap = 0,
-    columnGap = 0,
+    flexDirection,
+    justifyContent,
+    alignItems,
+    alignContent,
+    flexWrap,
+    gap,
+    rowGap,
+    columnGap,
     // ====================
-    order = 0,
-    flexGrow = 0,
-    flexShrink = 1,
-    flexBasis = 'auto',
-    flex = '0 1 auto',
-    alignSelf = 'auto',
+    order,
+    flexGrow,
+    flexShrink,
+    flexBasis,
+    flex,
+    alignSelf,
     // ====================
-    gridTemplateColumns = 'none',
-    gridTemplateRows = 'none',
+    gridTemplateColumns,
+    gridTemplateRows,
 
     padding,
     paddingTop,
@@ -47,33 +51,31 @@ export const commonBoxStyle = css<BoxProps>`
     css`
       display: ${display};
       ${getWidthStyle(width)};
-      ${getWidthStyle(height)};
+      ${getHeightStyle(height)};
 
-      background-color: ${backgroundColor};
-      color: ${color};
+      ${backgroundColor && `background-color: ${backgroundColor};`}
+      ${color && `color: ${color};`}
 
-      flex-direction: ${flexDirection};
-      justify-content: ${justifyContent};
-      align-items: ${alignItems};
-      align-content: ${alignContent};
-      flex-wrap: ${flexWrap};
-      row-gap: ${rowGap}px;
-      column-gap: ${columnGap}px;
-      gap: ${gap}px;
+      ${flexDirection && `flex-direction: ${flexDirection};`}
+      ${justifyContent && `justify-content: ${justifyContent};`}
+      ${alignItems && `align-items: ${alignItems};`}
+      ${alignContent && `align-content: ${alignContent};`}
+      ${flexWrap && `flex-wrap: ${flexWrap};`}
+      ${rowGap && `row-gap: ${rowGap}px;`}
+      ${columnGap && `column-gap: ${columnGap}px;`}
+      ${gap && `gap: ${gap}px;`}
 
-      order: ${typeof order === 'number' ? `${order}px` : order};
-      flex-grow: ${flexGrow};
-      flex-shrink: ${flexShrink};
-      flex-basis: ${typeof flexBasis === 'number'
-        ? `${flexBasis}px`
-        : flexBasis};
-      flex: ${flex};
-      align-self: ${alignSelf};
-
-      grid-template-columns: ${gridTemplateColumns};
-      grid-template-rows: ${gridTemplateRows};
-
-      ${[typeof padding === 'number' ? ` ${padding}px;` : '']};
+      ${typeof order === 'number' ? `order: ${order};` : ''};
+      ${typeof flexGrow === 'number' ? `flex-grow: ${flexGrow};` : ''};
+      ${typeof flexShrink === 'number' ? `flex-shrink: ${flexShrink};` : ''};
+      ${getFlexBasisStyle(flexBasis)}
+      ${flex && `flex: ${flex};`}
+      ${alignSelf && `align-self: ${alignSelf};`}
+      
+      ${gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}
+      ${gridTemplateRows && `grid-template-rows: ${gridTemplateRows};`}
+      
+      ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']};
       ${[
         typeof paddingLeft === 'number'
           ? `padding-left: ${paddingLeft}px;`
@@ -92,7 +94,7 @@ export const commonBoxStyle = css<BoxProps>`
           ? `padding-bottom: ${paddingBottom}px;`
           : '',
       ]};
-      ${[typeof margin === 'number' ? ` ${margin}px;` : '']};
+      ${[typeof margin === 'number' ? `margin: ${margin}px;` : '']};
       ${[
         typeof marginLeft === 'number' ? `margin-left: ${marginLeft}px;` : '',
       ]};

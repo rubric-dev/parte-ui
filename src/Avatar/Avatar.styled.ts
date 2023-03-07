@@ -16,6 +16,7 @@ export const commonAvatarStyles = css<AvatarProps>`
 
 export const Avatar = styled(Box)<AvatarProps>`
   ${({ avatarColor }) => css`
+    display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
