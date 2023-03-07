@@ -25,15 +25,19 @@ export const getStyles = ({
       // 원래는 상하 패딩은 8인데, border는 control 컴포넌트에서 관리하기때문에, boxSizing이 적용안됨
       padding: '7px 10px 7px 12px',
       display: 'flex',
+      alignItems: 'flex-start',
       svg: {
         color: '#8F95B2',
       },
       '&:hover': {
-        borderColor: '#9DB5FF',
+        borderColor: '#8F95B2',
+        '& div[id$=placeholder]': {
+          color: '#696F8C !important',
+        },
       },
       ...(props.isFocused
         ? {
-            borderColor: '#9DB5FF',
+            borderColor: '#9DB5FF !important',
             boxShadow: '0 0 0 2px #D6E0FF',
           }
         : {
@@ -125,17 +129,17 @@ export const getStyles = ({
       backgroundColor: 'transparent',
     },
     svg: {
-      color: '#474D66',
+      color: '#474D66 !important',
     },
     ...(isError
       ? {
-          svg: { color: '#8F95B2' },
+          svg: { color: '#8F95B2  !important' },
         }
       : {}),
     ...(props.isDisabled
       ? {
           svg: {
-            color: '#C1C4D6',
+            color: '#C1C4D6  !important',
           },
         }
       : {}),
@@ -265,6 +269,7 @@ export const getStyles = ({
   clearIndicator: (css, props) => ({
     ...css,
     padding: 0,
+    cursor: 'pointer',
     svg: {
       color: '##8F95B2',
     },

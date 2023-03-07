@@ -33,8 +33,9 @@ const Template: Story<
     isError?: boolean;
   }
 > = ({ isMulti, ...args }) => {
-  const [selectedValue, setSelectedValue] =
-    useState<Option<string>[] | SingleValue<Option<string>> | undefined>();
+  const [selectedValue, setSelectedValue] = useState<
+    Option<string>[] | SingleValue<Option<string>> | undefined
+  >([...((args?.value ?? []) as Option<string>[])]);
   const loadOptions = async (
     search: string,
     loadedOptions: OptionsOrGroups<Option<string>, GroupBase<Option<string>>>,
@@ -107,6 +108,11 @@ DefaultWithLabel.args = {
   required: true,
 };
 
+export const Loading = Template.bind({});
+Loading.args = {
+  isLoading: true,
+};
+
 export const Multi = Template.bind({});
 Multi.args = {
   isSearchable: false,
@@ -118,11 +124,14 @@ export const Error = Template.bind({});
 Error.args = {
   isError: true,
   errorText: 'this is error',
+  isMulti: false,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   isDisabled: true,
+  isMulti: false,
+  value: getOptions(1),
 };
 
 const GroupTemplate: Story<
@@ -134,21 +143,17 @@ const GroupTemplate: Story<
   const loadOptions = async (
     search: string,
     loadedOptions: OptionsOrGroups<Option<string>, GroupBase<Option<string>>>,
-    additional = 0
+    additional: SelectAdditional = { page: 0 }
   ) => {
-    const OPTION = [
-      { label: `test1-${additional}`, value: `test1-${additional}` },
-      { label: `test2-${additional}`, value: `test2-${additional}` },
-      { label: `test3-${additional}`, value: `test3-${additional}` },
-      { label: `test4-${additional}`, value: `test4-${additional}` },
-      { label: `test5-${additional}`, value: `test5-${additional}` },
-      { label: `test6-${additional}`, value: `test6-${additional}` },
-    ];
+    const OPTION = getOptions(additional.page);
 
     return {
       options: [{ options: OPTION, label: `${additional}번째 그룹` }],
       hasMore: true,
-      additional: additional + 1,
+      additional: {
+        ...additional,
+        page: (additional?.page ?? 0) + 1,
+      },
     };
   };
 

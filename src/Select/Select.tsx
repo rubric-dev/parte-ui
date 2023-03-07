@@ -32,7 +32,9 @@ export const Control = ({
 }: ControlProps<Option<unknown>, boolean>) => {
   return (
     <components.Control {...props}>
-      <ActionSearchIcon size={12} />
+      <Box marginTop={2}>
+        <ActionSearchIcon size={12} />
+      </Box>
       {children}
     </components.Control>
   );
@@ -48,13 +50,12 @@ const MultiValueRemove = ({
   );
 };
 
-const LoadingIndicator = ({
-  ...props
-}: LoadingIndicatorProps<Option<unknown>, boolean>) => {
+const LoadingIndicator = () => {
   return (
-    <components.LoadingIndicator {...props}>
-      <ActionUploadingSmallIcon size={12} />
-    </components.LoadingIndicator>
+    // FIXME: Spinner component로 교체해야함
+    <Box>
+      <ActionUploadingSmallIcon size={12} color="muted" />
+    </Box>
   );
 };
 
@@ -163,7 +164,7 @@ export default function Select<T>(props: SelectProps<T>) {
     onChange?.(newValue, actionMeta);
   };
 
-  const asyncComponents: any = useComponents(defaultComponents);
+  const asyncComponents = useComponents(defaultComponents);
 
   const SelectComponent =
     type === 'static' ? (
