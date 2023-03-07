@@ -138,6 +138,7 @@ const FilePicker = ({
         <Styled.FilePickerButton
           variant="secondary"
           disabled={disabled}
+          error={!!errorMessage}
           onClick={handleButtonClick}
         >
           {buttonText(files)}
