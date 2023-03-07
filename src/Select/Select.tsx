@@ -12,6 +12,7 @@ import StaticSelect, {
   MultiValueRemoveProps,
   ClearIndicatorProps,
   DropdownIndicatorProps,
+  OptionProps,
 } from 'react-select';
 import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
 import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
@@ -46,6 +47,7 @@ const MultiValueRemove = ({
     </components.MultiValueRemove>
   );
 };
+
 const LoadingIndicator = ({
   ...props
 }: LoadingIndicatorProps<Option<unknown>, boolean>) => {
@@ -86,6 +88,18 @@ export const DropdownIndicator = ({
     <components.DropdownIndicator {...props}>
       <InterfaceCaretDownIcon size={12} />
     </components.DropdownIndicator>
+  );
+};
+
+export const Option = ({
+  children,
+  ...props
+}: OptionProps<Option<unknown>, boolean>) => {
+  const { label, icon } = props.data;
+  return (
+    <components.Option {...props}>
+      {icon} {label}
+    </components.Option>
   );
 };
 
@@ -131,6 +145,9 @@ export default function Select<T>(props: SelectProps<T>) {
       >,
       ClearIndicator: ClearIndicator as ComponentType<
         ClearIndicatorProps<Option<T>, boolean, GroupBase<Option<T>>>
+      >,
+      Option: Option as ComponentType<
+        OptionProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
     }),
     []

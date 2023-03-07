@@ -74,8 +74,15 @@ export const getStyles = ({
     alignItems: 'center',
     margin: 0,
     boxSizing: 'border-box',
+    borderBottom: '1px solid #E6E8F0',
   }),
-  group: (css) => ({ ...css, padding: '0' }),
+  group: (css) => ({
+    ...css,
+    padding: '0',
+    '&:not(:first-of-type)': {
+      borderTop: '1px solid #E6E8F0',
+    },
+  }),
   noOptionsMessage: (css) => ({
     ...css,
     height: '120px',
@@ -192,21 +199,26 @@ export const getStyles = ({
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
+      columnGap: '8px',
       color: '#474D66',
       fontWeight: '400',
       fontSize: '12px',
       lineHeight: '16px',
       position: 'relative',
+      cursor: 'pointer',
+      '&:not(:last-of-type)': { borderBottom: '1px solid #E6E8F0' },
+      ':hover': { backgroundColor: '#FAFBFF' },
+      '&:active': { background: '#FAFBFF' },
       ...(props.isFocused
-        ? { backgroundColor: '#E6E8F0' }
+        ? { backgroundColor: '#FAFBFF' }
         : {
             backgroundColor: '#ffffff',
-            ':hover': { backgroundColor: '#E6E8F0' },
+            ':hover': { backgroundColor: '#FAFBFF' },
           }),
       ...(props.isSelected
         ? {
             backgroundColor: '#EBF0FF !important',
-            ':hover': { backgroundColor: '#EBF0FF' },
+            color: '#3366FF',
             '::before': {
               content: '""',
               position: 'absolute',
@@ -219,6 +231,16 @@ export const getStyles = ({
             },
           }
         : {}),
+
+      // ==== icon ====
+      svg: props.isSelected
+        ? {
+            color: '#3366FF',
+          }
+        : {
+            color: '#696F8C',
+          },
+      // ==== icon ====
     };
   },
   indicatorsContainer: (css, props) => ({

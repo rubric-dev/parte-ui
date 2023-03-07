@@ -8,6 +8,7 @@ import {
 import Select from './Select';
 import { AsyncSelectProps, SelectAdditional } from './Select.types';
 import { useState } from 'react';
+import ActionAddIcon from '../parte-icons/Icons/ActionAddIcon';
 
 export default {
   title: 'Components/Select/AsyncSelect',
@@ -17,6 +18,14 @@ export default {
     viewport: 'responsive',
   },
 } as Meta;
+
+const getOptions = (page: number): Option<string>[] => {
+  return Array.from({ length: 30 }).map((_, index) => ({
+    label: `test1-${page + index}`,
+    value: `test1-${page + index}`,
+    icon: index % 3 === 0 ? <ActionAddIcon size={12} /> : undefined,
+  }));
+};
 
 const Template: Story<
   AsyncSelectProps<string> & {
@@ -31,14 +40,7 @@ const Template: Story<
     loadedOptions: OptionsOrGroups<Option<string>, GroupBase<Option<string>>>,
     additional: SelectAdditional = { page: 0 }
   ) => {
-    const OPTION = [
-      { label: `test1-${additional.page}`, value: `test1-${additional.page}` },
-      { label: `test2-${additional.page}`, value: `test2-${additional.page}` },
-      { label: `test3-${additional.page}`, value: `test3-${additional.page}` },
-      { label: `test4-${additional.page}`, value: `test4-${additional.page}` },
-      { label: `test5-${additional.page}`, value: `test5-${additional.page}` },
-      { label: `test6-${additional.page}`, value: `test6-${additional.page}` },
-    ];
+    const OPTION = getOptions(additional.page);
     return {
       options: OPTION,
       hasMore: true,

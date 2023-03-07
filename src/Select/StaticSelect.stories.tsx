@@ -3,6 +3,7 @@ import { MultiValue, SingleValue } from 'react-select';
 import Select from './Select';
 import { StaticSelectProps } from './Select.types';
 import { useState } from 'react';
+import ActionAddIcon from '../parte-icons/Icons/ActionAddIcon';
 
 export default {
   title: 'Components/Select/StaticSelect',
@@ -13,10 +14,11 @@ export default {
   },
 } as Meta;
 
-const OPTION = (() => {
+const OPTION: Option<string>[] = (() => {
   return Array.from({ length: 30 }).map((_, index) => ({
     label: `test1-${index}`,
     value: `test1-${index}`,
+    icon: index % 3 === 0 ? <ActionAddIcon size={12} /> : undefined,
   }));
 })();
 

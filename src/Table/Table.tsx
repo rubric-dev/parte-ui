@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Paragraph } from '../@foundations/Typography';
-import { Dropdown } from '../Dropdown';
+import Dropdown from '../Dropdown';
 import { Box } from '../Layout';
 import { BoxProps } from '../Layout/Box.types';
 import { Menu } from '../Menu';

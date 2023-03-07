@@ -6,7 +6,7 @@ import { Heading } from '../@foundations/Typography';
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
 import { Checkbox } from '../Checkbox';
-import { Dropdown } from '../Dropdown';
+import Dropdown from '../Dropdown';
 import { IconButton } from '../IconButton';
 import { Link } from '../Link';
 import { Menu } from '../Menu';
