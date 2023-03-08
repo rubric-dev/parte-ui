@@ -100,13 +100,35 @@ export const getStyles = ({
   }),
   multiValue: (css, props) => ({
     ...css,
-    backgroundColor: '#EDEFF5',
     borderRadius: '4px',
     margin: 0,
     padding: '0 4px',
     display: 'flex',
     columnGap: '2px',
-    ...(isError ? { backgroundColor: '#F9DADA' } : {}),
+    cursor: 'pointer',
+    ...(isError
+      ? {
+          backgroundColor: '#F9DADA',
+          '&:hover': {
+            div: {
+              color: '#D14343',
+            },
+            '& svg': {
+              color: '#D14343 !important',
+            },
+          },
+        }
+      : {
+          backgroundColor: '#EDEFF5',
+          '&:hover': {
+            div: {
+              color: '#8F95B2',
+            },
+            '& svg': {
+              color: '#8F95B2 !important',
+            },
+          },
+        }),
     ...(props.isDisabled ? { backgroundColor: '#F4F6FA' } : {}),
   }),
   multiValueLabel: (css, props) => ({
@@ -115,7 +137,13 @@ export const getStyles = ({
     fontWeight: '400',
     fontSize: '12px',
     lineHeight: '16px',
-    color: '#474D66',
+    ...(isError
+      ? {
+          color: '#7D2828',
+        }
+      : {
+          color: '#474D66',
+        }),
     ...(props.isDisabled
       ? {
           color: '#C1C4D6',
@@ -128,14 +156,15 @@ export const getStyles = ({
     '&:hover': {
       backgroundColor: 'transparent',
     },
-    svg: {
-      color: '#474D66 !important',
-    },
     ...(isError
       ? {
-          svg: { color: '#8F95B2  !important' },
+          svg: { color: '#7D2828  !important' },
         }
-      : {}),
+      : {
+          svg: {
+            color: '#474D66 !important',
+          },
+        }),
     ...(props.isDisabled
       ? {
           svg: {
@@ -149,10 +178,14 @@ export const getStyles = ({
       ...css,
       marginTop: '4px',
       borderRadius: '4px',
+      border: '1px solid #E6E8F0',
+      overflow: 'hidden',
+      boxShadow:
+        '0px 5px 8px -4px rgba(67, 90, 111, 0.47), 0px 0px 1px rgba(16, 24, 64, 0.3)',
     };
   },
   menuList: (css, props) => {
-    return { ...css, padding: '0', borderRadius: '4px' };
+    return { ...css, padding: '0' };
   },
   valueContainer: (css, props) => {
     return {
@@ -227,7 +260,7 @@ export const getStyles = ({
               content: '""',
               position: 'absolute',
               bottom: 0,
-              left: '-1px',
+              left: '0px',
               height: '100%',
               borderRadius: '0px 2px 2px 0px',
               backgroundColor: '#3366FF',
