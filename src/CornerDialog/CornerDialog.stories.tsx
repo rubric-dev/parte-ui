@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { useState } from 'react';
-import { Button } from '../Button';
+import Button from '../Button';
 import CornerDialog from './CornerDialog';
 import { CornerDialogProps } from './CornerDialog.types';
 

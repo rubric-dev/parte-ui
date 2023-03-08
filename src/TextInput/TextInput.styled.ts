@@ -16,20 +16,23 @@ export const InputWrapper = styled.div<{
   disabled?: boolean;
   hover?: boolean;
   fullWidth?: boolean;
+  readOnly?: boolean;
 }>`
-  ${({ theme, focused, disabled, error, hover, fullWidth }) => css`
+  ${({ theme, focused, disabled, error, hover, fullWidth, readOnly }) => css`
     box-sizing: border-box;
     display: inline-flex;
     overflow: hidden;
     border: 1px solid ${theme.colorBorderDefault};
     border-radius: 4px;
     width: ${fullWidth ? '100%' : 'fit-content'};
-    ${hover &&
+    ${!readOnly &&
+    hover &&
     css`
       border: 1px solid ${theme.colorBorderHover};
       background: ${theme.colorBackgroundHover};
     `}
-    ${focused &&
+    ${!readOnly &&
+    focused &&
     css`
        {
         border: 1px solid ${theme.colorBorderFocused};
@@ -145,16 +148,18 @@ export const Input = styled.input<TextInputProps>`
     ::placeholder {
       color: ${theme.colorTextPlaceholderDefault};
     }
-
-    &:hover {
+    &:not(:read-only):hover {
       ::placeholder {
         color: ${theme.colorTextPlaceholderHover};
       }
     }
-    &:focus {
+    &:not(:read-only):focus {
       ::placeholder {
         color: ${theme.colorTextPlaceholderFocused};
       }
+    }
+    &:read-only {
+      cursor: default;
     }
     &:disabled {
       color: ${theme.colorTextDisabled};

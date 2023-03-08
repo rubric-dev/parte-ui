@@ -3,7 +3,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 export type ButtonVariant = 'primary' | 'secondary' | 'minimal' | 'error';
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant: ButtonVariant;
+  variant?: ButtonVariant;
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
   disabled?: boolean;

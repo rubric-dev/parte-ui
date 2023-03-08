@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import toaster from '.';
 import { Alert } from '../Alerts';
 import { AlertProps } from '../Alerts/Alert.types';
-import { Button } from '../Button';
+import Button from '../Button';
 
 export default {
   title: 'Components/Alerts/Toaster',
