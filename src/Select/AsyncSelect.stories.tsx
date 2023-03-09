@@ -19,12 +19,18 @@ export default {
   },
 } as Meta;
 
-const getOptions = (page: number): Option<string>[] => {
-  return Array.from({ length: 30 }).map((_, index) => ({
-    label: `test1-${page + index}`,
-    value: `test1-${page + index}`,
-    icon: index % 3 === 0 ? <ActionAddIcon size={12} /> : undefined,
-  }));
+const getOptionsAsync = (page: number): Promise<Option<string>[]> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(
+        Array.from({ length: 30 }).map((_, index) => ({
+          label: `page${page}-${index}`,
+          value: `page${page}-${index}`,
+          icon: index % 3 === 0 ? <ActionAddIcon size={12} /> : undefined,
+        }))
+      );
+    }, 500);
+  });
 };
 
 const Template: Story<
@@ -41,7 +47,7 @@ const Template: Story<
     loadedOptions: OptionsOrGroups<Option<string>, GroupBase<Option<string>>>,
     additional: SelectAdditional = { page: 0 }
   ) => {
-    const OPTION = getOptions(additional.page);
+    const OPTION = await getOptionsAsync(additional.page);
     return {
       options: OPTION,
       hasMore: true,
@@ -131,7 +137,6 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   isDisabled: true,
   isMulti: false,
-  value: getOptions(1),
 };
 
 const GroupTemplate: Story<
@@ -145,10 +150,10 @@ const GroupTemplate: Story<
     loadedOptions: OptionsOrGroups<Option<string>, GroupBase<Option<string>>>,
     additional: SelectAdditional = { page: 0 }
   ) => {
-    const OPTION = getOptions(additional.page);
+    const OPTION = await getOptionsAsync(additional.page);
 
     return {
-      options: [{ options: OPTION, label: `${additional}번째 그룹` }],
+      options: [{ options: OPTION, label: `${additional.page + 1}번째 그룹` }],
       hasMore: true,
       additional: {
         ...additional,

@@ -8,19 +8,25 @@ import StaticSelect, {
   StylesConfig,
   components,
   IndicatorsContainerProps,
-  LoadingIndicatorProps,
   MultiValueRemoveProps,
   ClearIndicatorProps,
   DropdownIndicatorProps,
   OptionProps,
+  SelectInstance,
 } from 'react-select';
 import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
 import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
 import ActionUploadingSmallIcon from '../parte-icons/Icons/ActionUploadingSmallIcon';
 import ActionSmallCrossIcon from '../parte-icons/Icons/ActionSmallCrossIcon';
 import ActionDeleteIcon from '../parte-icons/Icons/ActionDeleteIcon';
-import { ComponentType, useMemo } from 'react';
-import { getStyles } from './util';
+import {
+  ComponentType,
+  KeyboardEventHandler,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import useSelectStyle from './useSelectStyle';
 import { SelectProps } from './Select.types';
 import { SelectComponents } from 'react-select/dist/declarations/src/components';
 import { Box } from '../Layout';
@@ -32,7 +38,7 @@ export const Control = ({
 }: ControlProps<Option<unknown>, boolean>) => {
   return (
     <components.Control {...props}>
-      <Box marginTop={2}>
+      <Box marginTop={2} display="flex" alignItems="center">
         <ActionSearchIcon size={12} />
       </Box>
       {children}
@@ -50,10 +56,15 @@ const MultiValueRemove = ({
   );
 };
 
-const LoadingIndicator = () => {
+const LoadingMessage = () => {
   return (
-    // FIXME: Spinner component로 교체해야함
-    <Box>
+    <Box
+      display="flex"
+      width="100%"
+      height="120px"
+      alignItems="center"
+      justifyContent="center"
+    >
       <ActionUploadingSmallIcon size={12} color="muted" />
     </Box>
   );
@@ -105,7 +116,19 @@ export const Option = ({
 };
 
 export const NoOptionsMessage = () => {
-  return 'No options found';
+  return (
+    <Box
+      display="flex"
+      width="100%"
+      height="120px"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Paragraph size={100} color="N800">
+        No options found
+      </Paragraph>
+    </Box>
+  );
 };
 
 export default function Select<T>(props: SelectProps<T>) {
@@ -121,9 +144,19 @@ export default function Select<T>(props: SelectProps<T>) {
     label,
     description,
     required,
+    menuIsOpen,
   } = props;
 
-  const styles = getStyles({ isError }) as StylesConfig<Option<T>, boolean>;
+  const styles = useSelectStyle({ isError }) as StylesConfig<
+    Option<T>,
+    boolean
+  >;
+
+  /** isMulti가 true일때만 관리하면되는값 */
+  const [showMenuList, setShowMenuList] = useState(false);
+
+  const selectRef =
+    useRef<SelectInstance<Option<T>, boolean, GroupBase<Option<T>>>>(null);
 
   const defaultComponents: Partial<
     SelectComponents<Option<T>, boolean, GroupBase<Option<T>>>
@@ -134,9 +167,6 @@ export default function Select<T>(props: SelectProps<T>) {
       >,
       IndicatorsContainer: IndicatorsContainer as ComponentType<
         IndicatorsContainerProps<Option<T>, boolean, GroupBase<Option<T>>>
-      >,
-      LoadingIndicator: LoadingIndicator as ComponentType<
-        LoadingIndicatorProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
       MultiValueRemove: MultiValueRemove as ComponentType<
         MultiValueRemoveProps<Option<T>, boolean, GroupBase<Option<T>>>
@@ -150,9 +180,12 @@ export default function Select<T>(props: SelectProps<T>) {
       Option: Option as ComponentType<
         OptionProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
+      LoadingMessage,
+      NoOptionsMessage,
     }),
     []
   );
+  const asyncComponents = useComponents(defaultComponents);
 
   const onChangeSelect = (
     newValue: MultiValue<Option<T>> | SingleValue<Option<T>>,
@@ -164,46 +197,60 @@ export default function Select<T>(props: SelectProps<T>) {
     onChange?.(newValue, actionMeta);
   };
 
-  const asyncComponents = useComponents(defaultComponents);
+  const onFocus = () => isMulti && setShowMenuList(true);
+  const onBlur = () => isMulti && setShowMenuList(false);
+  const onKeyDown: KeyboardEventHandler<HTMLDivElement> = (e) => {
+    if (e.key === 'Escape') {
+      selectRef.current?.blur();
+    }
+  };
 
   const SelectComponent =
     type === 'static' ? (
       <StaticSelect
+        components={defaultComponents}
         {...props}
+        ref={selectRef}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
         isDisabled={isDisabled}
         onChange={onChangeSelect}
         value={value}
-        components={defaultComponents}
         hideSelectedOptions={isMulti}
         styles={styles}
         placeholder={placeholder}
         isClearable
         isSearchable
+        menuIsOpen={isMulti ? showMenuList ?? menuIsOpen : menuIsOpen}
         closeMenuOnSelect={!isMulti}
-        noOptionsMessage={NoOptionsMessage}
       />
     ) : (
       <AsyncPaginate
+        components={asyncComponents}
         {...props}
+        selectRef={selectRef}
         isDisabled={isDisabled}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onKeyDown={onKeyDown}
         onChange={onChangeSelect}
         value={value}
-        components={asyncComponents}
         hideSelectedOptions={isMulti}
         styles={styles}
         placeholder={placeholder}
         isClearable
         isSearchable
+        menuIsOpen={isMulti ? showMenuList ?? menuIsOpen : menuIsOpen}
         closeMenuOnSelect={!isMulti}
-        noOptionsMessage={NoOptionsMessage}
       />
     );
 
   return (
-    <Box direction="column">
+    <Box flexDirection="column" display="flex">
       {(label || description) && (
-        <Box gap={4} direction="column" marginBottom={8}>
-          <Box alignItems="Start" gap={1}>
+        <Box gap={4} flexDirection="column" marginBottom={8} display="flex">
+          <Box alignItems="flex-start" gap={1} display="flex">
             {required && (
               <Caption size={200} color="R400">
                 *
