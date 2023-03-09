@@ -1,10 +1,10 @@
 import { DropdownListProps } from './DropdownList.types';
 import * as Styled from './DropdownList.styled';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { SelectRow } from '../SelectRow';
 import shallowEqual from 'shallowequal';
 import DropdownContext from '../DropdownContext';
 import { ARROW_VERTICAL_KEYS } from '../../constant';
+import SelectRow from '../SelectRow';
 
 const isGroupOptions = <T,>(
   options: Option<T>[] | GroupOption<T>[]

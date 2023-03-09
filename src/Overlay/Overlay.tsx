@@ -7,11 +7,11 @@ import {
   useCallback,
 } from 'react';
 import preventBodyScroll from '../common/utils/scroll.util';
-import { Portal } from '../Portal';
 import { OverlayProps } from './Overlay.types';
 import * as Styled from './Overlay.styled';
 import { Transition, TransitionStatus } from 'react-transition-group';
 import { EnterHandler, ExitHandler } from 'react-transition-group/Transition';
+import Portal from '../Portal';
 
 const Overlay = memo(
   ({

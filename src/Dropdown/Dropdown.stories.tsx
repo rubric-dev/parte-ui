@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import { useState } from 'react';
-import Button from '../Button';
+import { Button } from '../Button';
 import ActionChatIcon from '../parte-icons/Icons/ActionChatIcon';
 import Dropdown from './Dropdown';
 import { DropdownProps } from './Dropdown.types';
-import { DropdownList } from './DropdownList';
+import DropdownList from './DropdownList';
 
 const OPTIONS: Option<string>[] = [
   {

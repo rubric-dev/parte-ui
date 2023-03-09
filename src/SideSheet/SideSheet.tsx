@@ -1,9 +1,9 @@
 import { memo } from 'react';
-import { Overlay } from '../Overlay';
 import SheetClose from './SheetClose';
 import { SideSheetProps } from './SideSheet.types';
 import * as Styled from './SideSheet.styled';
 import { css } from 'styled-components';
+import Overlay from '../Overlay';
 
 const SideSheet = memo(function SideSheet(props: SideSheetProps) {
   const {

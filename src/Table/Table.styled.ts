@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Box } from '../Layout';
-import { BoxProps } from '../Layout/Box.types';
+import { BoxProps } from '../Layout/Box/Box.types';
 import { HeaderContainerProps, RowProps } from './Table.types';
 
 export const Table = styled(Box)`

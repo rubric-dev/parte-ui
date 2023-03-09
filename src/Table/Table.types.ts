@@ -1,6 +1,6 @@
 import { Column, ColumnDef } from '@tanstack/react-table';
 import { ReactNode } from 'react';
-import { BoxProps } from '../Layout/Box.types';
+import { BoxProps } from '../Layout/Box/Box.types';
 
 export interface HeaderContainerProps extends BoxProps {
   children?: ReactNode;

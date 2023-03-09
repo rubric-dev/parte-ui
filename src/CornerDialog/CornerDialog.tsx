@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
-import { Dialog } from '../Dialog';
-import { Portal } from '../Portal';
+import Dialog from '../Dialog';
+import Portal from '../Portal';
 import * as Styled from './CornerDialog.styled';
 import { CornerDialogProps } from './CornerDialog.types';
 

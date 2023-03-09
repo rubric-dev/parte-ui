@@ -1,13 +1,20 @@
 {
   "name": "parte-ui",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.2",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
   "typings": "./dist/index.d.ts",
   "files": [
     "/dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "start": "start-storybook -p 6006",
     "lint-fix": "eslint ./src --fix",

@@ -1,12 +1,11 @@
 import { Story, Meta } from '@storybook/react';
 import { useState } from 'react';
-import Button from '../Button';
-import { Tab } from '../Tabs/Tab';
-import { Tabs } from '../Tabs';
+import { Button } from '../Button';
 import SideSheet from './SideSheet';
 import { SideSheetProps } from './SideSheet.types';
 import styled, { css } from 'styled-components';
 import { Box } from '../Layout';
+import { Tab, Tabs } from '../Tabs';
 
 export default {
   title: 'Components/Overlays/SideSheet',

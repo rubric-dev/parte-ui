@@ -5,7 +5,7 @@ import InterfaceChevronLeftIcon from '../parte-icons/Icons/InterfaceChevronLeftI
 import InterfaceChevronRightIcon from '../parte-icons/Icons/InterfaceChevronRightIcon';
 import { Box } from '../Layout';
 import { Heading } from '../@foundations/Typography';
-import { IconButton } from '../IconButton';
+import IconButton from '../IconButton';
 
 const MAX_HANDLES_TO_SHOW = 7;
 const ELLIPSIS_TEXT = '...';

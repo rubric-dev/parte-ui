@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
-import { Alert } from '../Alerts';
+import Alert from '../Alerts/Alert';
 import { Box } from '../Layout';
 import { ToastState } from './ToastManager';
 import * as Styled from './ToastManager.styled';
