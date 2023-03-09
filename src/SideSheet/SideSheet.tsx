@@ -40,7 +40,8 @@ const SideSheet = memo(function SideSheet(props: SideSheetProps) {
           <SheetClose state={state} onClick={close} />
           <Styled.Content
             data-state={state}
-            direction="column"
+            display="flex"
+            flexDirection="column"
             overrideStyles={css`
               width: ${width}px;
             `}

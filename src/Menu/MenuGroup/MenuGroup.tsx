@@ -4,7 +4,7 @@ import { MenuGroupProps } from './MenuGroup.types';
 
 export default function MenuGroup({ title, children }: MenuGroupProps) {
   return (
-    <Styled.Group direction="column">
+    <Styled.Group display="flex" flexDirection="column">
       {title && <MenuRow type="title">{title}</MenuRow>}
       {children}
     </Styled.Group>

@@ -6,6 +6,7 @@ export const Container = styled(Box)`
   ${() => css`
     width: fit-content;
     border-radius: 4px;
+    display: flex;
   `}
 `;
 

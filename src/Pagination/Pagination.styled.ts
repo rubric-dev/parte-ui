@@ -43,7 +43,7 @@ export const PaginationButton = styled.button<{
 `;
 
 export const EllipsisText = styled(Box)`
-  ${({ theme }) => css`
+  ${() => css`
     width: 32px;
     height: 32px;
   `}

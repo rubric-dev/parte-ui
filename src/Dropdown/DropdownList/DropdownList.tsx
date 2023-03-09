@@ -152,7 +152,7 @@ const DropdownList = <T,>({
   }, [filteredOptions]);
 
   return (
-    <Styled.List ref={menuRef} direction="column">
+    <Styled.List ref={menuRef} display="flex" flexDirection="column">
       {isSearchable && (
         <SelectRow
           variant="search"
@@ -163,7 +163,11 @@ const DropdownList = <T,>({
         />
       )}
       {noOption && (
-        <Styled.NoOption justifyContent="Center" alignItems="Center">
+        <Styled.NoOption
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
           {noOptionsText ?? 'No Options found'}
         </Styled.NoOption>
       )}

@@ -1,71 +1,115 @@
 import { css } from 'styled-components';
 import { getElevation } from '../common/utils/elevation.util';
-import { getHeightStyle, getWidthStyle } from '../common/utils/style.util';
+import {
+  getWidthStyle,
+  getFlexBasisStyle,
+  getHeightStyle,
+} from '../common/utils/style.util';
 import { BoxProps } from './Box.types';
-
-const JUSTIFY_CONTENT = {
-  Start: 'flex-start',
-  Center: 'center',
-  End: 'flex-end',
-  'Space Between': 'space-between',
-  'Space Around': 'space-around',
-  'Space Evenly': 'space-evenly',
-} as const;
-const ALIGN_ITEMS = {
-  Start: 'flex-start',
-  Center: 'center',
-  End: 'flex-end',
-} as const;
 
 export const commonBoxStyle = css<BoxProps>`
   ${({
+    display = 'block',
     width,
     height,
-    direction = 'row',
-    justifyContent = 'Start',
-    alignItems = 'Start',
-    gap = 0,
-    flexWrap = false,
+    // ====================
+    backgroundColor,
+    color,
+    // ====================
+    flexDirection,
+    justifyContent,
+    alignItems,
+    alignContent,
+    flexWrap,
+    gap,
+    rowGap,
+    columnGap,
+    // ====================
+    order,
+    flexGrow,
+    flexShrink,
     flexBasis,
     flex,
+    alignSelf,
+    // ====================
+    gridTemplateColumns,
+    gridTemplateRows,
+
     padding,
     paddingTop,
     paddingBottom,
     paddingLeft,
     paddingRight,
-    fullWidth,
+
+    margin,
+    marginTop,
+    marginBottom,
+    marginLeft,
+    marginRight,
     elevation,
   }) =>
     css`
-      width: ${fullWidth ? `100%` : `inherit`};
-      ${getWidthStyle(width)}
-      ${getHeightStyle(height)}
-      display: flex;
-      flex-direction: ${direction};
-      justify-content: ${JUSTIFY_CONTENT[justifyContent]};
-      align-items: ${ALIGN_ITEMS[alignItems]};
-      gap: ${gap}px;
-      flex-basis: ${flexBasis ? `${flexBasis}px` : 'unset'};
-      flex: ${flex};
-      flex-wrap: ${flexWrap ? 'wrap' : 'nowrap'};
+      display: ${display};
+      ${getWidthStyle(width)};
+      ${getHeightStyle(height)};
 
-      ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']}
+      ${backgroundColor && `background-color: ${backgroundColor};`}
+      ${color && `color: ${color};`}
+
+      ${flexDirection && `flex-direction: ${flexDirection};`}
+      ${justifyContent && `justify-content: ${justifyContent};`}
+      ${alignItems && `align-items: ${alignItems};`}
+      ${alignContent && `align-content: ${alignContent};`}
+      ${flexWrap && `flex-wrap: ${flexWrap};`}
+      ${rowGap && `row-gap: ${rowGap}px;`}
+      ${columnGap && `column-gap: ${columnGap}px;`}
+      ${gap && `gap: ${gap}px;`}
+
+      ${typeof order === 'number' ? `order: ${order};` : ''};
+      ${typeof flexGrow === 'number' ? `flex-grow: ${flexGrow};` : ''};
+      ${typeof flexShrink === 'number' ? `flex-shrink: ${flexShrink};` : ''};
+      ${getFlexBasisStyle(flexBasis)}
+      ${flex && `flex: ${flex};`}
+      ${alignSelf && `align-self: ${alignSelf};`}
+      
+      ${gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}
+      ${gridTemplateRows && `grid-template-rows: ${gridTemplateRows};`}
+      
+      ${[typeof padding === 'number' ? `padding: ${padding}px;` : '']};
       ${[
         typeof paddingLeft === 'number'
           ? `padding-left: ${paddingLeft}px;`
           : '',
-      ]}
+      ]};
       ${[
         typeof paddingRight === 'number'
           ? `padding-right: ${paddingRight}px;`
           : '',
-      ]}
-      ${[typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '']}
+      ]};
+      ${[
+        typeof paddingTop === 'number' ? `padding-top: ${paddingTop}px;` : '',
+      ]};
       ${[
         typeof paddingBottom === 'number'
           ? `padding-bottom: ${paddingBottom}px;`
           : '',
-      ]}
-      ${typeof elevation === 'number' && getElevation(elevation)}
+      ]};
+      ${[typeof margin === 'number' ? `margin: ${margin}px;` : '']};
+      ${[
+        typeof marginLeft === 'number' ? `margin-left: ${marginLeft}px;` : '',
+      ]};
+      ${[
+        typeof marginRight === 'number'
+          ? `margin-right: ${marginRight}px;`
+          : '',
+      ]};
+      ${[typeof marginTop === 'number' ? `margin-top: ${marginTop}px;` : '']};
+      ${[
+        typeof marginBottom === 'number'
+          ? `margin-bottom: ${marginBottom}px;`
+          : '',
+      ]};
+
+      ${typeof elevation === 'number' && getElevation(elevation)};
     `}
 `;

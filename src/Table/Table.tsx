@@ -18,27 +18,42 @@ import {
   TableFilterBarProps,
 } from './Table.types';
 
-const Table = ({ children, direction = 'column', ...args }: BoxProps) => {
+const Table = ({
+  children,
+  display = 'flex',
+  flexDirection = 'column',
+  ...args
+}: BoxProps) => {
   return (
-    <Styled.Table direction={direction} {...args}>
+    <Styled.Table display={display} flexDirection={flexDirection} {...args}>
       {children}
     </Styled.Table>
   );
 };
 const HeaderContainer = ({
   children,
-  direction = 'column',
+  display = 'flex',
+  flexDirection = 'column',
   ...args
 }: HeaderContainerProps) => {
   return (
-    <Styled.HeaderContainer direction={direction} {...args}>
+    <Styled.HeaderContainer
+      display={display}
+      flexDirection={flexDirection}
+      {...args}
+    >
       {children}
     </Styled.HeaderContainer>
   );
 };
-const Body = ({ children, direction = 'column', ...args }: BodyProps) => {
+const Body = ({
+  children,
+  display = 'flex',
+  flexDirection = 'column',
+  ...args
+}: BodyProps) => {
   return (
-    <Styled.Body direction={direction} {...args}>
+    <Styled.Body display={display} flexDirection={flexDirection} {...args}>
       {children}
     </Styled.Body>
   );
@@ -57,13 +72,15 @@ const Row = ({ children, onSelect, ...args }: RowProps) => {
 export const HeaderCell = memo(
   ({
     children,
-    alignItems = 'Center',
+    display = 'flex',
+    alignItems = 'center',
     height = 48,
     padding = 8,
     ...args
   }: HeaderCellProps) => {
     return (
       <Styled.HeaderCell
+        display={display}
         alignItems={alignItems}
         height={height}
         padding={padding}
@@ -78,13 +95,15 @@ export const HeaderCell = memo(
 export const Cell = memo(
   ({
     children,
-    alignItems = 'Center',
+    display = 'flex',
+    alignItems = 'center',
     height = 64,
     padding = 8,
     ...args
   }: CellProps) => {
     return (
       <Styled.Cell
+        display={display}
         alignItems={alignItems}
         height={height}
         padding={padding}
@@ -134,7 +153,12 @@ export const FilterHeader = <T, K>({
   return (
     <Dropdown>
       <Dropdown.Trigger>
-        <Box alignItems="Center" gap={4} style={{ cursor: 'pointer' }}>
+        <Box
+          display="flex"
+          alignItems="center"
+          gap={4}
+          style={{ cursor: 'pointer' }}
+        >
           {children ?? columnId}
           <InterfaceCaretDownIcon size={16} />
         </Box>

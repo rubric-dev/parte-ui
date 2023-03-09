@@ -107,7 +107,7 @@ const defaultColumns = [
     ),
     cell: ({ row }) => {
       return (
-        <Cell alignItems="Center" gap={8} width={50}>
+        <Cell display="flex" alignItems="center" gap={8} width={50}>
           <Checkbox
             checked={row.getIsSelected()}
             disabled={!row.getCanSelect()}
@@ -124,7 +124,7 @@ const defaultColumns = [
       const { type, name } = info.row.original;
 
       return (
-        <Cell alignItems="Center" gap={8} flex="2">
+        <Cell display="flex" alignItems="center" gap={8} flex="2">
           <Avatar avatarColor={getBadgeColorByType(type)} name={name} />
           <Heading size={300}>{name}</Heading>
         </Cell>
@@ -171,7 +171,7 @@ const defaultColumns = [
   columnHelper.display({
     id: 'icon',
     header: () => (
-      <HeaderCell width={60} justifyContent="Center">
+      <HeaderCell width={60} display="flex" justifyContent="center">
         Icon
       </HeaderCell>
     ),
@@ -185,7 +185,7 @@ const defaultColumns = [
         });
       };
       return (
-        <Cell width={60} justifyContent="Center">
+        <Cell width={60} display="flex" justifyContent="center">
           <IconButton
             variant="minimal"
             onClick={onClick}

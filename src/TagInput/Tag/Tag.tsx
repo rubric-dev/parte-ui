@@ -10,7 +10,8 @@ function Tag({ tag, onRemove }: TagProps) {
       gap={2}
       paddingRight={4}
       paddingLeft={4}
-      alignItems="Center"
+      display="flex"
+      alignItems="center"
     >
       <Styled.Label status={tag.status}>{tag.label}</Styled.Label>
       <ActionSmallCrossIcon
