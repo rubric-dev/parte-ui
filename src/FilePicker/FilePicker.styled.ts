@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Button from '../Button';
+import { Button } from '../Button';
 import { Box } from '../Layout';
 
 export const Container = styled(Box)`

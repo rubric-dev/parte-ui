@@ -1,1 +1,1 @@
-export { default as SelectRow } from './SelectRow';
+export { default } from './SelectRow';

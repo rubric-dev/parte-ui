@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { css, keyframes } from 'styled-components';
 import { animationEasing } from '../constant';
 import Dialog from '../Dialog/Dialog';
-import { Overlay } from '../Overlay';
+import Overlay from '../Overlay';
 import { DialogModalProps } from './DialogModal.types';
 
 const ANIMATION_DURATION = 200;

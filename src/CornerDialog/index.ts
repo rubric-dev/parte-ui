@@ -1,1 +1,1 @@
-export { default as CornerDialog } from './CornerDialog';
+export { default } from './CornerDialog';

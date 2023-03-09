@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { css } from 'styled-components';
-import Button from '../Button';
-import { IconButton } from '../IconButton';
+import { Button } from '../Button';
+import IconButton from '../IconButton';
 import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
 import * as Styled from './Dialog.styled';
 import { DialogProps, DialogSubComponent } from './Dialog.types';

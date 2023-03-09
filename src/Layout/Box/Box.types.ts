@@ -4,9 +4,9 @@ import {
   FlattenInterpolation,
   ThemedStyledProps,
 } from 'styled-components';
-import { Elevation } from '../@foundations/Elevation/elevation';
-import { SPACING } from '../@foundations/Spacing';
-import { Spacing } from '../@foundations/Spacing/spacing.types';
+import { Elevation } from '../../@foundations/Elevation/elevation';
+import { SPACING } from '../../@foundations/Spacing';
+import { Spacing } from '../../@foundations/Spacing/spacing.types';
 import {
   Display,
   FlexDirection,
@@ -15,7 +15,7 @@ import {
   AlignContent,
   FlexWrap,
   AlignSelf,
-} from '../constant';
+} from '../../constant';
 
 export type BoxProps = HTMLAttributes<HTMLDivElement> & {
   display?: Display;

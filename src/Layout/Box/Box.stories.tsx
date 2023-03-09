@@ -1,7 +1,7 @@
-import Box from './Box';
 import { Story, Meta } from '@storybook/react';
 import { BoxProps } from './Box.types';
-import Button from '../Button';
+import { Button } from '../../Button';
+import Box from './Box';
 
 export default {
   title: 'Components/Layout/Box',

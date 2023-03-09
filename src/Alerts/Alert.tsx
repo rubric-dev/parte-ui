@@ -1,5 +1,5 @@
 import { HTMLAttributes } from 'react';
-import { IconButton } from '../IconButton';
+import IconButton from '../IconButton';
 import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
 import AlertDangerIcon from '../parte-icons/Icons/AlertDangerIcon';
 import AlertInfoIcon from '../parte-icons/Icons/AlertInfoIcon';

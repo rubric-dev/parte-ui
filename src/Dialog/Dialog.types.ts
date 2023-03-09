@@ -7,7 +7,7 @@ import {
 } from 'styled-components';
 import { Elevation } from '../@foundations/Elevation/elevation';
 import { ButtonVariant } from '../Button/Button.types';
-import { BoxProps } from '../Layout/Box.types';
+import { BoxProps } from '../Layout/Box/Box.types';
 
 type DialogSubCompProps = { close: () => void };
 export type DialogSubComponent = ({ close }: DialogSubCompProps) => ReactNode;

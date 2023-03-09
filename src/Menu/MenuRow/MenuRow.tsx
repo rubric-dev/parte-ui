@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MenuRowProps } from './MenuRow.types';
 import * as Styled from './MenuRow.styled';
-import { Checkbox } from '../../Checkbox';
+import Checkbox from '../../Checkbox';
 
 export default function MenuRow(props: MenuRowProps) {
   const [hover, setHover] = useState(false);

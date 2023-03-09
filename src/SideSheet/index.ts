@@ -1,1 +1,1 @@
-export { default as SideSheet } from './SideSheet';
+export { default } from './SideSheet';

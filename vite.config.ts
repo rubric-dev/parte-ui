@@ -19,6 +19,7 @@ export default defineConfig({
     }),
   ],
   build: {
+    outDir: path.join(__dirname, 'dist'),
     lib: {
       entry: path.resolve('src', 'index.ts'),
       name: 'parte-ui',
