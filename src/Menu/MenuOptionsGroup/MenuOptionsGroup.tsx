@@ -10,7 +10,7 @@ export default function MenuOptionsGroup<T>({
   onChange,
 }: MenuOptionsGroupProps<T>) {
   return (
-    <Styled.Group direction="column">
+    <Styled.Group display="flex" flexDirection="column">
       {title && <MenuRow type="title">{title}</MenuRow>}
       {options.map(({ label, value }) => {
         const isSelected = value === selected;

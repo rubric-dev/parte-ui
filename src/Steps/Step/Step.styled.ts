@@ -4,11 +4,13 @@ import { StepStatus } from './Step.types';
 
 export const Container = styled(Box)`
   width: fit-content;
+  display: flex;
   align-items: center;
   user-select: none;
 `;
 export const Icon = styled(Box)<{ status: StepStatus }>`
   ${({ theme, status }) => css`
+    display: flex;
     justify-content: center;
     width: 16px;
     height: 16px;

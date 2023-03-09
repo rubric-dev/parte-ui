@@ -6,8 +6,9 @@ import { SideCloseProps } from './SideSheet.types';
 const SheetClose = memo(({ onClick, state }: SideCloseProps) => {
   return (
     <Styled.Close
-      alignItems="Center"
-      justifyContent="Center"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
       data-state={state}
       onClick={onClick}
     >

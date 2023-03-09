@@ -60,8 +60,9 @@ const Dialog = memo(
 
       return (
         <Styled.Header
-          justifyContent="Space Between"
-          alignItems="Center"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
           padding={32}
           paddingBottom={24}
         >
@@ -119,7 +120,8 @@ const Dialog = memo(
     return (
       <Styled.DialogContainer
         role="dialog"
-        direction="column"
+        display="flex"
+        flexDirection="column"
         elevation={elevation}
         data-state={state}
         overrideStyles={css`

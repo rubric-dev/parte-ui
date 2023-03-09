@@ -12,3 +12,12 @@ export const getHeightStyle = (height?: number | string) =>
     : css`
         height: ${typeof height === 'number' ? `${height}px` : height};
       `;
+
+export const getFlexBasisStyle = (flexBasis?: number | string) =>
+  flexBasis === undefined
+    ? ''
+    : css`
+        flex-basis: ${typeof flexBasis === 'number'
+          ? `${flexBasis}px`
+          : flexBasis};
+      `;

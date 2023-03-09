@@ -18,9 +18,9 @@ export default {
 
 const ScrollBox = () => (
   <Box
+    width="100%"
+    height={1800}
     overrideStyles={css`
-      height: 1800px;
-      width: 100%;
       background-color: ${theme.colors.N600};
     `}
   />

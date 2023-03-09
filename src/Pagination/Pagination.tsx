@@ -35,7 +35,11 @@ const PaginationButton = ({
 
   if (isEllipsis) {
     return (
-      <Styled.EllipsisText alignItems="Center" justifyContent="Center">
+      <Styled.EllipsisText
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         <Heading size={300} color="N700">
           {page}
         </Heading>
@@ -98,7 +102,7 @@ const Pagination = ({ page, totalPages, onPageChange }: PaginationProps) => {
   const nextDisabled = page === totalPages || totalPages === 0;
 
   return (
-    <Box alignItems="Center" padding={0} gap={4}>
+    <Box display="flex" alignItems="center" padding={0} gap={4}>
       <IconButton
         variant="minimal"
         Icon={

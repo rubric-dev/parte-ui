@@ -145,7 +145,8 @@ const Menu = ({ children }: DropdownMenuProps) => {
     <Styled.Menu
       ref={menuRef}
       hidden={!menuStyle}
-      direction="column"
+      display="flex"
+      flexDirection="column"
       style={menuStyle}
     >
       {typeof children === 'function' ? children({ onClose }) : children}

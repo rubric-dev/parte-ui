@@ -100,18 +100,18 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
         isShown={open}
         onCloseComplete={() => setOpen(false)}
       >
-        <Containter direction="column" fullWidth>
+        <Containter flexDirection="column" width="100%">
           <Header
             padding={32}
             paddingTop={24}
             paddingBottom={24}
-            direction="column"
-            fullWidth
+            flexDirection="column"
+            width="100%"
           >
             <Title>Title</Title>
             Optional description or sub title
           </Header>
-          <TabList padding={8} paddingLeft={32} paddingRight={32} fullWidth>
+          <TabList padding={8} paddingLeft={32} paddingRight={32} width="100%">
             <Tabs>
               {['Traits', 'Event History', 'Identities'].map((tab, index) => (
                 <Tab
@@ -127,13 +127,13 @@ const Featured: Story<SideSheetProps> = ({ ...args }) => {
           </TabList>
         </Containter>
         <Body
-          fullWidth
+          width="100%"
           padding={16}
           paddingTop={24}
           paddingLeft={32}
           paddingRight={32}
         >
-          <Card alignItems="Center" justifyContent="Center">
+          <Card display="flex" alignItems="center" justifyContent="center">
             Some content
           </Card>
         </Body>

@@ -95,13 +95,14 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
           onMouseLeave={() => setHover(false)}
         >
           <Box
-            style={{ flex: 1 }}
             paddingTop={8}
             paddingBottom={8}
             paddingLeft={12}
             paddingRight={12}
             gap={8}
-            flexWrap
+            display="flex"
+            flex="1"
+            flexWrap="wrap"
           >
             {!!values.length && (
               <>

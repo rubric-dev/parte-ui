@@ -77,9 +77,14 @@ const FilePicker = ({
   );
 
   return (
-    <Box direction="column">
+    <Box display="flex" flexDirection="column">
       {(label || description) && (
-        <Box direction="column" gap={4} style={{ marginBottom: '8px' }}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          gap={4}
+          style={{ marginBottom: '8px' }}
+        >
           {label && (
             <Styled.LabelWrapper>
               {required && (
