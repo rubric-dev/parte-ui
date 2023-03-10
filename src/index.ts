@@ -22,6 +22,7 @@ export * from './Pagination';
 export * from './Radio';
 export * from './RadioGroup';
 export * from './SideSheet';
+export * from './Spinner';
 export * from './Steps';
 export * from './Table';
 export * from './Tabs';
