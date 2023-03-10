@@ -13,6 +13,7 @@ import StaticSelect, {
   DropdownIndicatorProps,
   OptionProps,
   SelectInstance,
+  MenuProps,
 } from 'react-select';
 import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
 import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
@@ -115,6 +116,28 @@ export const Option = ({
   );
 };
 
+export const Menu = ({
+  children,
+  ...props
+}: MenuProps<Option<unknown>, boolean>) => {
+  console.log(children);
+  return (
+    <components.Menu {...props}>
+      {children}
+      {!!props.options.length && props.isLoading && (
+        <Box
+          display="flex"
+          alignContent="center"
+          justifyContent="center"
+          height={32}
+        >
+          Loading...
+        </Box>
+      )}
+    </components.Menu>
+  );
+};
+
 export const NoOptionsMessage = () => {
   return (
     <Box
@@ -162,6 +185,9 @@ export default function Select<T>(props: SelectProps<T>) {
     SelectComponents<Option<T>, boolean, GroupBase<Option<T>>>
   > = useMemo(
     () => ({
+      Menu: Menu as ComponentType<
+        MenuProps<Option<T>, boolean, GroupBase<Option<T>>>
+      >,
       Control: Control as ComponentType<
         ControlProps<Option<T>, boolean, GroupBase<Option<T>>>
       >,
@@ -222,6 +248,7 @@ export default function Select<T>(props: SelectProps<T>) {
         placeholder={placeholder}
         isClearable
         isSearchable
+        maxMenuHeight={200}
         menuIsOpen={isMulti ? showMenuList ?? menuIsOpen : menuIsOpen}
         closeMenuOnSelect={!isMulti}
       />
@@ -238,6 +265,7 @@ export default function Select<T>(props: SelectProps<T>) {
         value={value}
         hideSelectedOptions={isMulti}
         styles={styles}
+        maxMenuHeight={200}
         placeholder={placeholder}
         isClearable
         isSearchable
