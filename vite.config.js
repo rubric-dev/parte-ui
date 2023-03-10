@@ -20,13 +20,13 @@ export default defineConfig({
     build: {
         outDir: path.join(__dirname, 'dist'),
         lib: {
-            entry: [
-                path.resolve('src', 'index.ts'),
-                path.resolve('src/icons', 'index.ts'),
-            ],
+            entry: {
+                index: path.resolve('src', 'index.ts'),
+                icons: path.resolve('src/icons', 'index.ts'),
+            },
             name: 'parte-ui',
-            formats: ['es', 'umd'],
-            fileName: (format) => `index.${format}.js`,
+            formats: ['es', 'cjs'],
+            fileName: (format, entryName) => `${entryName}.${format}.js`,
         },
         rollupOptions: {
             // external: 라이브러리에 포함하지 않을 디펜던시를 명시해주세요

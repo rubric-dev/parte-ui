@@ -35,5 +35,3 @@ export * from './TextInput';
 export * from './Toaster';
 export * from './Toggle';
 export * from './Tooltip';
-
-import './icons';
