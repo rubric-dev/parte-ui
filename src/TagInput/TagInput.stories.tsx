@@ -1,8 +1,8 @@
 import TagInput from './TagInput';
 import { Story, Meta } from '@storybook/react';
 import { TagInputProps } from './TagInput.types';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
-import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
+import ActionCrossIcon from '../icons/Icons/ActionCrossIcon';
+import InterfaceCaretDownIcon from '../icons/Icons/InterfaceCaretDownIcon';
 import { useState } from 'react';
 import { TagOption } from './Tag/Tag.types';
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as Styled from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 import { Box } from '../Layout';
-import ActionSmallTickIcon from '../parte-icons/Icons/ActionSmallTickIcon';
+import ActionSmallTickIcon from '../icons/Icons/ActionSmallTickIcon';
 
 const Checkbox = ({
   label,

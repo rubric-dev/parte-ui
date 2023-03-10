@@ -1,7 +1,7 @@
 import IconButton from './IconButton';
 import { Story, Meta } from '@storybook/react';
 import { IconButtonProps } from './IconButton.types';
-import TableThIcon from '../parte-icons/Icons/TableThIcon';
+import TableThIcon from '../icons/Icons/TableThIcon';
 
 export default {
   title: 'Components/Buttons/IconButton',

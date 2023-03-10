@@ -22,7 +22,6 @@ export * from './Link';
 export * from './Menu';
 export * from './Overlay';
 export * from './Pagination';
-export * from './parte-icons';
 export * from './Portal';
 export * from './Radio';
 export * from './RadioGroup';
@@ -36,3 +35,5 @@ export * from './TextInput';
 export * from './Toaster';
 export * from './Toggle';
 export * from './Tooltip';
+
+import './icons';

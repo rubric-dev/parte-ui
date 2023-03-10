@@ -1,6 +1,6 @@
 import * as Styled from './Tag.styled';
 import { TagProps } from './Tag.types';
-import ActionSmallCrossIcon from '../../parte-icons/Icons/ActionSmallCrossIcon';
+import ActionSmallCrossIcon from '../../icons/Icons/ActionSmallCrossIcon';
 
 function Tag({ tag, onRemove }: TagProps) {
   return (

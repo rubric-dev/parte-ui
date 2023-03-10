@@ -1,10 +1,10 @@
 import { HTMLAttributes } from 'react';
 import IconButton from '../IconButton';
-import ActionCrossIcon from '../parte-icons/Icons/ActionCrossIcon';
-import AlertDangerIcon from '../parte-icons/Icons/AlertDangerIcon';
-import AlertInfoIcon from '../parte-icons/Icons/AlertInfoIcon';
-import AlertSuccessIcon from '../parte-icons/Icons/AlertSuccessIcon';
-import AlertWarningIcon from '../parte-icons/Icons/AlertWarningIcon';
+import ActionCrossIcon from '../icons/Icons/ActionCrossIcon';
+import AlertDangerIcon from '../icons/Icons/AlertDangerIcon';
+import AlertInfoIcon from '../icons/Icons/AlertInfoIcon';
+import AlertSuccessIcon from '../icons/Icons/AlertSuccessIcon';
+import AlertWarningIcon from '../icons/Icons/AlertWarningIcon';
 import * as Styled from './Alert.styled';
 import { AlertProps } from './Alert.types';
 

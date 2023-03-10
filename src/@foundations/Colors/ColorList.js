@@ -1,0 +1,71 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Fragment } from 'react';
+import styled from 'styled-components';
+import colors from './colors';
+const CATEGORY = [
+    'Neutral',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Red',
+    'Violet',
+    'Teal',
+    'Pink',
+    'Orange',
+    'Chart',
+];
+function ColorList() {
+    const colorMap = Object.entries(colors).reduce((acc, [key, value]) => {
+        const colorCategory = key[0];
+        if (acc[colorCategory]) {
+            acc[colorCategory].push({ [key]: value });
+        }
+        else {
+            acc[colorCategory] = [{ [key]: value }];
+        }
+        return acc;
+    }, {});
+    return (_jsx(Container, { children: CATEGORY.map((letter) => {
+            var _a;
+            return (_jsxs(Fragment, { children: [_jsx(Title, { children: letter }), _jsx(List, { children: (_a = colorMap[letter[0]]) === null || _a === void 0 ? void 0 : _a.map((color) => {
+                            const [key, value] = Object.entries(color)[0];
+                            return (_jsxs(Item, Object.assign({ color: value }, { children: [_jsx(Name, { children: key }), _jsx(ColorCode, { children: value })] }), value));
+                        }) })] }, letter));
+        }) }));
+}
+export default ColorList;
+const Container = styled.div `
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  width: 100%;
+`;
+const Title = styled.h2 `
+  color: #4f4f4f;
+`;
+const List = styled.div `
+  display: grid;
+  gap: 16px;
+  grid-template-rows: minmax(100px);
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+`;
+const Item = styled.div `
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+  box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.2);
+  background-color: ${({ color }) => color};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 8px;
+`;
+const Name = styled.h4 `
+  padding: 0;
+  margin: 0;
+`;
+const ColorCode = styled.p `
+  margin: 0;
+`;

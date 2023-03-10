@@ -1,7 +1,7 @@
 import Tab from './Tab';
 import { Story, Meta } from '@storybook/react';
 import { TabProps } from './Tab.types';
-import ActionLockIcon from '../../parte-icons/Icons/ActionLockIcon';
+import ActionLockIcon from '../../icons/Icons/ActionLockIcon';
 
 export default {
   title: 'Components/Controls/Tabs/Tab',
