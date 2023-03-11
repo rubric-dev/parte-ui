@@ -13,10 +13,10 @@ import dts from 'vite-plugin-dts';
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 export default defineConfig({
   plugins: [
-    react(),
     dts({
       include: ['src/'],
     }),
+    react(),
   ],
   build: {
     lib: {
