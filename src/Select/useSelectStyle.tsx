@@ -178,7 +178,10 @@ const useSelectStyle = ({
       };
     },
     menuList: (css, props) => {
-      return { ...css, padding: '0' };
+      return {
+        ...css,
+        padding: '0',
+      };
     },
     valueContainer: (css, props) => {
       return {

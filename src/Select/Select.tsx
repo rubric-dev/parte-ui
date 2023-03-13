@@ -1,4 +1,8 @@
-import { AsyncPaginate, useComponents } from 'react-select-async-paginate';
+import {
+  AsyncPaginate,
+  useComponents,
+  wrapMenuList,
+} from 'react-select-async-paginate';
 import StaticSelect, {
   ActionMeta,
   ControlProps,
@@ -14,10 +18,10 @@ import StaticSelect, {
   OptionProps,
   SelectInstance,
   MenuProps,
+  MenuListProps,
 } from 'react-select';
 import InterfaceCaretDownIcon from '../parte-icons/Icons/InterfaceCaretDownIcon';
 import ActionSearchIcon from '../parte-icons/Icons/ActionSearchIcon';
-import ActionUploadingSmallIcon from '../parte-icons/Icons/ActionUploadingSmallIcon';
 import ActionSmallCrossIcon from '../parte-icons/Icons/ActionSmallCrossIcon';
 import ActionDeleteIcon from '../parte-icons/Icons/ActionDeleteIcon';
 import {
@@ -32,6 +36,7 @@ import { SelectProps } from './Select.types';
 import { SelectComponents } from 'react-select/dist/declarations/src/components';
 import { Box } from '../Layout';
 import { Caption, Heading, Paragraph } from '../@foundations/Typography';
+import { Spinner } from '../Spinner';
 
 export const Control = ({
   children,
@@ -66,7 +71,7 @@ const LoadingMessage = () => {
       alignItems="center"
       justifyContent="center"
     >
-      <ActionUploadingSmallIcon size={12} color="muted" />
+      <Spinner size={12} />
     </Box>
   );
 };
@@ -116,26 +121,32 @@ export const Option = ({
   );
 };
 
+export const customMenuList = (
+  props: MenuListProps<Option<unknown>, boolean>
+) => {
+  const { isLoading } = props.selectProps;
+  return (
+    <components.MenuList {...props}>
+      {props.children}
+      {!!props.options.length && isLoading && (
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height={32}
+        >
+          <Spinner size={12} />
+        </Box>
+      )}
+    </components.MenuList>
+  );
+};
+
 export const Menu = ({
   children,
   ...props
 }: MenuProps<Option<unknown>, boolean>) => {
-  console.log(children);
-  return (
-    <components.Menu {...props}>
-      {children}
-      {!!props.options.length && props.isLoading && (
-        <Box
-          display="flex"
-          alignContent="center"
-          justifyContent="center"
-          height={32}
-        >
-          Loading...
-        </Box>
-      )}
-    </components.Menu>
-  );
+  return <components.Menu {...props}>{children}</components.Menu>;
 };
 
 export const NoOptionsMessage = () => {
@@ -211,7 +222,11 @@ export default function Select<T>(props: SelectProps<T>) {
     }),
     []
   );
+
   const asyncComponents = useComponents(defaultComponents);
+  const MenuList = wrapMenuList(customMenuList) as ComponentType<
+    MenuListProps<Option<T>, boolean, GroupBase<Option<T>>>
+  >;
 
   const onChangeSelect = (
     newValue: MultiValue<Option<T>> | SingleValue<Option<T>>,
@@ -246,15 +261,16 @@ export default function Select<T>(props: SelectProps<T>) {
         hideSelectedOptions={isMulti}
         styles={styles}
         placeholder={placeholder}
-        isClearable
         isSearchable
-        maxMenuHeight={200}
         menuIsOpen={isMulti ? showMenuList ?? menuIsOpen : menuIsOpen}
         closeMenuOnSelect={!isMulti}
       />
     ) : (
       <AsyncPaginate
-        components={asyncComponents}
+        components={{
+          ...asyncComponents,
+          MenuList,
+        }}
         {...props}
         selectRef={selectRef}
         isDisabled={isDisabled}
@@ -265,9 +281,7 @@ export default function Select<T>(props: SelectProps<T>) {
         value={value}
         hideSelectedOptions={isMulti}
         styles={styles}
-        maxMenuHeight={200}
         placeholder={placeholder}
-        isClearable
         isSearchable
         menuIsOpen={isMulti ? showMenuList ?? menuIsOpen : menuIsOpen}
         closeMenuOnSelect={!isMulti}
