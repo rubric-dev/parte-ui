@@ -44,7 +44,9 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(
     const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
       if (!inputValue && e.key === 'Backspace') {
         const temp = values.filter((tag) => tag.status !== 'disabled');
-        onRemove(temp[temp.length - 1].value);
+        if (temp.length) {
+          onRemove(temp[temp.length - 1].value);
+        }
       }
 
       if (e.key !== 'Enter') {

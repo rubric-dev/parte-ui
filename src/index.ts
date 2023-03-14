@@ -21,6 +21,7 @@ export * from './Overlay';
 export * from './Pagination';
 export * from './Radio';
 export * from './RadioGroup';
+export * from './Select';
 export * from './SideSheet';
 export * from './Spinner';
 export * from './Steps';

@@ -40,7 +40,6 @@ export const commonBoxStyle = css<BoxProps>`
     paddingBottom,
     paddingLeft,
     paddingRight,
-
     margin,
     marginTop,
     marginBottom,

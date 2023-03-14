@@ -2,14 +2,6 @@
 
 Design system for Rubric Labs
 
-## Todo
-
-- [ ] Typography
-- [ ] Card
-- [ ] Pagination
-- [ ] FilePicker
-- [ ] Select
-
 ## Documentation & Storybook
 
 Documentation is in ready.

@@ -8,15 +8,20 @@ export const Container = styled(Box)<{ status: TagStatus }>`
       box-sizing: border-box;
       width: fit-content;
       border-radius: 4px;
-      & svg {
-        cursor: pointer;
-      }
+      cursor: pointer;
       ${status === 'normal' &&
       css`
         & {
           background-color: ${theme.colors.N200};
+          p,
           svg {
             color: ${theme.colors.N800};
+          }
+          &:hover {
+            p,
+            svg {
+              color: ${theme.colors.N600};
+            }
           }
         }
       `}
@@ -24,8 +29,15 @@ export const Container = styled(Box)<{ status: TagStatus }>`
       css`
         & {
           background-color: ${theme.colors.R100};
+          p,
           svg {
-            color: ${theme.colors.N600};
+            color: ${theme.colors.R600};
+          }
+          &:hover {
+            p,
+            svg {
+              color: ${theme.colors.R400};
+            }
           }
         }
       `}
@@ -33,30 +45,12 @@ export const Container = styled(Box)<{ status: TagStatus }>`
       css`
         & {
           background-color: ${theme.colors.N100};
+          cursor: default;
+          p,
           svg {
-            cursor: default;
             color: ${theme.colors.N500};
           }
         }
-      `}
-    `}
-`;
-
-export const Label = styled.span<{ status: TagStatus }>`
-  ${({ theme, status }) =>
-    css`
-      ${theme.typography.P100};
-      ${status === 'normal' &&
-      css`
-        color: ${theme.colors.N800};
-      `}
-      ${status === 'error' &&
-      css`
-        color: ${theme.colors.N800};
-      `}
-      ${status === 'disabled' &&
-      css`
-        color: ${theme.colors.N500};
       `}
     `}
 `;

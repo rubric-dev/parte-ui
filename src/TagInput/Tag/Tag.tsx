@@ -1,6 +1,7 @@
 import * as Styled from './Tag.styled';
 import { TagProps } from './Tag.types';
 import ActionSmallCrossIcon from '../../parte-icons/Icons/ActionSmallCrossIcon';
+import { Paragraph } from '../../@foundations/Typography';
 
 function Tag({ tag, onRemove }: TagProps) {
   return (
@@ -13,11 +14,14 @@ function Tag({ tag, onRemove }: TagProps) {
       display="flex"
       alignItems="center"
     >
-      <Styled.Label status={tag.status}>{tag.label}</Styled.Label>
+      <Paragraph size={100}>{tag.label}</Paragraph>
       <ActionSmallCrossIcon
         color="error"
         size={12}
-        onClick={() => onRemove(tag.value)}
+        onClick={(e) => {
+          e.stopPropagation();
+          onRemove(tag.value);
+        }}
       />
     </Styled.Container>
   );
